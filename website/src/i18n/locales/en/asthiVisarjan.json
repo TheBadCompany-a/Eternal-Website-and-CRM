@@ -1,0 +1,37 @@
+{
+  "seo": {
+    "title": "Asthi Visarjan — Eternal Repos",
+    "description": "A gentle note on Asthi Visarjan, the immersion of ashes: what it means and how it unfolds."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "services": "Services",
+    "familySupport": "Family Support",
+    "current": "Asthi Visarjan"
+  },
+  "hero": {
+    "heading": "Asthi Visarjan",
+    "gloss": "अस्थि विसर्जन",
+    "body": "The last journey a family makes for someone they love: giving them back to the river."
+  },
+  "whatItIs": {
+    "asthiTerm": "Asthi",
+    "asthiDef": "are what remain after cremation.",
+    "visarjanTerm": "Visarjan",
+    "visarjanDef": "means to let go.",
+    "body": "In the Hindu tradition, the family gives the asthi to a flowing river, with prayers, trusting that it carries their loved one onward. It is a farewell, and a quiet act of love."
+  },
+  "steps": {
+    "items": [
+      { "title": "Gathering", "text": "The family gently gathers the asthi, a few days after the cremation." },
+      { "title": "The river", "text": "Most families go to the Ganga, at Haridwar or Prayagraj. Some choose a river nearer home." },
+      { "title": "The prayers", "text": "A priest guides a short puja, with water offered in remembrance." },
+      { "title": "Letting go", "text": "The asthi is given to the water, with flowers and a moment of stillness." }
+    ],
+    "note": "Every family follows its own customs. Your priest and elders will know what feels right, and there is no hurry."
+  },
+  "close": {
+    "body": "If you would like someone beside you, we are here. Take your time.",
+    "writeToUs": "Write to us"
+  }
+}

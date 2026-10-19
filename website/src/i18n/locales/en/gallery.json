@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Media & Photography Gallery — Eternal Ceremonial Mobility",
+    "description": "Explore floral arrangements, staff vehicle preparation, respectful service moments, and architectural details of The Eternal Ceremonial Vehicle."
+  },
+  "categories": {
+    "all": "All",
+    "warmFamilyMoments": "Warm Family Moments",
+    "caregivers": "Caregivers & Helping Hands",
+    "floralTributes": "Floral Tributes",
+    "peacefulEnvironments": "Peaceful Environments",
+    "sanctuaryFeatures": "Sanctuary Features"
+  },
+  "items": {
+    "item1": {
+      "title": "Fresh White Blossom & Floral Tribute",
+      "caption": "Handcrafted white lily and floral wreath arrangement bathed in soft natural light."
+    },
+    "item2": {
+      "title": "Attentive Vehicle & Caregiver Preparation",
+      "caption": "Dedicated caregivers meticulously preparing every detail before standing beside families."
+    },
+    "item3": {
+      "title": "Gentle & Punctual Morning Arrival",
+      "caption": "Quiet presence and thoughtful arrival at the family residence with gentle guidance."
+    },
+    "item4": {
+      "title": "Perimeter Floral & Garland Fitting",
+      "caption": "Soft floral framing, placed with reverence."
+    },
+    "item5": {
+      "title": "Quiet, careful preparation",
+      "caption": "Gentle, careful preparation before every journey — everything calm, clean and ready."
+    },
+    "item6": {
+      "title": "Compassionate Family Guidance",
+      "caption": "Accompanying the family with calm, respectful assistance from departure to destination."
+    },
+    "item7": {
+      "title": "The Bier Sanctuary Environment",
+      "caption": "A calm interior, in soft warm light."
+    },
+    "item8": {
+      "title": "Serene Exterior Perspective",
+      "caption": "Soft, warm tones and gentle privacy glass."
+    },
+    "item9": {
+      "title": "Panoramic Viewing Glass Bay",
+      "caption": "Quiet glass for family to stay near, in soft natural light."
+    },
+    "item10": {
+      "title": "Family Seating & Caregiver Space",
+      "caption": "Soft-touch matte seating and acoustic wall paneling created to comfort loved ones."
+    },
+    "item11": {
+      "title": "Front Exterior Perspective",
+      "caption": "Clean, reverent front perspective framed by soft ambient lighting."
+    },
+    "item12": {
+      "title": "Rear Ceremonial Access",
+      "caption": "A wide, gentle opening for a calm, careful arrival."
+    }
+  },
+  "loadMore": "LOAD MORE",
+  "lightbox": {
+    "closeViewer": "Close Viewer"
+  },
+  "verse": {
+    "text": "Every farewell we are trusted with, we hold as our own.",
+    "attr": "Eternal Repos"
+  }
+}

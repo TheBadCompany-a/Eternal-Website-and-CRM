@@ -1,0 +1,180 @@
+{
+  "seo": {
+    "requestTitle": "Book a Star — Signature Farewell Memorial | Eternal Repos",
+    "requestDescription": "Reserve a dedicated memorial star for your loved one, with a private family login to add their story, photograph, and dates whenever you wish.",
+    "loginTitle": "Family Sign-In — Book a Star | Eternal Repos",
+    "loginDescription": "Sign in with a one-time link to manage the memorial star you booked with Eternal Repos.",
+    "dashboardTitle": "Your Star | Eternal Repos",
+    "dashboardDescription": "Manage the memorial star you booked with Eternal Repos.",
+    "profileTitleDefault": "A Memorial Star | Eternal Repos",
+    "profileTitleReady": "{{name}} — A Memorial Star | Eternal Repos",
+    "profileDescription": "A dedicated memorial star, lovingly kept by family, in the Eternal Repos sky."
+  },
+  "request": {
+    "badge": "Signature Farewell Exclusive",
+    "heading": "Book a Star",
+    "subheading": "Reserve a dedicated, permanent place in our sky for your loved one — with your own private login to add their story, photograph, and dates whenever you're ready.",
+    "optionalLabel": "(optional)",
+    "fields": {
+      "name": {
+        "label": "Name of your loved one",
+        "placeholder": "Full name"
+      },
+      "relationship": {
+        "label": "Relationship to you",
+        "placeholder": "e.g. Father, Grandmother, Friend"
+      },
+      "birthDate": {
+        "label": "Date of birth"
+      },
+      "deathDate": {
+        "label": "Date of passing"
+      },
+      "about": {
+        "label": "About them",
+        "placeholder": "Share a little about who they were, what they loved, and how they're remembered. You can also add or change this later after signing in.",
+        "helper": "You don't need to finish this now — you can add or edit it any time once your star is active."
+      },
+      "photo": {
+        "label": "Photograph",
+        "choose": "Choose a photograph",
+        "chooseDifferent": "Choose a different photograph",
+        "helper": "A clear, respectful photograph works best. JPG, PNG, or WebP, under 15 MB.",
+        "errorFallback": "We could not use that photograph. Please try a different one."
+      },
+      "requesterName": {
+        "label": "Your name"
+      },
+      "requesterPhone": {
+        "label": "Your phone number"
+      },
+      "ownerEmail": {
+        "label": "Your email address",
+        "helper": "This is the email you'll use to sign in and manage this star once our team has confirmed your booking."
+      },
+      "password": {
+        "label": "Create a password",
+        "helper": "At least 8 characters. You'll use this, together with your email, to sign in and manage your star later.",
+        "tooShort": "Please choose a password of at least 8 characters."
+      },
+      "confirmPassword": {
+        "label": "Confirm password",
+        "mismatch": "Those passwords don't match. Please check and try again."
+      }
+    },
+    "contactSectionLabel": "Your details",
+    "confirmLabel": "I understand our team will contact me to confirm the details and next steps for this booking.",
+    "error": "Something went wrong sending your request. Please try again, or call us directly at",
+    "emailTakenError": "That email already has an account with us.",
+    "emailTakenLinkLabel": "Sign in instead",
+    "submit": "Submit Booking Request",
+    "sending": "Sending…",
+    "success": {
+      "heading": "Thank you — we've received your request",
+      "message": "We've received your request to book a star for {{name}}. Our team will reach out shortly to confirm the details and complete your Signature Farewell package.",
+      "confirmEmailHint": "We've also sent a confirmation link to your email — please click it to activate your sign-in.",
+      "loginHint": "Once your star is active and your email is confirmed, sign in any time with your email and password to add their story, photograph, and dates.",
+      "loginLinkLabel": "Family sign-in"
+    },
+    "alreadyBooked": {
+      "text": "Already have a star with us?",
+      "linkLabel": "Sign in to manage it"
+    }
+  },
+  "login": {
+    "heading": "Family Sign-In",
+    "subheading": "Sign in with the email and password you set when booking your star.",
+    "fields": {
+      "email": {
+        "label": "Email address",
+        "placeholder": "you@example.com"
+      },
+      "password": {
+        "label": "Password"
+      }
+    },
+    "error": "We could not sign you in. Please check your email and password, or confirm your email first if you just booked a star.",
+    "submit": "Sign In",
+    "sending": "Signing in…",
+    "forgotPassword": "Forgot your password?",
+    "reset": {
+      "intro": "Enter the email address you used when booking your star, and we'll send you a link to set a new password.",
+      "error": "We could not send that link. Please check the email address and try again.",
+      "submit": "Send Reset Link",
+      "sending": "Sending…",
+      "sentState": {
+        "heading": "Check your email",
+        "message": "We've sent a password-reset link to {{email}}. Open it on this device to continue."
+      },
+      "backToSignIn": "Back to sign in"
+    },
+    "backToRequest": "Don't have a star yet? Book one"
+  },
+  "resetPassword": {
+    "heading": "Set a New Password",
+    "subheading": "Choose a new password for your family sign-in.",
+    "checking": "Checking your link…",
+    "expired": "This password-reset link has expired or already been used. Please request a new one.",
+    "fields": {
+      "newPassword": {
+        "label": "New password"
+      },
+      "confirmNewPassword": {
+        "label": "Confirm new password"
+      }
+    },
+    "error": "Something went wrong saving your new password. Please try again.",
+    "submit": "Save New Password",
+    "saving": "Saving…",
+    "done": "Your password has been updated. Taking you to your star…"
+  },
+  "dashboard": {
+    "heading": "Your Star",
+    "subheading": "Add or update the story, photograph, and dates kept with your star.",
+    "signOut": "Sign out",
+    "loadingSession": "Checking your sign-in…",
+    "loadingStars": "Loading your star…",
+    "error": "Something went wrong. Please refresh the page, or call us at +91 84486 61338.",
+    "noStars": {
+      "heading": "No star found yet",
+      "body": "We couldn't find a star linked to this email. If you've just submitted a booking request, our team is still reviewing it — please check back soon, or book a new star below.",
+      "ctaBook": "Book a star"
+    },
+    "pendingNote": "Your star is still being set up by our team. Once it's active, you'll be able to edit everything below and your star will appear in the public sky.",
+    "fields": {
+      "name": {
+        "label": "Name"
+      },
+      "relationship": {
+        "label": "Relationship"
+      },
+      "birthDate": {
+        "label": "Date of birth"
+      },
+      "deathDate": {
+        "label": "Date of passing"
+      },
+      "about": {
+        "label": "About them"
+      },
+      "photo": {
+        "label": "Photograph",
+        "choose": "Change photograph"
+      }
+    },
+    "viewPublicLink": "View public page",
+    "save": "Save Changes",
+    "saving": "Saving…",
+    "saved": "Saved"
+  },
+  "profile": {
+    "loading": "Loading…",
+    "missing": {
+      "heading": "This star could not be found",
+      "body": "It may have been renamed, or isn't public yet. If you believe this is a mistake, please reach out to our team."
+    },
+    "vipBadge": "VIP Memorial",
+    "photoAlt": "Photograph of {{name}}",
+    "returnToGalaxy": "Return to the Eternal Sky"
+  }
+}

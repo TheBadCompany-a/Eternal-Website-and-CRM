@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "Our Story — Eternal Repos",
+    "description": "If we prepare with so much care for someone’s arrival, shouldn’t we also bring the same thoughtfulness to their final journey? How Eternal Repos was born."
+  },
+  "hero": {
+    "eyebrow": "Our story",
+    "heading": "Standing Beside Families When It Matters Most"
+  },
+  "narrative": {
+    "opening": "We prepare for beginnings with such care.",
+    "paragraph1": "Before a child arrives, a room is made ready. Families plan, arrange, wait and imagine. Even before that person has a name, there is already a place for them.",
+    "paragraph2": "But when life comes to an end, families are often left to navigate everything at once.",
+    "paragraph3": "We had seen what those moments can look like — a loved one has just passed away, and before there is even time to process the loss, there are calls to make, documents to arrange, transportation to coordinate, rituals to organise and decisions to take.",
+    "paragraph4": "The family is grieving, yet suddenly they are also expected to manage everything around that grief.",
+    "stayedWithUs": "That stayed with us.",
+    "questionPrompt": {
+      "eyebrow": "It made us ask a simple question",
+      "quote": "“If we prepare with so much care for someone’s arrival, shouldn’t we also bring the same thoughtfulness to their final journey?”",
+      "caption": "That question became Eternal Repos."
+    },
+    "paragraph5": "We did not set out to build just another funeral service. We wanted to create a dependable system of care around one of the most difficult moments in a family’s life.",
+    "paragraph6": "Today, Eternal Repos stands beside families from the first call through the final rites — bringing together dignified transportation, documentation, rituals, arrangements and coordination through one trusted team.",
+    "roleIntro": "But our role goes beyond managing services.",
+    "responsibilities": {
+      "intro": "We believe every farewell carries two responsibilities:",
+      "honour": { "label": "To Honour", "value": "The person who has passed" },
+      "support": { "label": "To Support", "value": "The family that remains" }
+    },
+    "paragraph7": "That means handling every detail with sensitivity, communicating with clarity, respecting traditions, and ensuring families are not left to figure everything out on their own.",
+    "paragraph8": "Because in moments like these, what families need most is not more complexity.",
+    "quote": "“They need care, clarity and someone they can rely on.”",
+    "paragraph9": "And that is what Eternal Repos was created to provide.",
+    "closing": "Every life tells a story. We stand beside you through every step with compassion, care, and dignity."
+  },
+  "promise": {
+    "eyebrow": "Our promise to you",
+    "heading": "Our Promise",
+    "items": [
+      "We arrive on time.",
+      "We treat every loved one with dignity.",
+      "We respect every family's traditions.",
+      "We remain available throughout the journey.",
+      "We support you with compassion, not pressure."
+    ]
+  },
+  "verse": {
+    "text": "No one should have to say goodbye alone.",
+    "attr": "Our founding belief"
+  }
+}

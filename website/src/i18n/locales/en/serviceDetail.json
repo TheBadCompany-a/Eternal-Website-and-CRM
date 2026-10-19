@@ -1,0 +1,39 @@
+{
+  "notFound": {
+    "title": "Service Not Found",
+    "description": "The service you're looking for doesn't exist.",
+    "cta": "View All Services"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "services": "Services"
+  },
+  "hero": {
+    "requestCta": "Request This Service",
+    "helplineCta": "Call Helpline (+91 84486 61338)"
+  },
+  "inclusions": {
+    "title": "What's Included"
+  },
+  "exclusions": {
+    "title": "Exclusions & Clarifications"
+  },
+  "guide": {
+    "badge": "Detailed Guide Available",
+    "linkLabel": "Read the Full {{title}} Guide"
+  },
+  "bottomCta": {
+    "badge": "Compassionate & Verified Care",
+    "title": "Need help with {{category}}?",
+    "description": "Our team is ready to listen, guide, and support your family with dignity and care.",
+    "requestCta": "Request This Service"
+  },
+  "nav": {
+    "previousService": "Previous Service",
+    "nextService": "Next Service",
+    "viewAllServices": "View All Services"
+  },
+  "seo": {
+    "descriptionFallback": "Compassionate service by Eternal Repos."
+  }
+}

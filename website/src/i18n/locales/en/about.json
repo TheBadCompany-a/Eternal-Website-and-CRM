@@ -1,0 +1,42 @@
+{
+  "seo": {
+    "title": "Our Story — Eternal Repos",
+    "description": "Eternal began with a simple truth: no family should have to arrange a farewell alone. This is who we are, and why we exist."
+  },
+  "hero": {
+    "eyebrow": "Our story",
+    "heading": "No family should have to say goodbye alone.",
+    "paragraph1": "When someone dies, a grieving family is suddenly asked to arrange a hundred unfamiliar things — the transport, the papers, the rites, the flowers — often alone, and always in the hardest hour to do them.",
+    "paragraph2": "Eternal was created to change that: to be the steady presence that carries the practical weight, so a family can simply grieve and be together. The vehicle is our most visible promise of dignity — the care around it is our reason for being.",
+    "imageAlt": "Eternal Repos ceremonial team supporting a family with reverence and gentle care"
+  },
+  "pullQuote": {
+    "quote": "“Dignity for the departed, and care for the living, are the same act — not two services.”",
+    "attr": "The belief we began with"
+  },
+  "visionMission": {
+    "vision": {
+      "eyebrow": "Our vision",
+      "heading": "A hand to hold, wherever loss is felt.",
+      "body": "To be the presence families across India trust in their most vulnerable hour — met not with a transaction, but with empathy, calm, and unwavering support."
+    },
+    "mission": {
+      "eyebrow": "Our mission",
+      "heading": "To carry the weight, so families can grieve.",
+      "body": "To stand beside families through the whole of the last goodbye — the arrangements, the farewell, and the days after — honouring every faith and tradition, so loved ones can focus only on healing and remembrance."
+    }
+  },
+  "hands": {
+    "eyebrow": "The hands behind the care",
+    "heading": "Built with care, by experienced hands.",
+    "items": [
+      { "title": "Made by Azimuth", "description": "Eternal is built by Azimuth Business on Wheels, with years of experience crafting specialised vehicles in India — so our promise of dignity is one you can lean on." },
+      { "title": "Considered in every detail", "description": "From privacy and calm to gentle handling, every choice is made for the comfort of the family and the dignity of the one they've lost." },
+      { "title": "For families & institutions", "description": "A trusted, reliable partner — whether you're a family reaching out at midnight, or a hospital caring for those in your charge." }
+    ]
+  },
+  "verse": {
+    "text": "Let life be beautiful like summer flowers, and death like autumn leaves.",
+    "attr": "Rabindranath Tagore"
+  }
+}

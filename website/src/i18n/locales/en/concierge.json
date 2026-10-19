@@ -1,0 +1,26 @@
+{
+  "seo": {
+    "title": "Concierge — Eternal Repos",
+    "description": "Private concierge enquiries panel."
+  },
+  "login": {
+    "heading": "Concierge",
+    "body": "Enter the passphrase to view enquiries.",
+    "placeholder": "Passphrase",
+    "checking": "Checking…",
+    "enter": "Enter",
+    "errorMismatch": "That passphrase didn’t match.",
+    "errorLoad": "Could not load enquiries. Please try again."
+  },
+  "panel": {
+    "eyebrow": "Concierge",
+    "heading": "Enquiries",
+    "newOnly": "New only ({{count}})",
+    "showAll": "Show all",
+    "refresh": "Refresh",
+    "noEnquiries": "No enquiries yet.",
+    "unnamed": "Unnamed",
+    "markSeen": "Mark seen",
+    "actioned": "Actioned"
+  }
+}

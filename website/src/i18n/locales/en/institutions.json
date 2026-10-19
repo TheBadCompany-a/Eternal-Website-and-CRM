@@ -1,0 +1,44 @@
+{
+  "seo": {
+    "title": "Partners in Dignity — Eternal Repos",
+    "description": "We work alongside hospitals, funeral homes, civic bodies and trusts, so that every family in their care meets the same gentleness and dignity."
+  },
+  "hero": {
+    "eyebrow": "Hospital & Institutional Partnerships",
+    "heading": "In Partnership with Hospitals & Healthcare Institutions.",
+    "body": "We partner directly with leading hospitals, hospices, and healthcare networks across Delhi NCR so that, at the hardest moment, every family they serve is met with the same gentleness and dignity. We become a quiet, dependable extension of your bedside care.",
+    "ctaArrange": "Arrange a conversation",
+    "ctaDownload": "Partnership note (PDF)"
+  },
+  "sectors": {
+    "eyebrow": "Who we walk beside",
+    "heading": "The people who care for families, at the end.",
+    "items": [
+      { "title": "In Partnership with Hospitals & Hospices", "description": "Empanelled with leading hospitals and medical networks across Delhi NCR — providing prompt ward-door transfer, mortuary clearance, and compassionate family handholding so healthcare staff can focus on the living." },
+      { "title": "Funeral homes & planners", "description": "A dignified journey for every family in your care, handled with quiet reliability and respect for your own way of working." },
+      { "title": "Civic & municipal bodies", "description": "Helping ensure every citizen receives a respectful, dignified farewell, dependably and without fuss." },
+      { "title": "Trusts & NGOs", "description": "Standing with you to bring dignity within reach of every family you serve, whatever their means." }
+    ]
+  },
+  "promises": {
+    "eyebrow": "What you can count on",
+    "heading": "A partner you can lean on.",
+    "items": [
+      { "title": "A dependable presence", "description": "When you call, we are there — prepared, on time, and ready to carry the weight so your team can focus on care." },
+      { "title": "A gentle, trained team", "description": "Calm, softly-spoken people who understand that they are stepping into a family's hardest moment." },
+      { "title": "Discretion & respect", "description": "Privacy for the family, care for the one they've lost, and reverence for every faith and tradition." },
+      { "title": "One caring contact", "description": "A single, familiar point of contact who knows your organisation and is reachable whenever you need us." }
+    ]
+  },
+  "close": {
+    "eyebrow": "Let's talk",
+    "heading": "Start a conversation with our institutional team.",
+    "body": "Whether you are a hospital administrator, medical superintendent, or hospice director, we are here to support your team whenever you need us.",
+    "ctaArrange": "Arrange a conversation",
+    "phoneLabel": "+91 84486 61338"
+  },
+  "verse": {
+    "text": "Dignity, extended — from your care into ours.",
+    "attr": "Partners in dignity"
+  }
+}

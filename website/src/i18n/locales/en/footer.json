@@ -1,0 +1,63 @@
+{
+  "social": {
+    "kicker": "The Prelude",
+    "heading": "Quiet notes, as we begin.",
+    "prevAria": "Previous",
+    "nextAria": "Next",
+    "slideAria": "Slide {{number}}",
+    "followStory": "Follow our story",
+    "featuredAlts": [
+      "We Prepare — we spend a lifetime getting ready",
+      "We Prepare — sometimes, long before the moment arrives",
+      "We Prepare — we imagine, we choose, we make things ready",
+      "We Prepare — we even prepare for things we hope we will never need",
+      "We Prepare — preparation has always been another way of saying I care",
+      "We Prepare — one journey we rarely prepare for"
+    ],
+    "stripAlts": [
+      "Before We Became Names",
+      "Someone was already waiting",
+      "A room was made ready",
+      "A future was imagined",
+      "A thousand unnamed hopes gathered around one life",
+      "Before we became children, friends, partners, parents",
+      "Before we became all the people life would ask us to be",
+      "We leave the world exactly as we entered it",
+      "The Realisation",
+      "The Question",
+      "We prepare, long before they arrive",
+      "The first day stays with us"
+    ]
+  },
+  "brand": {
+    "statement": "Standing beside families through the last goodbye — carrying the weight, so you can simply be with the one you love."
+  },
+  "explore": {
+    "heading": "Explore",
+    "links": {
+      "about": "About Us",
+      "ourStory": "Our Story",
+      "services": "How We Help",
+      "vehicle": "The Vehicle",
+      "institutions": "For Hospitals & Institutions",
+      "vision": "Vision",
+      "faq": "FAQ"
+    }
+  },
+  "reachUs": {
+    "heading": "We're Here, Anytime",
+    "tagline": "Across India, and gently growing."
+  },
+  "stayClose": {
+    "heading": "Stay Close",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "legal": {
+    "copyright": "© 2026 Consurgo Ventures Private Limited. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use"
+  }
+}

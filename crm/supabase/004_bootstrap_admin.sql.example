@@ -1,0 +1,18 @@
+-- Eternal Repos CRM — bootstrap the first admin
+-- Run this ONCE, by hand, after both:
+--   1. You've run 001, 002, and 003 in the SQL Editor.
+--   2. You've created your own login: Supabase dashboard -> Authentication
+--      -> Add User (tick "Auto Confirm User" so you can log in immediately).
+--
+-- Creating that user fires a trigger that gives you a `profiles` row with
+-- app_role = 'coordinator' by default. This statement promotes you to
+-- 'admin' — the only time you'll ever need to do this by hand. Every
+-- promotion after this one happens in-app, on the Team screen, as an admin.
+
+update public.profiles
+set app_role = 'admin'
+where id = (select id from auth.users where email = 'you@example.com');
+-- ^ replace 'you@example.com' with the email you just signed up with.
+
+-- Verify it worked:
+select id, full_name, app_role from public.profiles;

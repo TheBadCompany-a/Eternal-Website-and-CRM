@@ -1,0 +1,62 @@
+{
+  "header": {
+    "eyebrowSuffix": "The Eternal Sky · अनंत आकाश",
+    "vipBadge": "Signature Farewell Exclusive",
+    "heading": "A Galaxy of Cherished Memories",
+    "body": "In our deepest cultural belief, those who depart do not disappear — they become stars in the night sky. Here, every farewell finds quiet reverence, shining forever in our collective memory.",
+    "vipNote": "This celestial remembrance is offered exclusively to families on our",
+    "vipPackageLink": "Signature Farewell",
+    "vipSuffix": ".",
+    "bookStarCta": "Book a Star",
+    "familyLoginCta": "Already booked? Family sign-in"
+  },
+  "canvas": {
+    "ariaLabel": "Interactive Galaxy of Stars",
+    "legend": "Click any glowing star to view remembrance",
+    "closeDetails": "Close star details",
+    "defaultCategory": "Cherished Memory",
+    "diyaOffer": "Offer a Diya",
+    "diyaOffered": "Diya Offered",
+    "fullMemorial": "Full Memorial",
+    "diyaPay": "Pay ₹20 & light a diya",
+    "diyaCancel": "Cancel",
+    "diyaDisclaimer": "A diya is offered with a ₹20 contribution. The full ₹20 is donated towards the education of a girl child.",
+    "diyaSoon": "Online payment is being switched on — your diya has not been charged or lit yet."
+  },
+  "footnote": {
+    "body": "Every star in this galaxy represents a life lived, a family held, and a memory kept alive with dignity.",
+    "concierge": "Have a special remembrance request? Speak with our concierge"
+  },
+  "categories": {
+    "Guiding Elder": "Guiding Elder",
+    "Beloved Parent": "Beloved Parent",
+    "Gentle Soul": "Gentle Soul",
+    "Community Pillar": "Community Pillar"
+  },
+  "stars": {
+    "star-1": {
+      "memory": "A lifelong teacher whose quiet wisdom and warm patience shaped three generations."
+    },
+    "star-2": {
+      "memory": "Her home was always open, her hands always giving, her silent blessing always felt."
+    },
+    "star-3": {
+      "memory": "A guardian of duty, honour, and unshakeable grace through every trial of life."
+    },
+    "star-4": {
+      "memory": "Dedicated fifty years to healing others with boundless empathy and humble devotion."
+    },
+    "star-5": {
+      "memory": "Her laughter brought dawn into every room. An artist whose colors remain eternal."
+    },
+    "star-6": {
+      "memory": "A pillar of selfless seva, gentle humor, and unwavering courage in every storm."
+    },
+    "star-7": {
+      "memory": "Taught us that love is never measured in years, but in kindness given freely."
+    },
+    "star-8": {
+      "memory": "A thinker who believed that knowledge is sacred when shared with humility and love."
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "seo": {
+    "title": "The Argument for a Dignified Farewell — Eternal Repos",
+    "description": "Our founding vision: why the hour after a death deserves a stated, written, auditable standard of care — published in advance, and measured against. By Shaily Sharma, Founder."
+  },
+  "hero": {
+    "eyebrow": "Eternal Repos · Vision",
+    "heading": "The Argument for a Dignified Farewell",
+    "byline": "Shaily Sharma · Founder · August 2026"
+  },
+  "intro": {
+    "paragraph1": "Before we built anything, we spent our time in the place most businesses never visit on purpose: the hours immediately after a death.",
+    "paragraph2": "We sat with ten operators across Delhi NCR and priced eleven of their service options. We read what a family is given, and what a family is charged for. What we found was not negligence. Most people in this trade work difficult hours for modest money, and many of them are kind. What we found was an absence — of any standard at all.",
+    "paragraph3": "One detail has stayed with me. In none of those conversations had anyone considered the tone in which a family would be spoken to on the worst day of their life. It was not cruelty. It was simply not on the list. Nothing about the family's experience of that day was on the list.",
+    "pullout": "That absence is the reason Eternal Repos exists."
+  },
+  "sections": {
+    "hour": {
+      "number": "I",
+      "title": "The Hour Itself",
+      "p1": "Grief changes what a human being is able to carry.",
+      "p2": "A daughter answers a question she did not hear. A son agrees to something because somebody has to agree to something. A family says their father's name eleven times in one afternoon, to eleven different people, because no one thought to write it down the first time. And some of the last hours anyone will ever spend beside him are spent instead on a phone, arranging things that could have been arranged already.",
+      "pull": "An hour that a family will remember for thirty years is presently organised by whoever happens to answer the phone.",
+      "p3": "This is not, at its root, a business problem. It is a human one, and it arrives at every address eventually. We cannot take grief away, and we should not want to — grief exists because someone mattered, and it is not a problem to be solved. But almost everything standing around grief can be carried by someone else, and at present, almost none of it is."
+    },
+    "scale": {
+      "number": "II",
+      "title": "The Scale We Do Not Discuss",
+      "p1": "India recorded a crude death rate of 7.5 per thousand in 2021 (Sample Registration System, Office of the Registrar General). On a population of more than 1.4 billion, that is on the order of ten million deaths a year. Delhi's own rate, 5.4, is the lowest in the country — and still amounts to a farewell in this city every few minutes.",
+      "pull": "Ten million times a year, a family in this country conducts the most significant ceremony of its life with no standard of care to rely on.",
+      "p2": "The curve ahead is steeper. The India Ageing Report 2023 projects that Indians aged sixty and above will exceed twenty per cent of the population by 2050, and that by 2046 the elderly will outnumber children. The population aged eighty and above is projected to grow by roughly 279 per cent between 2022 and 2050. More than forty per cent of India's elderly are in the poorest wealth quintile, and 18.7 per cent live without an income of their own.",
+      "p3": "Read alongside urban migration and smaller households, those figures describe something specific. The generation now in its forties will manage more farewells, from greater distances, with fewer hands available, than any generation before it. Many will do it by phone from another city. That is not a market observation. It is a description of what is about to be asked of ordinary families.",
+      "stats": [
+        { "value": "7.5", "label": "Crude death rate per 1,000 · 2021" },
+        { "value": "10M", "label": "Farewells a year" },
+        { "value": "90%", "label": "Of the sector unorganised" }
+      ]
+    },
+    "market": {
+      "number": "III",
+      "title": "What the Market Prices",
+      "p1": "Our own survey of the Delhi NCR market — ten operators, eleven service options — found packages clustered between ₹14,500 and ₹30,000. Within them: transport at ₹3,000 to ₹12,000. An ice box at ₹4,000 to ₹7,000. Nine of the eleven included a pandit ji. Eight included samagri. One purpose-built vehicle exists in this market, offered at ₹40,000, for transport alone.",
+      "p2": "Read the list again. Every item on it is an object or a ritual input. The list is complete, coherent, and competently delivered. There is nothing on it that belongs to the family.",
+      "p3": "Not one operator we surveyed offered a guaranteed response time. Not one published a hygiene protocol. Not one kept a record that would spare a family from repeating itself. Not one held a standing relationship with a hospital. Not one used technology of any kind. The sector is estimated at over ₹16,600 crore and growing at ten to twelve per cent a year, and more than ninety per cent of it is unorganised — which in practice means that the quality of a family's worst day is decided by who was free that morning.",
+      "table": {
+        "headerLeft": "What the market prices today",
+        "headerRight": "What no one prices",
+        "rows": [
+          ["The vehicle", "A person answering at 3 a.m., not a menu"],
+          ["The ice box", "A stated response time, published and measured"],
+          ["The pandit ji", "A written hygiene protocol an institution can audit"],
+          ["The samagri", "A record, so nothing is asked of the family twice"],
+          ["The kilometres", "The tone in which one sentence is explained"],
+          ["—", "The weeks after: the paperwork, the affairs, the remembering"]
+        ],
+        "footnote": "Delhi NCR, 2026 — ten operators, eleven service options surveyed."
+      }
+    },
+    "gap": {
+      "number": "IV",
+      "title": "The Gap, Diagnosed",
+      "intro": "Five frictions, in the order a family meets them.",
+      "items": [
+        { "heading": "Response.", "body": "There is no guaranteed answer. A family calls a number at two in the morning and finds out, in that moment, whether anyone will pick up. Everything that follows is shaped by that accident." },
+        { "heading": "Assurance.", "body": "No operator we surveyed could produce a written hygiene or handling protocol. This is why a hospital cannot formally partner with any of them, however well they perform: an institution cannot recommend what it cannot audit. A mid-size hospital sees five to fifteen deaths a month — sixty to a hundred and eighty farewells a year, each currently handed to whoever is available at the gate." },
+        { "heading": "Conduct.", "body": "How a family is spoken to is treated as a matter of individual temperament rather than trained discipline. It is the single most-remembered element of the day, and the only one nobody trains." },
+        { "heading": "Memory.", "body": "Nothing is written down. The family becomes the system's memory — repeating the name, the address, the sequence, the faith, the instruction, to every new person who appears." },
+        { "heading": "After.", "body": "Service ends at the ghat or the graveside. Grief does not. The paperwork, the accounts, the pension, the phone still in someone's name, the anniversary — all of it arrives afterwards, at a family with no one left to call." }
+      ]
+    },
+    "thesis": {
+      "number": "V",
+      "title": "The Thesis: A Standard, Not a Vehicle",
+      "pullout": "Does this ask something more of the family, or does it take something away from what they are already carrying?",
+      "p1": "That question decides everything we build. Not our taste, not our ambition — that question.",
+      "p2": "It leads somewhere counter-intuitive for a company that has built a vehicle. The vehicle is an instrument. It matters greatly, and it is not the argument. The argument is that this hour deserves a standard: a stated, written, auditable account of how a family will be treated between the moment of a death and the weeks that follow it — published in advance, and measured against.",
+      "p3": "No such standard exists in India today. Not because anyone opposes it, but because the sector is structured around objects, and a standard is not an object. It cannot be sold at ₹4,000 alongside an ice box.",
+      "p4": "We intend to write one, meet it publicly, and be judged against it. And because a standard held by a single company is not infrastructure, we intend to publish it rather than protect it. If our protocols are adopted by operators who will never work for us, we will have done more good than we could do alone."
+    },
+    "tradition": {
+      "number": "VI",
+      "title": "What Tradition Requires of the Standard",
+      "p1": "A standard written in an office would fail on contact with this country, because the requirements are not ours to set.",
+      "p2": "Hindu families cremate within twenty-four hours, often with the bier visible. Muslim families bury within twenty-four hours, and discretion may matter more than visibility — the glass that serves one family serves another badly. Christian families may take two or three days. Jain observance places particular weight on purity. Speed, in most of these traditions, is not a service level; it is a religious obligation, and to describe it as efficiency is to misunderstand it entirely.",
+      "pull": "A standard that cannot bend to a family's tradition is not a standard. It is a preference.",
+      "p3": "So the standard has to be built the other way around: fixed on conduct, hygiene, response and record — the things that should never vary — and deliberately flexible on form, so that the farewell remains the family's own. In their tradition, at their pace, with their priest or imam or pastor. Never ours."
+    }
+  },
+  "faiths": {
+    "eyebrow": "Across every faith we serve",
+    "heading": "One truth, spoken in many tongues.",
+    "body": "Every tradition on this land has found its own words for leaving. We hold them all, and favour none.",
+    "quotes": [
+      { "faith": "Hindu · Bhagavad Gita 2.20", "line": "That which is eternal is neither born, nor does it die." },
+      { "faith": "Muslim · Qur'an 2:156", "line": "We belong to the Divine, and to the Divine we return." },
+      { "faith": "Christian · the traditional committal", "line": "Eternal rest grant unto them, O Lord." },
+      { "faith": "Sikh · Guru Granth Sahib", "line": "The light merged into the Light." },
+      { "faith": "Buddhist · Dhammapada", "line": "All conditioned things are impermanent." },
+      { "faith": "Jain · Tattvārtha Sūtra 5.21", "line": "All life is bound together by mutual support." }
+    ]
+  },
+  "holdSelves": {
+    "number": "VII",
+    "title": "What We Will Hold Ourselves To",
+    "items": [
+      { "heading": "A person, at any hour.", "body": "A grieving family will never be routed through a menu, or asked to call back in the morning." },
+      { "heading": "A published response time,", "body": "stated before it is needed and measured afterwards — not promised in a brochure." },
+      { "heading": "A written handling and hygiene protocol,", "body": "published in full, so that a hospital, a trust or a family can read it before they trust us with someone." },
+      { "heading": "Nothing asked twice.", "body": "What a family tells us once is recorded and carried, so no one has to say their father's name eleven times." },
+      { "heading": "Conduct as a trained discipline.", "body": "How we speak in that room is taught, rehearsed and reviewed, with the seriousness other companies reserve for safety." },
+      { "heading": "Nothing sold in that hour.", "body": "No options presented to a family at the moment they are least able to refuse them." },
+      { "heading": "Responsibility for what follows", "body": "— the certificates, the affairs, the practical residue of a life — because the day ends and the weeks do not." }
+    ],
+    "limits": "And the limits, stated plainly. We cannot lessen the meaning of goodbye. We cannot protect anyone from the truth of absence. We are not here to make grief beautiful, and we are not here to place luxury around loss. Any promise beyond carrying what can be carried would be a promise made against grief itself — and grief does not accept them."
+  },
+  "decade": {
+    "number": "VIII",
+    "title": "A Decade Out",
+    "p1": "In ten years, I would like a family in this country to be able to assume certain things without asking.",
+    "p2": "That someone will answer. That the person who arrives will already know their mother's name, and will not ask for it again. That the vehicle will be clean by a standard someone can read. That the rites will be theirs, performed at their pace, in their tradition. That no one will be sold anything in that room. And that when the day is over, someone will still pick up the phone in the weeks when the house is quiet and the paperwork arrives.",
+    "p3": "That is not a large ambition, which is precisely the point. It is the ordinary floor of decency, in a country that has never had one here, for the one event that comes to every family without exception.",
+    "p4": "We are beginning in Delhi NCR, with hospitals and hospices and trusts, because that is where the standard will be tested hardest and most honestly. If it holds, it travels.",
+    "p5": "And if, in ten years, this standard is being met by people who have never heard of us, that will not be a competitive failure. It will be the argument, won.",
+    "closing": "Quietly. Thoughtfully. With dignity. Until the very end."
+  },
+  "signature": {
+    "imageAlt": "Shaily Sharma, Founder of Eternal Repos",
+    "name": "Shaily Sharma",
+    "role": "Founder, Eternal Repos"
+  },
+  "notes": {
+    "thanks": {
+      "heading": "With thanks",
+      "body": "To our co-founders, the team, the operators who spoke with us candidly, and the families who allowed us to learn from the hardest day of their lives."
+    },
+    "evidence": {
+      "heading": "A note on evidence",
+      "body": "Mortality figures: Sample Registration System Statistical Report 2021, Office of the Registrar General of India. Ageing projections: India Ageing Report 2023, UNFPA India. Market structure, pricing and operator practice: our own primary research across ten Delhi NCR operators and eleven service options, 2026 — figures describe that sample, not the national market."
+    }
+  },
+  "cta": {
+    "label": "How we help"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "kicker": "WE ARE HERE TO SUPPORT YOU",
+  "heading": "How Can We Ease Your Burden Today?",
+  "subheading": "Tell us what your family needs, and our caring coordinators will take care of every detail for you.",
+  "closeAria": "Close",
+  "form": {
+    "fullName": {
+      "label": "Full Name *",
+      "placeholder": "e.g. Rajesh Sharma"
+    },
+    "phone": {
+      "label": "Phone Number *",
+      "placeholder": "10-digit mobile number"
+    },
+    "email": {
+      "label": "Email Address *",
+      "placeholder": "name@domain.com"
+    },
+    "organization": {
+      "label": "Organization (Optional)",
+      "placeholder": "Hospital / Trust / Family"
+    },
+    "category": {
+      "label": "Nature of Enquiry",
+      "options": {
+        "general": "General Service Enquiry",
+        "core": "Core Services — Immediate Response / Transport",
+        "funeral": "Funeral & Memorial Planning",
+        "floral": "Floral Services & Decor",
+        "familySupport": "Family Support & Grief Counselling",
+        "prePlanning": "Pre-Planning Services",
+        "asthiVisarjan": "Asthi Visarjan",
+        "vehicleDemo": "Vehicle Demonstration",
+        "fleetLeasing": "Institutional Fleet Leasing"
+      }
+    },
+    "message": {
+      "label": "Message / Special Requirements",
+      "placeholder": "Share anything that helps us understand how to care for you."
+    }
+  },
+  "confidential": "100% Confidential",
+  "submit": "Submit Enquiry",
+  "submitting": "Processing...",
+  "validation": {
+    "phoneInvalid": "Please enter a valid 10-digit mobile number (e.g. 9810000000)."
+  },
+  "success": {
+    "heading": "Enquiry Received",
+    "message": "Thank you, {{name}}. Someone from our team will reach out very soon — and right away if it's urgent. You're not alone in this.",
+    "returnToSite": "Return to Site"
+  }
+}

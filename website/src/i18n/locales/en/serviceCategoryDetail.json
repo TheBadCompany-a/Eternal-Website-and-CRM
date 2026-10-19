@@ -1,0 +1,49 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "services": "Services"
+  },
+  "hero": {
+    "requestCta": "Request Service Support",
+    "helplineCta": "24/7 Helpline (+91 84486 61338)",
+    "assurancesHeading": "Key Service Assurances",
+    "verifiedCare": "Verified Compassionate Care"
+  },
+  "memorialSection": {
+    "eyebrow": "ARRANGED ON REQUEST",
+    "title": "Prayer Hall & Floral Services",
+    "description": "When your family needs help with prayer meetings, decor, or catering, our team coordinates everything gently through trusted partners — with one dedicated coordinator to assist you.",
+    "viewCta": "View",
+    "banner": {
+      "eyebrow": "ONE COORDINATED POINT OF CONTACT",
+      "title": "Need multiple arrangements coordinated together?",
+      "description": "You don't need to juggle multiple decorators, venues, and caterers. Share your family's preferences with us and our team will coordinate the details with vetted partners.",
+      "cta": "Plan with our team"
+    },
+    "conciergeCategory": "Memorial & Gathering Coordination"
+  },
+  "servicesGrid": {
+    "eyebrow": "OUR SERVICES",
+    "title": "Services in {{category}}",
+    "exploreGuideCta": "Explore Guide",
+    "viewCta": "View"
+  },
+  "nav": {
+    "previousService": "Previous Service",
+    "nextService": "Next Service",
+    "viewAllServices": "View All Services"
+  },
+  "modal": {
+    "closeAria": "Close modal",
+    "inclusions": "Inclusions",
+    "exclusionLabel": "Exclusion:",
+    "callSupportCta": "Call 24×7 Support",
+    "readFullGuideCta": "Read Full Guide",
+    "requestServiceCta": "Request This Service",
+    "defaultScope": "Full logistical and compassionate support tailored to family requirements.",
+    "defaultFallbackScope": "Comprehensive assistance tailored to family requirements."
+  },
+  "seo": {
+    "descriptionSuffix": "Discover compassionate, 24/7 care and specialized arrangements for your family."
+  }
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /concierge
+Disallow: /asthi-visarjan/star/
+
+Sitemap: https://eternalrepos.com/sitemap.xml

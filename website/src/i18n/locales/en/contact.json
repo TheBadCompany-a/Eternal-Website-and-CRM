@@ -1,0 +1,97 @@
+{
+  "seo": {
+    "title": "Talk to Us — Eternal Repos",
+    "description": "However late the hour, someone will answer. Reach Eternal any time for gentle guidance and immediate support."
+  },
+  "validation": {
+    "invalidPhone": "Please enter a valid 10-digit mobile number (e.g. 9810000000)."
+  },
+  "hero": {
+    "kicker": "We're here, anytime",
+    "title": "However late the hour, someone will answer.",
+    "subtitle": "When you reach us, a real person answers — day or night — ready to guide you gently through the first steps, in your family’s own tradition. There is no wrong time to call."
+  },
+  "demoCard": {
+    "badge": "See the vehicle",
+    "title": "Arrange a visit",
+    "description": "Tell us when suits you and we’ll arrange a quiet time to see the vehicle — at our workshop, or wherever your family prefers.",
+    "button": "Arrange a viewing"
+  },
+  "info": {
+    "kicker": "Where to find us",
+    "companyName": "Eternal Repos",
+    "description": "Our workshop and care team — here for families across India.",
+    "officeLabel": "Our office:",
+    "officeAddress": "Tower A, 306, ATS Bouquet, Sector 132, Noida 201304",
+    "emailLabel": "General & Institutional Email:",
+    "phoneLabel": "Corporate Office Desk:",
+    "phoneDisplay": "+91 84486 61338 (Mon–Sat, 9:00 AM – 6:00 PM)",
+    "entityLine": "An entity of Consurgo Ventures Pvt. Ltd."
+  },
+  "map": {
+    "iframeTitle": "Eternal Repos office — ATS Bouquet, Sector 132, Noida"
+  },
+  "whereWeServe": {
+    "badge": "Where we serve",
+    "hereLabel": "Here for you:",
+    "hereText": "across India, and gently growing.",
+    "corridorsLabel": "Expansion Corridors:",
+    "corridorsText": "Mumbai, Bangalore, Hyderabad."
+  },
+  "form": {
+    "title": "Send us a message",
+    "subtitle": "Every message reaches a real person on our team, and we’ll reply gently and soon. If it’s urgent, please call — we’re here any time.",
+    "fullNameLabel": "Full Name *",
+    "fullNamePlaceholder": "e.g. Ananya Sen",
+    "organizationLabel": "Organization (Optional)",
+    "organizationPlaceholder": "Hospital / Trust / Family",
+    "phoneLabel": "Phone Number *",
+    "phonePlaceholder": "10-digit mobile number",
+    "emailLabel": "Email Address *",
+    "emailPlaceholder": "name@domain.com",
+    "enquiryTypeLabel": "Nature of Enquiry",
+    "enquiryOptions": {
+      "general": "General Enquiry",
+      "familyMobility": "Family Ceremonial Mobility",
+      "institutionalPartnership": "Institutional Partnership",
+      "customCoachbuilding": "Custom Coachbuilding Fabrication"
+    },
+    "messageLabel": "Message *",
+    "messagePlaceholder": "How can we help? Share as much or as little as you like.",
+    "submitSending": "Sending…",
+    "submitIdle": "Send your message",
+    "successTitle": "Thank you — we’re here.",
+    "successMessage": "Thank you, {{name}}. We’ve received your note and someone from our team will reach out very soon. If it’s urgent, please call — we’re here any time."
+  },
+  "helpline": {
+    "badge": "24/7 CARING SUPPORT & IMMEDIATE HELPLINE",
+    "heading": "Standing Beside You in Your Time of Need",
+    "callButton": "Call +91 84486 61338",
+    "whatsappButton": "Message us on WhatsApp"
+  },
+  "demoModal": {
+    "closeAriaLabel": "Close Modal",
+    "badge": "LIVE DEMONSTRATION REQUEST",
+    "title": "Arrange a visit",
+    "subtitle": "We’ll arrange a quiet time to see the vehicle — at our workshop, or wherever suits your family.",
+    "fullNameLabel": "Full Name *",
+    "fullNamePlaceholder": "e.g. Vikram Sharma",
+    "phoneLabel": "Phone Number *",
+    "phonePlaceholder": "10-digit mobile number",
+    "emailLabel": "Email Address *",
+    "emailPlaceholder": "name@domain.com",
+    "preferredDateLabel": "Preferred Date *",
+    "organizationLabel": "Facility / Organization (Optional)",
+    "organizationPlaceholder": "Hospital or organisation (optional)",
+    "submitProcessing": "Processing Booking...",
+    "submitIdle": "Submit Demo Request",
+    "successTitle": "Demo booking confirmed",
+    "successMessagePrefix": "Thank you,",
+    "successMessageSuffix": "Your live vehicle demonstration request has been confirmed. Our team will get in touch with you shortly.",
+    "closeButton": "Close Window"
+  },
+  "verse": {
+    "text": "Whenever you’re ready — a call, a message, a quiet word — we’re here.",
+    "attr": "Eternal Repos"
+  }
+}

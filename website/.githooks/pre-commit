@@ -1,0 +1,19 @@
+#!/bin/sh
+# Guard: block commits that would DELETE committed assets under public/assets.
+# These files are the site's images (logo, banner, carousel, photos) and must not
+# vanish from a blanket "git add -A" when the working copy is momentarily incomplete.
+# Intentional deletion: ALLOW_ASSET_DELETE=1 git commit ...
+if [ "$ALLOW_ASSET_DELETE" = "1" ]; then
+  exit 0
+fi
+deleted=$(git diff --cached --diff-filter=D --name-only -- 'public/assets')
+if [ -n "$deleted" ]; then
+  echo ""
+  echo "  pre-commit BLOCKED — this commit would delete files under public/assets:"
+  echo "$deleted" | sed 's/^/     - /'
+  echo ""
+  echo "  If this is intentional, run:  ALLOW_ASSET_DELETE=1 git commit ..."
+  echo ""
+  exit 1
+fi
+exit 0

@@ -1,0 +1,37 @@
+export const queryKeys = {
+  arrangements: ['arrangements'] as const,
+  arrangement: (id: string) => ['arrangements', id] as const,
+  callbacks: ['callbacks'] as const,
+  stars: ['star-bookings'] as const,
+  claims: ['payment-claims'] as const,
+  paymentEntries: ['payment-entries'] as const,
+  settings: ['app-settings'] as const,
+  activity: ['activity-log'] as const,
+  quoteItems: (id: string) => ['quotation-items', id] as const,
+  gateway: ['gateway-payments'] as const,
+  tributes: ['tributes'] as const,
+  fleet: ['fleet'] as const,
+  profiles: ['profiles'] as const,
+  hrAttendance: ['hr-attendance'] as const,
+  hrLeave: ['hr-leave'] as const,
+  communications: (arrangementId?: string) => ['communications', arrangementId ?? 'all'] as const,
+  tracked: (id: string, token: string) => ['tracked-arrangement', id, token] as const,
+};
+
+/** Tables whose Postgres Changes drive a matching query-key invalidation. */
+export const REALTIME_TABLE_TO_QUERY_KEY: Record<string, readonly unknown[]> = {
+  arrangements: queryKeys.arrangements,
+  callbacks: queryKeys.callbacks,
+  star_bookings: queryKeys.stars,
+  payment_claims: queryKeys.claims,
+  payment_entries: queryKeys.paymentEntries,
+  app_settings: queryKeys.settings,
+  gateway_payments: queryKeys.gateway,
+  tributes: queryKeys.tributes,
+  quotations: queryKeys.arrangements,
+  fleet: queryKeys.fleet,
+  communications: ['communications'],
+  driver_tasks: ['driver'],
+  driver_task_updates: ['driver'],
+  driver_expenses: ['driver'],
+};

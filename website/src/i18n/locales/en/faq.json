@@ -1,0 +1,73 @@
+{
+  "page": {
+    "seo": {
+      "title": "Frequently Asked Questions — Eternal Repos",
+      "description": "Answers about Eternal Repos — India’s first purpose-built ceremonial mobility brand: what we do, the areas we serve across Delhi NCR, how quickly we respond, and how to reach us."
+    },
+    "hero": {
+      "kicker": "Answers",
+      "title": "Frequently Asked Questions",
+      "subtitle": "What families and institutions most often ask us."
+    },
+    "items": {
+      "item1": {
+        "q": "What is Eternal Repos?",
+        "a": "Eternal Repos is India’s first purpose-built ceremonial mobility brand — thoughtfully designed vehicles and care for families and institutions through the final journey. Founded by Shaily Sharma, it exists to bring dignity, calm and presence to farewells that are too often left undesigned."
+      },
+      "item2": {
+        "q": "Which areas does Eternal Repos serve?",
+        "a": "Eternal Repos is based at ATS Bouquet, Sector 132, Noida, and serves families and institutions across Delhi NCR, including Noida, Delhi and Gurugram. To ask about availability in a specific location, please contact the concierge."
+      },
+      "item3": {
+        "q": "What services does Eternal Repos offer?",
+        "a": "Eternal Repos offers immediate relief and transport, serene gatherings and remembrance, natural beauty and reverence, empathic care and keepsakes, and reassuring peace of mind — covering the practical and ceremonial needs of a dignified farewell."
+      },
+      "item4": {
+        "q": "How quickly can Eternal Repos respond?",
+        "a": "Eternal Repos is built for the moments that cannot wait. Reach the concierge at +91 84486 61338 and the team will respond promptly, day or night, to arrange immediate relief and transport and take the practical weight off your family."
+      },
+      "item5": {
+        "q": "Does Eternal Repos work with hospitals and institutions?",
+        "a": "Yes. Eternal Repos partners with hospitals, trusts and community organisations to ensure the families in their care are supported with reliability and reverence rather than left to whoever is available. Institutional briefings can be arranged through the contact page."
+      },
+      "item6": {
+        "q": "Is Eternal Repos available for all communities and faiths?",
+        "a": "Yes. Eternal Repos serves families of every community and faith, adapting arrangements to the rites and wishes that matter to you. The intent is always the same — that every farewell is carried with the same dignity and care."
+      },
+      "item7": {
+        "q": "How do I contact or book Eternal Repos?",
+        "a": "Call the concierge at +91 84486 61338, email care@eternalrepos.com, or use the contact page at eternalrepos.com/contact. Share what you need and the team will guide you gently through the arrangements."
+      }
+    },
+    "cta": {
+      "question": "Still have a question?",
+      "button": "Talk to us"
+    }
+  },
+  "voiceFaqUi": {
+    "kicker": "SERVICE CLARITY",
+    "heading": "Frequently Asked Questions",
+    "subheading": "Clear, honest information to help you understand our scope, partner coordination, and operational process.",
+    "listenIntro": "Prefer to listen? Press the play button on any question to hear the answer read aloud.",
+    "listenUnavailable": "Listening is not available in this browser. You can read every answer below.",
+    "stopAudio": "Stop audio",
+    "playbackFailed": "Sorry, we could not play that answer on this device. You can read it below, or call us on +91 84486 61338.",
+    "announce": {
+      "playing": "Playing: {{question}}",
+      "finished": "Finished. Press replay to hear it again.",
+      "failed": "Sorry, this answer could not be played. Please read it below.",
+      "paused": "Paused",
+      "resumed": "Playing",
+      "stopped": "Stopped"
+    },
+    "audioControlsFor": "Audio controls for: {{question}}",
+    "replay": "Replay",
+    "replayAnswer": "Replay answer: {{question}}",
+    "pause": "Pause",
+    "resume": "Resume",
+    "listen": "Listen",
+    "pauseAnswer": "Pause answer: {{question}}",
+    "resumeAnswer": "Resume answer: {{question}}",
+    "listenToAnswer": "Listen to answer: {{question}}"
+  }
+}

@@ -1,0 +1,1 @@
+-- Coordinators may add vehicles too (applied as migration coordinators_can_add_vehicles).

@@ -1,0 +1,334 @@
+{
+  "seo": {
+    "title": "Eternal Repos — Purpose-Built Ceremonial Mobility",
+    "description": "Standing beside families through the last goodbye — a dignified farewell for the one you've lost, and gentle support for those left behind."
+  },
+  "hero": {
+    "eyebrow": "Standing beside families",
+    "titleLine1": "Goodbye is heavy.",
+    "titleLine2": "You're not alone in it.",
+    "description": "From the first call to the final rites, we stay beside your family — arranging all that a farewell asks for, gently and with dignity, so you can simply be with the one you've lost.",
+    "ctaPrimary": "How we can help",
+    "ctaSecondary": "Talk to us — anytime",
+    "slideEyebrow": "How we help",
+    "prevSlideAria": "Previous slide",
+    "nextSlideAria": "Next slide",
+    "goToSlideAria": "Go to slide {{n}}",
+    "slides": [
+      {
+        "title": "Immediate transport, without delay",
+        "line": "A calm, private vehicle and a trained crew — we bring your loved one home gently, whatever the hour.",
+        "cta": "Immediate help"
+      },
+      {
+        "title": "A farewell in your tradition",
+        "line": "The hall, the flowers, the pandit, the permissions — every part of the rite arranged in your custom, at your pace.",
+        "cta": "Explore gatherings"
+      },
+      {
+        "title": "Care that stays, after",
+        "line": "Grief support, keepsakes and the practical affairs — we remain beside your family in the weeks that follow.",
+        "cta": "See how we care"
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "title": "Everything a farewell asks for",
+    "description": "From the first call to the weeks that follow — every part of the farewell, carried with dignity.",
+    "cta": "See all we do"
+  },
+  "promise": {
+    "eyebrow": "The Eternal promise",
+    "quotePart1": "The vehicle is our most visible promise of dignity —",
+    "quotePart2": "the care around it is our reason for being.",
+    "description": "We are here for the ordinary floor of decency: someone answers, the weight is carried, and nothing is ever sold to a family in its hardest hour."
+  },
+  "lifeCircle": {
+    "eyebrow": "Two people to care for",
+    "titleDignity": "Dignity",
+    "titleMiddle": " for the one who's gone. ",
+    "titleCare": "Care",
+    "titleEnd": " for the ones still here.",
+    "description": "From a single thread, our care blooms two ways — a farewell for the one you've lost, and a steady hand for the family that remains.",
+    "leftLegendLabel": "For the one who's gone",
+    "leftItems": [
+      "Bringing them home",
+      "A farewell in your tradition",
+      "Flowers & tributes",
+      "The final journey"
+    ],
+    "rightLegendLabel": "For the ones left behind",
+    "rightItems": [
+      "Grief support",
+      "Keepsakes & memory",
+      "Handling the affairs",
+      "Someone there, day or night"
+    ],
+    "bloomAriaLabel": "Two blooms of care growing from one thread",
+    "closingQuote": "You grieve. We'll carry the rest.",
+    "cta": "How we help"
+  },
+  "verses": {
+    "verse1": "Death is not extinguishing the light; it is only putting out the lamp because the dawn has come.",
+    "verse1Attr": "Rabindranath Tagore",
+    "verse2": "The ones we love do not leave us — they become the light we carry.",
+    "verse2Attr": "A quiet remembrance",
+    "verse3": "When words fail, we stay beside you.",
+    "verse3Attr": "Eternal Repos"
+  },
+  "firstDay": {
+    "eyebrow": "From the first call",
+    "title": "How the hardest day unfolds — with us beside you",
+    "description": "The shape of the day a family dreads — held, hour by hour, so they never face any of it alone.",
+    "beats": [
+      {
+        "time": "The call",
+        "title": "A voice answers",
+        "desc": "Whatever the hour — calm, unhurried, already moving.",
+        "chips": []
+      },
+      {
+        "time": "Without delay",
+        "title": "We come to you",
+        "desc": "We bring them home, gently, so nothing waits on you.",
+        "chips": []
+      },
+      {
+        "time": "The same day",
+        "title": "The weight lifts",
+        "desc": "Everything a farewell asks for — arranged in your tradition:",
+        "chips": [
+          "the transport",
+          "the papers",
+          "the coordination",
+          "the flowers",
+          "the hall",
+          "the permissions",
+          "the relatives"
+        ]
+      },
+      {
+        "time": "By evening",
+        "title": "You are together",
+        "desc": "While we hold the rest, your family simply grieves.",
+        "chips": []
+      }
+    ]
+  },
+  "ethos": {
+    "eyebrow": "What we hold to",
+    "title": "Seven ethos",
+    "description": "The commitments we publish in advance — each one you can hold us to.",
+    "items": [
+      {
+        "title": "A person, at any hour",
+        "desc": "Never a menu, never \"call back in the morning.\" A real voice, whenever you call."
+      },
+      {
+        "title": "A response you can rely on",
+        "desc": "We set out without delay, and we tell you what to expect — so nothing is left to guesswork."
+      },
+      {
+        "title": "A written standard of care",
+        "desc": "Our conduct and hygiene are published in full, so you can read them before you trust us."
+      },
+      {
+        "title": "Nothing asked twice",
+        "desc": "What a family tells us once is recorded and carried throughout — no name, no detail, repeated in grief."
+      },
+      {
+        "title": "Nothing sold in that hour",
+        "desc": "No options put to a family least able to refuse them. Arrangements are settled with care, never upsold."
+      },
+      {
+        "title": "Reverence as a discipline",
+        "desc": "Not a temperament we hope for, but a standard we train, assess and hold our team to."
+      },
+      {
+        "title": "Present in the weeks that follow",
+        "desc": "The care does not end when the vehicle leaves — we stay for what comes after."
+      }
+    ]
+  },
+  "vehicleSection": {
+    "eyebrow": "How we carry your loved one",
+    "titleMain": "The vehicle is the most visible part of our care — ",
+    "titleEmphasis": "never the whole of it.",
+    "description": "It carries the one you've lost with privacy and calm. But the real work is everything around it — the hands, the arrangements, the people who stay. The vehicle is simply where that care becomes something you can see.",
+    "cta": "See the vehicle",
+    "arcCaption": "Everything we carry",
+    "careArc": [
+      "Bringing them home",
+      "A farewell in your tradition",
+      "Flowers & tributes",
+      "The vehicle",
+      "Grief & remembrance",
+      "Keepsakes & memory",
+      "Documentation guidance"
+    ],
+    "vehicleAriaLabel": "The vehicle — look inside",
+    "vehiclePreviewCaption": "A quiet, private space — soft light, room to travel alongside.",
+    "vehiclePreviewAlt": "Inside the vehicle",
+    "vehicleLabel": "The vehicle",
+    "vehicleHoverHint": "hover to look inside"
+  },
+  "configurator": {
+    "eyebrow": "Find the right care",
+    "title": "Tell us where you are, and we'll point the way.",
+    "description": "Choose what fits your moment — there is no wrong answer, and no obligation.",
+    "needs": [
+      {
+        "q": "Someone has just died and we need help right now."
+      },
+      {
+        "q": "We need a space, floral decor, or catering for the gathering."
+      },
+      {
+        "q": "We need support, obituaries, or guidance in the days after."
+      },
+      {
+        "q": "We want to plan ahead, or arrange financial cover."
+      },
+      {
+        "q": "We need intercity transfer or international repatriation."
+      }
+    ],
+    "resultLabel": "Where to begin",
+    "exploreCta": "Explore this care",
+    "talkCta": "Talk to us"
+  },
+  "industry": {
+    "eyebrow": "Standing beside families",
+    "title": "The measure of our care",
+    "stats": [
+      {
+        "label": "A real person answers"
+      },
+      {
+        "label": "Faith traditions honoured"
+      },
+      {
+        "label": "Privacy, always"
+      },
+      {
+        "label": "Family, held end to end"
+      }
+    ]
+  },
+  "partners": {
+    "eyebrow": "Institutions & Hospital Partnerships",
+    "title": "In active partnership with hospitals — meeting families where the need begins.",
+    "description": "We work in direct partnership with hospitals, hospices, and care facilities across Delhi NCR — stepping in with dignity right at the ward door so doctors and nurses can focus on healing, while families receive immediate, compassionate care.",
+    "items": [
+      {
+        "tab": "Hospitals",
+        "title": "In Partnership with Hospitals & Hospices",
+        "desc": "We are in official partnership with leading hospitals across Delhi NCR. When a patient passes away, our empanelled team takes over at the ward door — handling all post-life transfers, mortuary coordination, documentation assistance, and compassionate family guidance so medical teams can stay focused on clinical care.",
+        "lifts": [
+          "Empanelled 24×7 hospital transfer protocol",
+          "Immediate ward & mortuary clearance coordination",
+          "Hospital death slip & clearance documentation guidance",
+          "Zero logistics burden on hospital doctors & nursing staff",
+          "Compassionate, respectful bedside handholding for families"
+        ],
+        "badge": "Official Hospital Partner Network"
+      },
+      {
+        "tab": "Care homes",
+        "title": "Care & retirement homes",
+        "desc": "A familiar, gentle presence for residents' final journey — handled with the tenderness of people you've trusted with your families for years, and with respect for the relationships you've built.",
+        "lifts": [
+          "Dignified departure from the home",
+          "Family coordination",
+          "Continuity of the care you gave"
+        ]
+      },
+      {
+        "tab": "Faith",
+        "title": "Faith institutions & communities",
+        "desc": "We honour the rites of every tradition — coordinating with priests, temples, mosques, churches and gurudwaras so the farewell follows custom exactly, and nothing feels unfamiliar or rushed.",
+        "lifts": [
+          "Ritual & multi-faith coordination",
+          "Timing to custom",
+          "Community trust, upheld"
+        ]
+      },
+      {
+        "tab": "Civic",
+        "title": "Civic bodies & trusts",
+        "desc": "Dignified handling at scale — for communities, welfare programmes and the moments that ask for quiet public responsibility, delivered with the same respect we give every single family.",
+        "lifts": [
+          "Respectful handling at scale",
+          "Clear protocol & reporting",
+          "Public duty, done quietly"
+        ]
+      }
+    ],
+    "liftsLabel": "The weight we lift",
+    "officialPartnerBadge": "Official Partner",
+    "hospitalNetworkHeading": "Hospital Partner Network · Delhi NCR",
+    "hospitalNetworkDesc": "Empanelled with leading hospital networks, critical care centres, and mortuaries across Delhi, Noida, and Gurugram for prompt bedside clearance, death slip documentation guidance, and dignified transfer.",
+    "cta": "Partner with us"
+  },
+  "mahaprayaan": {
+    "eyebrow": "Mahaprayaan × Eternal Repos",
+    "title": "Grief is easier carried together.",
+    "description": "Mahaprayaan is a community initiative we stand beside — a gentle space for the conversations loss makes hard to start. Eternal carries the practical weight; Mahaprayaan holds the room to talk, remember and heal.",
+    "bannerAlt": "Mahaprayaan, a community initiative — a space for the conversations we don't know how to start.",
+    "joinCta": "Join the community",
+    "shareCta": "Share your experience"
+  },
+  "testimonials": {
+    "eyebrow": "In their words",
+    "title": "Held, when it mattered most.",
+    "description": "Reflections from families we've stood beside, in their hardest hours.",
+    "items": [
+      {
+        "quote": "When my father passed away late at night, we felt completely helpless. Eternal stepped in with such gentle care — never a transaction, only quiet reverence, standing beside us the whole way.",
+        "name": "Arjun Sharma"
+      },
+      {
+        "quote": "They took care of the hospital paperwork, the transport, the priest — so my mother and I could just sit together in peace. Having someone truly care during our hardest hour made all the difference.",
+        "name": "Meera Rastogi"
+      },
+      {
+        "quote": "In a moment of overwhelming grief, Eternal gave us a calm sanctuary and gentle guidance through every step. We felt genuine warmth exactly when we needed it most.",
+        "name": "Dr. V. K. Malhotra"
+      }
+    ],
+    "caption": "A family we stood beside"
+  },
+  "eaqs": {
+    "eyebrow": "EAQs",
+    "title": "Questions families ask",
+    "description": "Straight answers to what most people want to know.",
+    "items": [
+      {
+        "q": "Which areas do you serve?",
+        "a": "We are based at ATS Bouquet, Sector 132, Noida, and serve families across Delhi NCR — including Noida, Delhi and Gurugram."
+      },
+      {
+        "q": "How quickly can you respond?",
+        "a": "We are built for the moments that cannot wait. Call the concierge and our team responds promptly, day or night, and sets out without delay."
+      },
+      {
+        "q": "Do you work with all communities and faiths?",
+        "a": "Yes. We serve families of every community and faith, adapting arrangements to the rites and wishes that matter to you."
+      },
+      {
+        "q": "How do I reach you?",
+        "a": "Call the concierge at +91 84486 61338, email care@eternalrepos.com, or use the contact page — and we will guide you gently from there."
+      }
+    ],
+    "seeAll": "See all answers"
+  },
+  "finalCta": {
+    "eyebrow": "WE ARE HERE TO HELP",
+    "title": "Standing Beside You in Your Time of Need.",
+    "description": "Whenever you're ready — for gentle guidance, immediate help, or quiet pre-planning — we're only a call away.",
+    "talkCta": "Talk to us — anytime",
+    "contactCta": "Reach our team",
+    "supportLine": "24/7 Compassionate Support · Standing Beside Families Across India"
+  }
+}

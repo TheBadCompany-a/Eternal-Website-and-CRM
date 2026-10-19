@@ -1,0 +1,27 @@
+{
+  "links": {
+    "about": "About",
+    "ourStory": "Our Story",
+    "vehicle": "Vehicle",
+    "institutions": "Institutions",
+    "services": "Services",
+    "vision": "Vision",
+    "insights": "Insights",
+    "contact": "Contact"
+  },
+  "megaMenu": {
+    "exploreServices": "Explore our services",
+    "exploreFiveWays": "Explore our five ways of caring",
+    "explore": "Explore",
+    "supportStrip": "Standing Beside Families with Compassionate Farewell Support & Transparent Pricing.",
+    "helpline": "Helpline: +91 84486 61338"
+  },
+  "mobile": {
+    "toggleMenu": "Toggle Navigation Menu",
+    "supportLine": "Standing Beside Families · 24/7 Compassionate Support"
+  },
+  "language": {
+    "label": "Language",
+    "selectLanguage": "Select language"
+  }
+}

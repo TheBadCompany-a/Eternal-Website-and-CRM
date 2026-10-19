@@ -1,0 +1,726 @@
+{
+  "categories": {
+    "immediate-relief-transport": {
+      "title": "Immediate Assistance & Transport",
+      "subtitle": "24×7 Available · Delhi NCR",
+      "tagline": "Caring, respectful transport and complete paperwork support when you need it most.",
+      "heroBadge": "24×7 HELPLINE · DELHI NCR",
+      "summary": "Safe and gentle transport from hospital or home to the cremation ground, complete help with all hospital papers, and an accompanying car for family members.",
+      "highlights": [
+        "Clean, air-conditioned vehicle for a peaceful journey",
+        "Smooth automatic stretcher lift for safe, gentle movement",
+        "Help with hospital body release, death slips, and gate passes",
+        "Separate comfortable car for family members",
+        "Support at the cremation ground with regular family updates"
+      ],
+      "services": [
+        {
+          "title": "Ceremonial Transport & Paperwork Guidance",
+          "desc": "Round-the-clock respectful transport in a clean AC vehicle, with an accompanying family car and complete paperwork help.",
+          "feeling": "Feel calm, respected, and fully supported",
+          "tag": "Live Service"
+        },
+        {
+          "title": "Complete Funeral Coordination & Support",
+          "desc": "One dedicated coordinator managing vehicle timing, paperwork, and ceremony arrangements so your family can stay together peacefully.",
+          "feeling": "Feel personal care and guidance at every step",
+          "tag": "Live Service"
+        }
+      ]
+    },
+    "serene-gatherings-remembrance": {
+      "title": "Prayer Hall & Floral Services",
+      "subtitle": "Arranged with Trusted Partners",
+      "tagline": "Helping your family arrange peaceful prayer halls, beautiful fresh flowers, and simple catering.",
+      "heroBadge": "ARRANGED ON REQUEST",
+      "summary": "Arranging quiet prayer halls (Shok Sabha), peaceful flower decorations, simple catering for guests, and heartfelt obituary messages with trusted local partners.",
+      "highlights": [
+        "Finding and booking quiet prayer halls near your home",
+        "Respectful hall decor, clean seating, and flower arrangements",
+        "Simple tea, water, and refreshments arranged for visitors",
+        "Heartfelt tribute messages written for family WhatsApp groups and newspapers",
+        "Fresh flower garlands and vehicle decoration"
+      ],
+      "services": [
+        {
+          "title": "Prayer Hall Booking",
+          "desc": "Help in finding and booking a quiet prayer hall (Shok Sabha) near your home, according to your preference and budget.",
+          "feeling": "Feel a peaceful space arranged easily",
+          "tag": "Via Partner"
+        },
+        {
+          "title": "Hall Decoration",
+          "desc": "Respectful hall decor, fresh white flowers, seating, and photo framing arranged to honour your loved one.",
+          "feeling": "Feel a gentle, dignified atmosphere",
+          "tag": "Via Partner"
+        },
+        {
+          "title": "Catering",
+          "desc": "Simple, clean tea, water, and refreshments for guests attending prayer meetings and gatherings.",
+          "feeling": "Feel thoughtful hospitality for your guests",
+          "tag": "Via Partner"
+        },
+        {
+          "title": "Obituary Writing",
+          "desc": "A polite and heartfelt tribute message written from details shared by your family, ready for WhatsApp or newspapers.",
+          "feeling": "Feel your loved one remembered with warmth",
+          "tag": "Live Add-on"
+        },
+        {
+          "title": "Memorial Service & Memory Mementos",
+          "desc": "Assistance with arranging a peaceful prayer meeting (Chautha, Tehravin, or Shok Sabha) and simple remembrance tributes.",
+          "feeling": "Feel cherished memories honoured",
+          "tag": "On Request · Roadmap"
+        },
+        {
+          "title": "Funeral Flower Decor",
+          "desc": "Fresh white flower garlands and decorations for the vehicle, photo frame, and prayer hall, prepared with gentle care.",
+          "feeling": "Feel natural serenity and reverence",
+          "tag": "Via Partner"
+        }
+      ]
+    },
+    "empathic-care-keepsakes": {
+      "title": "Family Support",
+      "subtitle": "Caring for You & Your Family",
+      "tagline": "Gentle step-by-step guidance for Asthi Visarjan and caring emotional support for your family.",
+      "heroBadge": "RITUAL GUIDANCE & FAMILY SUPPORT",
+      "summary": "Help with Asthi Visarjan travel and rituals across Haridwar, Garh Ganga, and sacred ghats, along with compassionate support.",
+      "highlights": [
+        "Simple, gentle step-by-step guidance on sacred Asthi Visarjan rituals",
+        "Comfortable travel arrangements for Haridwar, Garhmukteshwar, Prayagraj and nearby ghats",
+        "Connections with trusted local priests upon request",
+        "Warm, respectful support available whenever your family needs someone to talk to"
+      ],
+      "services": [
+        {
+          "title": "Asthi Visarjan",
+          "desc": "Gentle step-by-step guidance, comfortable cars, and priest coordination for Asthi Visarjan at Haridwar, Garhmukteshwar, or sacred ghats.",
+          "feeling": "Feel quiet reverence and care",
+          "tag": "Live Guidance"
+        },
+        {
+          "title": "Grief Counselling",
+          "desc": "Connecting family members with caring, qualified counsellors for gentle emotional support after the loss. Free referral, no extra markup.",
+          "feeling": "Feel heard and supported with empathy",
+          "tag": "Roadmap · Referral"
+        }
+      ]
+    },
+    "reassuring-peace-of-mind": {
+      "title": "Pre-Planning",
+      "subtitle": "Peace of Mind for Tomorrow",
+      "tagline": "Thoughtful advance planning to make future arrangements simple and stress-free for your loved ones.",
+      "heroBadge": "COMING SOON",
+      "summary": "Advance planning options and pre-booking in development to protect your family from sudden stress and confusion.",
+      "highlights": [
+        "Simple advance planning options being developed for families",
+        "Pre-paid arrangements designed for clear, fixed expectations",
+        "Upcoming insurance collaborations to make documentation easy",
+        "Feel free to speak with us to learn more about advance options"
+      ],
+      "services": [
+        {
+          "title": "Subscription / Pre-Booking Plans",
+          "desc": "Thoughtful advance planning to ensure your family does not have to worry about sudden arrangements or expenses in the future.",
+          "feeling": "Feel prepared and peaceful",
+          "tag": "Coming Soon"
+        },
+        {
+          "title": "Pre-Paid Cremation Policy",
+          "desc": "A simple advance plan to record your wishes and make sure everything is handled smoothly and respectfully.",
+          "feeling": "Feel lasting peace of mind",
+          "tag": "Coming Soon"
+        },
+        {
+          "title": "Insurance Company Tie-Ups",
+          "desc": "Working with insurance providers to help make funeral claims and paperwork simple and hassle-free.",
+          "feeling": "Feel ease with paperwork and claims",
+          "tag": "Coming Soon"
+        }
+      ]
+    },
+    "specialised-services": {
+      "title": "Special Assistance",
+      "subtitle": "Interstate Travel & Long Distance",
+      "tagline": "Caring coordination for outstation journeys, interstate permits, and international repatriation.",
+      "heroBadge": "OUTSTATION & INTERNATIONAL",
+      "summary": "Assistance with taking your loved one to hometowns outside Delhi NCR, interstate transit permits, and international repatriation.",
+      "highlights": [
+        "International repatriation with air cargo booking and embassy clearances",
+        "Interstate travel permits, hospital NOCs, and police clearances",
+        "Long-distance journeys in dedicated, clean, air-conditioned vehicles",
+        "Continuous polite communication and guidance throughout the journey"
+      ],
+      "services": [
+        {
+          "title": "International Repatriation",
+          "desc": "Caring step-by-step help when your loved one needs to be brought home from abroad or taken to another country.",
+          "feeling": "Feel guided through every international step",
+          "tag": "On Request"
+        },
+        {
+          "title": "End-to-End Documentation Assistance (Intercity/International)",
+          "desc": "Help with outstation travel permissions, interstate NOCs, and clearance paperwork when travelling outside Delhi NCR.",
+          "feeling": "Feel relieved of complicated paperwork",
+          "tag": "On Request"
+        }
+      ]
+    }
+  },
+  "memorialServices": {
+    "prayer-hall-booking": {
+      "category": "Memorial & Floral Services",
+      "title": "Prayer Hall Booking",
+      "description": "Help finding and booking a quiet prayer hall (Shok Sabha) near your home, suited to your family's needs and budget.",
+      "ctaText": "Enquire About Halls"
+    },
+    "hall-decoration": {
+      "category": "Memorial & Floral Services",
+      "title": "Hall Decoration",
+      "description": "Arranging peaceful hall setup with fresh white flowers, comfortable seating, and photo framing according to your family's wishes.",
+      "ctaText": "Enquire About Decor"
+    },
+    "catering": {
+      "category": "Memorial & Floral Services",
+      "title": "Catering",
+      "description": "Arranging simple, clean tea, water, and refreshments for guests attending prayer meetings and gatherings.",
+      "ctaText": "Enquire About Catering"
+    },
+    "memorial-service": {
+      "category": "Memorial & Floral Services",
+      "title": "Memorial Service & Memory Mementos",
+      "description": "Help in arranging a peaceful prayer meeting (Chautha, Tehravin, or Shok Sabha) and simple remembrance tributes.",
+      "subtext": "Digital photo slideshows and remembrance memory cards can also be prepared for your family.",
+      "ctaText": "Speak With Us"
+    },
+    "funeral-flower-decor": {
+      "category": "Memorial & Floral Services",
+      "title": "Funeral Flower Decor",
+      "description": "Fresh white flower garlands and decorations for the vehicle, photo frame, and prayer hall, prepared with gentle care.",
+      "ctaText": "Enquire About Flowers"
+    },
+    "obituary-writing": {
+      "category": "Memorial & Floral Services",
+      "title": "Obituary Writing",
+      "description": "A heartfelt tribute message written from details you share, ready to send on WhatsApp or publish in newspapers.",
+      "subtext": "Written quickly on the same day. Included free with vehicle bookings.",
+      "ctaText": "Request Obituary Writing"
+    }
+  },
+  "viewDetails": {
+    "transport-and-documentation-support": {
+      "title": "Ceremonial Transport & Paperwork Guidance",
+      "category": "Immediate Response",
+      "tag": "Live Service",
+      "exclusionSummary": "Puja items, priest offerings, emergency medical ambulances, and outstation trips are arranged separately upon request.",
+      "scope": [
+        "Provides your family with respectful transportation from hospital or home to the cremation or burial ground in a clean vehicle.",
+        "Our team also helps with hospital release forms and crematorium entry papers."
+      ],
+      "inclusions": [
+        "Clean, air-conditioned vehicle with polite driver and helper",
+        "Automatic stretcher lift for safe, gentle movement",
+        "Guidance on hospital death slips, release forms, and gate passes",
+        "Prompt pickup, hospital clearance, crematorium entry, and regular family updates"
+      ],
+      "exclusions": [
+        "Puja items (samagri) and priest offerings are arranged separately upon request",
+        "This service is for the final journey; emergency medical ambulances for patients are separate",
+        "Official death certificates are issued by the local government office (MCD)",
+        "Outstation travel outside Delhi NCR is arranged separately upon request"
+      ]
+    },
+    "funeral-service-coordination": {
+      "title": "Complete Funeral Coordination & Support",
+      "category": "Immediate Response",
+      "tag": "Live Service",
+      "exclusionSummary": "Catering and flower decor are coordinated by us and delivered through verified local partners.",
+      "scope": [
+        "Brings together all arrangements through one dedicated family coordinator.",
+        "Vehicle timing, paperwork, flowers, and prayer halls are managed smoothly so your family does not have to deal with multiple vendors in grief."
+      ],
+      "inclusions": [
+        "Dedicated family coordinator available 24/7",
+        "Coordination of vehicle timing and route planning",
+        "Help with required hospital and cremation papers",
+        "Arranging flowers, prayer hall, or catering on request",
+        "Regular, gentle updates to the family at every step"
+      ],
+      "exclusions": [
+        "Food preparation and hall decoration are carried out by verified local partners",
+        "Flower arrangements are prepared through trusted local florists",
+        "Emotional therapy is provided by certified independent counsellors"
+      ]
+    },
+    "prayer-hall-booking": {
+      "title": "Prayer Hall (Shok Sabha) Booking",
+      "category": "Memorial & Floral Services",
+      "tag": "Via Partner",
+      "exclusionSummary": "Prayer halls are managed by their respective trusts; our team takes care of finding and booking them for you.",
+      "scope": [
+        "Helps your family find and book a peaceful prayer hall or community center for a prayer meeting (Shok Sabha, Chautha, or Tehravin).",
+        "We suggest good options near your home based on the number of guests and your budget."
+      ],
+      "inclusions": [
+        "Shortlisting halls close to your family's home",
+        "Matching venues with your preferred guest size and budget",
+        "Checking open time slots and booking the venue",
+        "Clear communication on hall rules and timings"
+      ],
+      "exclusions": [
+        "Eternal Repos handles the booking; halls are owned and run by their respective trusts or venues",
+        "Venue rules and cancellation terms are set by the chosen hall"
+      ]
+    },
+    "hall-decoration": {
+      "title": "Prayer Hall Decoration",
+      "category": "Memorial & Floral Services",
+      "tag": "Via Partner",
+      "exclusionSummary": "Decor and flower styling are set up by verified local decorators under our coordination.",
+      "scope": [
+        "Arranges gentle, respectful decoration for the prayer hall or gathering according to your family's wishes.",
+        "Includes fresh white flowers, neat seating layouts, portrait table setup, and soft lighting."
+      ],
+      "inclusions": [
+        "Quiet, respectful decor theme based on family preferences",
+        "Fresh flower backdrop and framed photo table setup",
+        "Clean, comfortable seating for family and visiting guests",
+        "Timely setup and cleanup coordinated with partner decorators"
+      ],
+      "exclusions": [
+        "Setup is done by verified local decorators under our guidance",
+        "Custom special structures require advance notice"
+      ]
+    },
+    "catering": {
+      "title": "Tea & Gathering Catering",
+      "category": "Memorial & Floral Services",
+      "tag": "Via Partner",
+      "exclusionSummary": "Food preparation and serving are handled by verified catering partners under our team's coordination.",
+      "scope": [
+        "Arranges clean, simple tea, water, and refreshments for guests attending prayer meetings and gatherings.",
+        "Menu choices and guest numbers are coordinated with trusted local caterers."
+      ],
+      "inclusions": [
+        "Simple, clean menu options (tea, coffee, biscuits, bottled water, light snacks)",
+        "Confirming guest numbers and serving times",
+        "Clean serving staff and hygienic setup",
+        "Strict respect for your family's dietary preferences"
+      ],
+      "exclusions": [
+        "Food preparation and serving are handled by verified partner caterers",
+        "Menu availability depends on booking notice and venue policies"
+      ]
+    },
+    "memorial-service-and-memory-mementos": {
+      "title": "Remembrance Gathering & Keepsakes",
+      "category": "Memorial & Floral Services",
+      "tag": "On Request · Roadmap",
+      "exclusionSummary": "Gatherings and photo tributes are coordinated with the family; traditional religious rites are arranged separately.",
+      "clarification": "Note: Keepsake cards and photo items are created on request.",
+      "scope": [
+        "Helps families organise a peaceful remembrance gathering or celebration of life.",
+        "Can include digital photo tributes, custom memory cards, and simple keepsake cards to honour your loved one."
+      ],
+      "inclusions": [
+        "Help planning gathering timings and flow",
+        "Creating digital photo slideshows or memory pages upon request",
+        "Custom framed photo setup and remembrance memory cards"
+      ],
+      "exclusions": [
+        "This service focuses on remembrance and family gatherings; traditional religious rites are arranged separately",
+        "Keepsake items depend on what the family requests and what is available"
+      ]
+    },
+    "funeral-flower-decor": {
+      "title": "Fresh Flowers & Garland Decoration",
+      "category": "Memorial & Floral Services",
+      "tag": "Via Partner",
+      "exclusionSummary": "Fresh floral arrangements are prepared and delivered by verified partner florists.",
+      "scope": [
+        "Arranges fresh flower decorations for the ceremonial vehicle, framed photo, and prayer hall.",
+        "Prepared with gentle white flowers (roses, lilies, marigolds, tuberoses) in line with your family traditions."
+      ],
+      "inclusions": [
+        "Fresh flower garlands for the ceremonial vehicle and photo frame",
+        "Flower backdrop and entrance arrangements for the prayer hall",
+        "Timely delivery coordinated with trusted local florists"
+      ],
+      "exclusions": [
+        "Flower arrangements are made and delivered through verified florist partners",
+        "Flower varieties depend on seasonal market availability"
+      ]
+    },
+    "obituary-writing": {
+      "title": "Obituary & Tribute Writing",
+      "category": "Memorial & Floral Services",
+      "tag": "Live Add-on",
+      "exclusionSummary": "We write the tribute text for you; newspaper printing costs are paid directly to the newspaper.",
+      "scope": [
+        "Helps write a respectful, heartfelt obituary or tribute message to share on WhatsApp or print in newspapers.",
+        "Carefully written using personal memories and details shared by your family."
+      ],
+      "inclusions": [
+        "Writing a warm and respectful short obituary",
+        "Ready to send on WhatsApp family groups or submit to newspapers",
+        "Quick drafting on the same day",
+        "Included free with ceremonial vehicle bookings"
+      ],
+      "exclusions": [
+        "Newspaper publishing charges are paid directly to the newspaper at actual cost",
+        "Standard service covers message writing; graphic design posters are made on request"
+      ]
+    },
+    "asthi-visarjan": {
+      "title": "Asthi Visarjan Guidance",
+      "category": "Family Support",
+      "tag": "Live Guidance",
+      "exclusionSummary": "Priest dakshina and local ghat fees are offered directly by the family.",
+      "scope": [
+        "Provides step-by-step guidance and comfortable travel for families performing sacred Asthi Visarjan rites.",
+        "Help with selecting sacred ghats (Haridwar, Garhmukteshwar, Prayagraj), arranging comfortable outstation cars, and coordinating trusted priests."
+      ],
+      "inclusions": [
+        "Clear step-by-step guidance on sacred rituals and timings",
+        "Help selecting the right ghat (Haridwar, Garh Ganga, Prayagraj)",
+        "Comfortable AC car and polite driver for family travel",
+        "Connecting with respected local priests upon request"
+      ],
+      "exclusions": [
+        "Priest dakshina and local ghat fees are offered directly by the family",
+        "Hotel rooms or overnight stays, if needed, are booked separately"
+      ]
+    },
+    "grief-counselling": {
+      "title": "Emotional Support & Counselling",
+      "category": "Family Support",
+      "tag": "Roadmap · Referral",
+      "exclusionSummary": "Eternal Repos connects families with verified counsellors; sessions take place directly with qualified professionals.",
+      "scope": [
+        "Connects family members with caring, qualified counsellors for gentle emotional support after the loss of a loved one.",
+        "Arranged through verified professional counsellors with no extra charges or markups."
+      ],
+      "inclusions": [
+        "Listening to what emotional support your family needs",
+        "Connecting you with verified professional grief counsellors",
+        "Quick introduction within 24 hours",
+        "Free referral with no added charges"
+      ],
+      "exclusions": [
+        "Eternal Repos connects you with certified counsellors",
+        "Counselling sessions are conducted directly by certified professionals"
+      ]
+    },
+    "subscription-pre-booking-plans": {
+      "title": "Pre-Planning",
+      "category": "Pre-Planning",
+      "tag": "Coming Soon",
+      "exclusionSummary": "Final plan details and terms are being developed and will be confirmed before public launch.",
+      "clarification": "Note: Full plan details will be published ahead of launch.",
+      "scope": [
+        "A thoughtful future service to help families plan arrangements in advance, deciding what they want and avoiding sudden stress later.",
+        "Designed to give your loved ones clarity and complete peace of mind."
+      ],
+      "inclusions": [
+        "Advance planning options currently being designed",
+        "Clear service features to be announced",
+        "Simple, transparent payment options",
+        "Full details shared before public launch"
+      ],
+      "exclusions": [
+        "Plan features and terms are under final review",
+        "Complete terms will be published upon launch"
+      ]
+    },
+    "pre-paid-cremation-policy": {
+      "title": "Pre-Paid Ceremonial Care",
+      "category": "Pre-Planning",
+      "tag": "Coming Soon",
+      "exclusionSummary": "Coverage details and benefits will be shared before official launch.",
+      "clarification": "Note: Full terms will be announced before launch.",
+      "scope": [
+        "A future prepaid plan to help families budget for cremation, vehicle, and coordination costs in advance.",
+        "Ensures your personal wishes are noted and respected."
+      ],
+      "inclusions": [
+        "Plan details currently being finalized",
+        "Comprehensive service inclusions to be confirmed",
+        "Transparent payment terms",
+        "Full benefits announced before launch"
+      ],
+      "exclusions": [
+        "Policy details are under development",
+        "Full terms will be announced before launch"
+      ]
+    },
+    "insurance-company-tie-ups": {
+      "title": "Insurance Tie-Ups & Claims Support",
+      "category": "Pre-Planning",
+      "tag": "Coming Soon",
+      "exclusionSummary": "Policy terms and claims will be managed together with partner insurance companies.",
+      "clarification": "Note: Specific benefits depend on partner insurance terms.",
+      "scope": [
+        "Future partnerships planned with leading insurance companies.",
+        "Aimed at covering farewell costs under insurance and making claim paperwork simple for families."
+      ],
+      "inclusions": [
+        "Packages being designed with partner insurers",
+        "Simple paperwork for faster expense claims",
+        "Jointly agreed coverage terms"
+      ],
+      "exclusions": [
+        "Claim rules depend on the respective insurance company's policy"
+      ]
+    },
+    "international-repatriation": {
+      "title": "International Repatriation Assistance",
+      "category": "Specialized Services",
+      "tag": "On Request",
+      "exclusionSummary": "Consulate fees, air-cargo freight, and foreign customs charges are paid directly as per actual official receipts.",
+      "scope": [
+        "Assists families with caring guidance when a loved one needs to be brought home to India from abroad or taken to another country.",
+        "Coordinates certified embalming, airline cargo space, embassy clearances, and local handling teams in both countries."
+      ],
+      "inclusions": [
+        "Coordination with approved embalming centers",
+        "Booking airline cargo space and airport clearance",
+        "Step-by-step help with embassy, consulate, and police permissions (NOCs)",
+        "Coordination with local handling agents in the other country"
+      ],
+      "exclusions": [
+        "Consulate and embassy fees are paid at actual cost",
+        "Airline cargo airfares are paid separately at actual cost",
+        "Customs clearance duties in the destination country are not included"
+      ]
+    },
+    "end-to-end-documentation-assistance-intercity-international": {
+      "title": "Interstate & Outstation Paperwork Assistance",
+      "category": "Specialized Services",
+      "tag": "On Request",
+      "exclusionSummary": "Official government fees are paid directly as per actual receipts.",
+      "scope": [
+        "Helps families with the paperwork needed when travelling with a loved one outside Delhi NCR or crossing state borders.",
+        "Includes step-by-step help for interstate travel permits, hospital clearance, police NOCs, and local government forms."
+      ],
+      "inclusions": [
+        "Guidance on vehicle travel permits across state lines",
+        "Help getting police and hospital clearance papers (NOCs)",
+        "Guidance on forms needed by local government offices",
+        "Continuous support during long road journeys"
+      ],
+      "exclusions": [
+        "Legal court disputes are outside our scope",
+        "Official government fees are paid directly at actual cost"
+      ]
+    }
+  },
+  "howItWorks": [
+    {
+      "title": "A simple phone call",
+      "description": "Call or WhatsApp us anytime. Just tell us your location and what immediate help you need."
+    },
+    {
+      "title": "We guide you gently",
+      "description": "We listen patiently, explain the next steps clearly, and help you collect any required papers."
+    },
+    {
+      "title": "Our team arrives quickly",
+      "description": "A clean vehicle with a polite driver and helper arrives promptly at your location."
+    },
+    {
+      "title": "Smooth transport & paperwork",
+      "description": "We help with hospital release, gentle transport, and crematorium entry without rushing you."
+    },
+    {
+      "title": "We stay beside you",
+      "description": "Our team stays with your family until all final rites are peacefully completed."
+    }
+  ],
+  "serviceAreas": [
+    {
+      "name": "Gurgaon",
+      "sectors": "DLF, Golf Course Road, Sohna Road, Cyber City, and nearby areas"
+    },
+    {
+      "name": "South Delhi",
+      "sectors": "Greater Kailash, Vasant Kunj, Hauz Khas, Defence Colony, and Central Delhi"
+    },
+    {
+      "name": "Noida",
+      "sectors": "Sectors 1–150, Noida Expressway, and Greater Noida"
+    },
+    {
+      "name": "Ghaziabad",
+      "sectors": "Indirapuram, Vaishali, Vasundhara, and Raj Nagar Extension"
+    },
+    {
+      "name": "Adjoining NCR",
+      "sectors": "Faridabad and neighbouring Delhi NCR areas"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What should I do first if I need immediate assistance?",
+      "answer": "Please call our 24×7 helpline (+91 84486 61338) or message us on WhatsApp right away. Our team will speak with you politely, understand what you need, and immediately guide you on the next steps while sending the ceremonial vehicle."
+    },
+    {
+      "question": "Can Eternal Repos help with hospital release documentation?",
+      "answer": "Yes. Our team helps your family with hospital paperwork, guiding you through doctor death slips, hospital release forms, and gate passes."
+    },
+    {
+      "question": "Does Eternal Repos issue death certificates?",
+      "answer": "Official death certificates are issued by the local municipal office (MCD). We help you fill out forms and gather the right papers so the process is easy and smooth."
+    },
+    {
+      "question": "Can you arrange transport from a hospital or home?",
+      "answer": "Yes. Our clean, air-conditioned vehicle and polite team will arrive at the hospital, nursing home, or residence to safely and respectfully take your loved one to the cremation or burial ground."
+    },
+    {
+      "question": "Can you help with crematorium or burial-ground formalities?",
+      "answer": "Yes. We help book slots, handle gate entry, and guide you through paperwork at crematoriums and shamshan ghats across Delhi NCR so you do not have to worry about administrative desks."
+    },
+    {
+      "question": "Are prayer halls, flowers and catering available?",
+      "answer": "Yes. We can help arrange quiet prayer halls, fresh flower decorations, and simple tea and snacks through trusted local partners."
+    },
+    {
+      "question": "Do you arrange priests or religious rituals?",
+      "answer": "Yes. We can connect you with trusted local pandits or priests so your family traditions and rituals are followed respectfully."
+    },
+    {
+      "question": "Do you provide grief counselling?",
+      "answer": "Yes. We connect families with caring, qualified professional counsellors whenever emotional support is needed, with no extra fees or markups."
+    },
+    {
+      "question": "Do you support outstation or intercity cases?",
+      "answer": "Yes. If you need to take your loved one to your hometown outside Delhi NCR, we arrange dedicated vehicles and help get the necessary travel permits and NOCs."
+    },
+    {
+      "question": "Can you assist with international repatriation?",
+      "answer": "Yes. If your loved one needs to be brought to India from abroad or taken to another country, we coordinate embalming, flight bookings, embassy clearances, and local handling teams."
+    },
+    {
+      "question": "How quickly can your team arrive?",
+      "answer": "Our team is available 24×7 across Delhi NCR. Depending on your location and road traffic, we dispatch the nearest vehicle immediately and keep you updated on the exact arrival time."
+    }
+  ],
+  "packages": {
+    "vehicle": {
+      "name": "Essential Farewell",
+      "tagline": "Respectful ceremonial transportation with fresh decor, memory token, and essential comforts.",
+      "features": [
+        {
+          "name": "Basic decor"
+        },
+        {
+          "name": "Fuel car (8.8km)"
+        },
+        {
+          "name": "Small memory token"
+        },
+        {
+          "name": "Drinking water"
+        }
+      ]
+    },
+    "medium": {
+      "name": "Complete Farewell",
+      "tagline": "Complete ceremonial coordination with priest, sacred samagri, cremation fuel, and medium decor.",
+      "features": [
+        {
+          "name": "Medium decor"
+        },
+        {
+          "name": "Fuel on ground (cremation fuel / wood)"
+        },
+        {
+          "name": "Pandit ji (Priest for rites)"
+        },
+        {
+          "name": "Complete sacred samagri"
+        },
+        {
+          "name": "Fuel car (80km)"
+        },
+        {
+          "name": "Small memory token"
+        },
+        {
+          "name": "Drinking water"
+        }
+      ]
+    },
+    "vip": {
+      "name": "Signature Farewell",
+      "tagline": "Grand high-end decor, 5 escort vehicles, hi-tea for guests, priest, samagri, and priority VIP coordination.",
+      "features": [
+        {
+          "name": "High-end decor"
+        },
+        {
+          "name": "5 tailgating escort vehicles"
+        },
+        {
+          "name": "Fuel on ground (cremation fuel / wood)"
+        },
+        {
+          "name": "Pandit ji (Priest for rites)"
+        },
+        {
+          "name": "Complete sacred samagri"
+        },
+        {
+          "name": "Hi-tea (up to 50 people)"
+        },
+        {
+          "name": "Fuel car (80km)"
+        },
+        {
+          "name": "Small memory token"
+        },
+        {
+          "name": "Drinking water"
+        }
+      ]
+    }
+  },
+  "tiles": [
+    {
+      "label": "Immediate Transport"
+    },
+    {
+      "label": "The Sanctuary Vehicle"
+    },
+    {
+      "label": "Documentation & Permissions"
+    },
+    {
+      "label": "Prayer Hall & Gatherings"
+    },
+    {
+      "label": "Pre & Post Funeral Service Coordination"
+    },
+    {
+      "label": "Hospitality & Catering"
+    },
+    {
+      "label": "Funeral Flower Decor"
+    },
+    {
+      "label": "Ceremonial Wreaths"
+    },
+    {
+      "label": "Grief Support & Keepsakes"
+    },
+    {
+      "label": "Obituary & Tributes"
+    },
+    {
+      "label": "Pre-Planning & Peace of Mind"
+    },
+    {
+      "label": "Packages & Insurance"
+    }
+  ]
+}

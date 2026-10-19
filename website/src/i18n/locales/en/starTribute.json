@@ -1,0 +1,15 @@
+{
+  "seo": {
+    "titleReady": "A star for {{name}} — Eternal Repos",
+    "titleDefault": "A star — Eternal Repos",
+    "description": "A quiet place to remember someone loved."
+  },
+  "loading": "One moment…",
+  "missing": {
+    "heading": "We could not find this star",
+    "body": "It may still be resting, or it may have been taken down."
+  },
+  "photoAlt": "Photograph of {{name}}",
+  "returnToSky": "Return to the sky",
+  "nameAStar": "Name a star for someone you love"
+}

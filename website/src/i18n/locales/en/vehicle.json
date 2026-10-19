@@ -1,0 +1,107 @@
+{
+  "seo": {
+    "title": "The Vehicle — Eternal Repos",
+    "description": "How we carry your loved one, gently — a calm, private space that shields your family and honours the one you’ve lost."
+  },
+  "hero": {
+    "eyebrow": "The Vehicle",
+    "headingLine1": "How we carry your",
+    "headingLine2": "loved one — gently.",
+    "body": "A calm, private space that shields your family from public view and carries the one you've lost with quiet dignity — unhurried, and safe.",
+    "arrangeViewing": "Arrange a viewing",
+    "vehicleDetailsPdf": "Vehicle details (PDF)"
+  },
+  "angles": {
+    "frontPerspective": "Front 3/4 Perspective",
+    "sideLeft": "Side Elevation (Left)",
+    "sideRight": "Side Elevation (Right)",
+    "rearPerspective": "Rear 3/4 Perspective",
+    "topAerial": "Top Aerial Architecture",
+    "interior": "Interior Bier Sanctuary"
+  },
+  "closerLook": {
+    "eyebrow": "A closer look",
+    "heading": "Considered from every angle.",
+    "body": "Every line is drawn for calm and discretion — a quiet presence on the road, and a gentle space within."
+  },
+  "highlights": {
+    "eyebrow": "What makes it gentle",
+    "heading": "Every detail, chosen for calm.",
+    "body": "Not a specification sheet — three quiet things a family feels the moment the doors close.",
+    "items": [
+      {
+        "title": "Quiet, all the way",
+        "description": "Soft, sound-insulated interiors keep the world outside, so the journey stays still and unhurried."
+      },
+      {
+        "title": "Warm, unhurried light",
+        "description": "Gentle warm light, and room for flowers and family — a space that feels held, never clinical."
+      },
+      {
+        "title": "Clean, and cared for",
+        "description": "Immaculately kept and gently climate-controlled, so everything feels calm, fresh and dignified."
+      }
+    ]
+  },
+  "specs": {
+    "eyebrow": "The details",
+    "heading": "For those who'd like the details.",
+    "body": "Everything below is here for anyone who wants to look closer — there's no need to, unless you'd like to.",
+    "categories": [
+      {
+        "title": "Platform & Dimensions",
+        "specs": [
+          { "label": "Chassis Platform Reference", "value": "Wide-body commercial chassis (Force Urbania / Tempo Traveller XL wide chassis base)" },
+          { "label": "Overall Length / Width / Height", "value": "5,980 mm / 2,080 mm / 2,750 mm" },
+          { "label": "Wheelbase", "value": "3,610 mm wide stance for enhanced lateral stability" },
+          { "label": "Turning Radius", "value": "6.3 meters tailored for urban ceremonial access" }
+        ]
+      },
+      {
+        "title": "Interior Environment (\"The Sanctuary\")",
+        "specs": [
+          { "label": "Acoustic Dampening", "value": "Multi-layer butyl rubber sound deadening + 30mm acoustic felt insulation" },
+          { "label": "Ambient Lighting", "value": "Hidden dimmable 2700K warm LED linear cove with soft mood diffuser" },
+          { "label": "Wall & Ceiling Finish", "value": "Soft-touch matte seamless leatherette with warm walnut woodgrain accents" },
+          { "label": "Seating Configuration", "value": "4–6 ergonomic attendant seats with high-density foam & leatherette upholstery" }
+        ]
+      },
+      {
+        "title": "Ceremonial Systems & Bier Platform",
+        "specs": [
+          { "label": "Bier Platform Mechanism", "value": "Precision multi-stage electro-hydraulic lift platform with soft landing stop" },
+          { "label": "Locking Systems", "value": "Dual electromagnetic bier locks + mechanical safety pin latch" },
+          { "label": "Floral Retention", "value": "Integrated perimeter flower wreath mounting brackets & stainless clips" },
+          { "label": "Viewing Glass", "value": "Laminated acoustic double-glazed viewing bay with subtle privacy tint" }
+        ]
+      },
+      {
+        "title": "Climate & Hygiene Protocols",
+        "specs": [
+          { "label": "Rear AC System", "value": "Independent 14,000 BTU dual-evaporator rear climate system" },
+          { "label": "Air Purification", "value": "HEPA H13 filtration + active carbon odor neutralization" },
+          { "label": "Hygiene Surfacing", "value": "Hospital-grade antimicrobial interior paneling + seamless washable floor seal" },
+          { "label": "Sanitation System", "value": "Pre-wired for automated UV-C sanitation cycle between trips" }
+        ]
+      },
+      {
+        "title": "Electrical & Display Integration",
+        "specs": [
+          { "label": "Auxiliary Power Unit", "value": "12V 200Ah Lithium LiFePO4 auxiliary battery bank" },
+          { "label": "Inverter System", "value": "2000W pure sine wave quiet inverter for medical & cooling gear" },
+          { "label": "Audio Integration", "value": "Multi-zone Bluetooth acoustic sound system tuned for ambient soundscapes" },
+          { "label": "Digital Display", "value": "10-inch discreet ceremonial information console" }
+        ]
+      }
+    ]
+  },
+  "downloadCta": {
+    "heading": "Would you like the full details?",
+    "body": "We're glad to share the complete details for your family or your organisation — download them here, or simply ask us.",
+    "button": "Download details (PDF)"
+  },
+  "verse": {
+    "text": "The last journey should be as gentle as the life it carries.",
+    "attr": "A quiet remembrance"
+  }
+}

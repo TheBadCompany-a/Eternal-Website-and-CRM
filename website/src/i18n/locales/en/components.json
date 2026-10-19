@@ -1,0 +1,145 @@
+{
+  "nameAStar": {
+    "optionalLabel": "(optional)",
+    "photoErrorFallback": "We could not use that photograph.",
+    "thankYou": {
+      "heading": "Thank you",
+      "message": "Your star for {{name}} has been received. We look over each one gently before it joins the sky, and we may reach out to be sure we have it right."
+    },
+    "heading": "Name a star",
+    "subheading": "Tell us a little about them. Only their name, photograph and words are ever shown.",
+    "previewPlaceholderName": "Their name",
+    "fields": {
+      "name": {
+        "label": "Their name",
+        "placeholder": "The name they were known by"
+      },
+      "born": {
+        "label": "Born",
+        "placeholder": "Year"
+      },
+      "passed": {
+        "label": "Passed",
+        "placeholder": "Year"
+      },
+      "message": {
+        "label": "A few words",
+        "placeholder": "Something you would like the sky to remember"
+      },
+      "photo": {
+        "label": "A photograph",
+        "choose": "Choose a photograph",
+        "chooseDifferent": "Choose a different photograph",
+        "helper": "JPG, PNG or WebP. We make it smaller and remove hidden details, such as where it was taken."
+      },
+      "yourName": {
+        "label": "Your name"
+      },
+      "contact": {
+        "label": "Phone or email"
+      }
+    },
+    "contactHelper": "Only we see these, so we can reach you. They are never shown.",
+    "consentLabel": "I am family, or I have their family's blessing, to share this name, photograph and these words. I understand it is looked over before it appears.",
+    "errorMessage": "We could not send this just now. Please try again in a moment, or call us on",
+    "submit": "Light this star",
+    "sending": "Sending…"
+  },
+  "preBooking": {
+    "validation": {
+      "phoneInvalid": "Please enter a valid 10-digit mobile number (e.g. 9810000000)."
+    },
+    "detailsPrefix": {
+      "forWhom": "Pre-booking for:",
+      "tradition": "Faith / tradition:",
+      "callTime": "Best time to call:",
+      "notes": "Notes:"
+    },
+    "badge": "Pre-Booking",
+    "badgeSoon": "Plans launching SOON",
+    "heading": "Pre-Booking, made simple",
+    "intro": "Decide calmly today, so your family never has to improvise later. Register now and we will record your wishes and update you as plans go live.",
+    "startCta": "Start pre-booking",
+    "why": {
+      "heading": "Why pre-book",
+      "items": [
+        { "title": "Decide calmly", "text": "Choose with a clear mind today, not in the hardest hour." },
+        { "title": "Your wishes on record", "text": "Tell us once. Nothing is asked of your family twice." },
+        { "title": "One less thing for them", "text": "Your family knows who to call, and what you wanted." }
+      ]
+    },
+    "how": {
+      "heading": "How it works",
+      "items": [
+        { "title": "Share a few details", "text": "Two required fields, the rest optional. It takes a minute." },
+        { "title": "We call you", "text": "A member of our team calls to understand your wishes, unhurried." },
+        { "title": "You are on record", "text": "Your details are noted, and we keep you updated as pre-booking plans go live." }
+      ]
+    },
+    "forWhomOptions": ["Myself", "A parent", "A spouse or partner", "Another family member"],
+    "callTimeOptions": ["Morning", "Afternoon", "Evening", "Any time"],
+    "success": {
+      "heading": "Request received",
+      "message": "Thank you, {{name}}. Your pre-booking request is with our team.",
+      "fallbackName": "and welcome",
+      "nextHeading": "What happens next",
+      "steps": [
+        "Our team calls you on {{phone}} to understand your wishes.",
+        "We note your details, so you never have to repeat them.",
+        "We keep you updated as pre-booking plans go live."
+      ],
+      "callCta": "WhatsApp us"
+    },
+    "form": {
+      "heading": "Register for pre-booking",
+      "subheading": "Only name and phone are required. No payment is taken on this form.",
+      "fullName": { "label": "Full name", "placeholder": "e.g. Ananya Sen" },
+      "phone": { "label": "Phone", "placeholder": "10-digit mobile number" },
+      "forWhom": { "label": "Pre-booking is for", "select": "Select" },
+      "city": { "label": "City", "placeholder": "e.g. Noida" },
+      "tradition": { "label": "Faith / tradition", "placeholder": "So we honour your rites" },
+      "callTime": { "label": "Best time to call", "select": "Select" },
+      "email": { "label": "Email", "placeholder": "name@domain.com" },
+      "notes": { "label": "Anything we should know", "placeholder": "Wishes, questions, or anything you would like us to keep in mind" },
+      "optional": "(optional)",
+      "submit": "Request pre-booking",
+      "sending": "Sending…",
+      "consent": "By submitting, you agree that our team may contact you about pre-booking.",
+      "errorMessage": "We could not send your request just now. Please try again, or call us on",
+      "errorOr": "or",
+      "whatsappLink": "message us on WhatsApp"
+    }
+  },
+  "awardBand": {
+    "kicker": "A word of trust",
+    "recognitionPrefix": "In August 2026, {{presenter}} recognised Eternal Repos for",
+    "recognitionSuffix": "— a standard we hold ourselves to keep meeting, not a moment to celebrate.",
+    "readNote": "Read our note",
+    "dateSuffix": "Aug 2026"
+  },
+  "whatsApp": {
+    "ariaLabel": "Direct WhatsApp Business Chat",
+    "chatAriaLabel": "Chat on WhatsApp",
+    "tooltip": "WhatsApp Direct Desk"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Cookie consent",
+    "message": "We use cookies to understand how visitors use this site and to improve it. We only turn them on if you agree.",
+    "learnMore": "Learn more",
+    "decline": "Decline",
+    "accept": "Accept"
+  },
+  "starSky": {
+    "skyAriaLabel": "A sky of stars, each one named for someone loved",
+    "starLinkAria": "Visit the star for {{name}}",
+    "photoAlt": "Photograph of {{name}}",
+    "loading": "The sky is waking…",
+    "unavailable": "The sky is opening soon.",
+    "empty": "The sky is quiet. Yours can be the first light.",
+    "heading": "A star for them",
+    "subheading": "Name a star for someone you love. Their name and photograph will rest in the sky, for anyone to visit.",
+    "nameAStarCta": "Name a star",
+    "unavailableNotice": "Naming a star will open soon. If you would like to be told when it does,",
+    "writeToUs": "write to us"
+  }
+}

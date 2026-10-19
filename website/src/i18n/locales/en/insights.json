@@ -1,0 +1,50 @@
+{
+  "seo": {
+    "title": "From Our Journal — Eternal Repos",
+    "description": "Quiet reflections on dignity, grief, and standing beside families through the last goodbye."
+  },
+  "hero": {
+    "kicker": "From our journal",
+    "title": "Quiet reflections on care.",
+    "subtitle": "Thoughts on dignity, grief, and standing beside families through the last goodbye."
+  },
+  "whitePaper": {
+    "imageAlt": "Cover of The Unattended Hour",
+    "badge": "White paper · August 2026",
+    "title": "The Unattended Hour",
+    "description": "India registers ten million deaths a year and has no published standard for what happens in the hours after any of them. Twenty pages on why that gap exists, what it costs families, and why mobility is the spine of any standard worth writing.",
+    "cta": "Read the paper"
+  },
+  "listing": {
+    "readButton": "Read"
+  },
+  "articles": {
+    "article1": {
+      "title": "Why a family should never have to improvise a farewell",
+      "category": "Reflection",
+      "date": "July 24, 2026",
+      "readTime": "5 min read",
+      "excerpt": "For too long, grieving families have had to make do with whatever transport they could find. We explore why that should never be — and how gentle, thoughtful care changes it.",
+      "content": "<p>In Indian society, ceremonial rites around life’s final transition carry immense spiritual and familial gravity. Yet, for generations, the mobility infrastructure connecting hospitals, homes, and ceremonial grounds remained virtually unexamined.</p>\n        <h3 class=\"font-serif text-2xl font-bold text-deep-brown mt-6 mb-3\">The Problem of Improvised Vehicles</h3>\n        <p>Commercial utility vans retrofitted with basic metal biers often lacked sound dampening, proper climate control, or reverent interior lighting. Emergency medical ambulances, pressed into service as mortuary vans, brought hospital sirens and clinical harshness to a moment that called for peaceful composure.</p>\n        <h3 class=\"font-serif text-2xl font-bold text-deep-brown mt-6 mb-3\">Purpose-Built, With Care</h3>\n        <p>Eternal was created to replace improvised, impersonal arrangements with something gentler and more dignified. By insulating cabin acoustics, introducing gentle, dignified handling, and integrating soft warm cove lighting, ceremonial mobility becomes a serene sanctuary for grieving families.</p>"
+    },
+    "article2": {
+      "title": "How hospitals can care for families, right to the end",
+      "category": "For institutions",
+      "date": "June 18, 2026",
+      "readTime": "6 min read",
+      "excerpt": "A family’s care doesn’t end at discharge. A gentle look at how hospitals can make sure grieving families are held, right to the end.",
+      "content": "<p>More and more hospitals are recognising that care doesn’t end at discharge. How a family is treated in their moment of loss says everything about an institution’s heart.</p>\n        <h3 class=\"font-serif text-2xl font-bold text-deep-brown mt-6 mb-3\">What thoughtful care looks like</h3>\n        <p>1. <strong>Cared for:</strong> immaculate, gently sanitised interiors, tended between every journey.<br>\n        2. <strong>Dependable:</strong> a reliable presence you can count on, whenever a family needs it.<br>\n        3. <strong>Gentle people:</strong> calm, softly-spoken team members, trained in grief sensitivity and discretion.</p>"
+    }
+  },
+  "reader": {
+    "back": "Back to the journal",
+    "publishedPrefix": "Published",
+    "byTeam": "By the Eternal team",
+    "shareCta": "If this resonated, share it with someone who might need it.",
+    "moreButton": "More from our journal"
+  },
+  "verse": {
+    "text": "Grief keeps no timetable; neither does our care.",
+    "attr": "A quiet remembrance"
+  }
+}

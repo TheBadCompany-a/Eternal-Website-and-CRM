@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "A Word of Trust — Eternal Repos",
+    "description": "On being recognised by ET NOW for Excellence in Creating Dignified Farewell Journeys — a note from our founder on what the recognition means, and the standard it asks us to keep."
+  },
+  "hero": {
+    "eyebrow": "A word of trust",
+    "heading": "A Word of Trust",
+    "subheading": "On being recognised for “Excellence in Creating Dignified Farewell Journeys.”"
+  },
+  "article": {
+    "p1": "There are rooms you are let into only once. A family opens the door on the worst day of their life and, for a few hours, allows a stranger to stand beside them. None of that is owed to us. It is given — and it is given at the one moment when trust is hardest to extend.",
+    "p2Before": "So when I learned that ET NOW had recognised Eternal Repos for ",
+    "p2Italic": "Excellence in Creating Dignified Farewell Journeys",
+    "p2After": ", my first feeling was not triumph. It was gratitude, and something heavier underneath it.",
+    "p3": "Eternal began with a thought — a mindfulness for the departed, and for the family left behind, who carry loss, pain, grief and memory all at once in the last moments of a life. It is rooted in a simple conviction: that dignity is an inherent right, not only in our living moments, but when we cease to exist. To have that thought recognised at a stage like this is, for our whole team, a moment of fulfilment — and of motivation for everyone who will walk this road with us.",
+    "p4": "The gratitude belongs, before anyone else, to the families who let us in. You called at hours no one should have to keep. You handed us details you could barely say aloud, and trusted that they would be carried gently. This recognition is yours before it is ours. It belongs, too, to a team that treats reverence as a discipline rather than a mood, and to the hospitals, trusts and community partners who decided, quietly, that the families in their care deserved better than whoever happened to be available at the gate.",
+    "p5a": "People sometimes ask how technology sits inside work as human as this. To me the answer is settled. Technology is a tool — an aid to functioning and managing better — never a replacement for empathy or care. It carries the speed and the structure: a quick response, an easy booking, clear communication, nothing asked of a family twice. That takes the mundane logistics off people who are already carrying far too much. But no system can be gentle. Our team is trained to be patient and respectful in every interaction, and it is their warmth and calmness that make a family feel",
+    "p5CaredWord": "cared for",
+    "p5Middle": "not merely",
+    "p5ServedWord": "served",
+    "p5b": "Technology is the backbone of what we do; care and compassion are its neural nodes. Neither works without the other.",
+    "pullQuote": "I want to be careful about what an award like this is, and what it is not.",
+    "p6": "It is not a finish line. We did not set out to win anything; we set out to close a gap. India says goodbye to more than ten million people a year, and almost none of that farewell is designed. The missing thing was never luxury. It was presence — someone who shows up, carries the practical weight, and never trades on grief. An award does not fill that gap. At best, it is a witness that we are pointed the right way.",
+    "p7": "Nor is it a claim to have arrived. The honour was conferred at the ETNow.in Business Conclave & Awards 2026, West Edition, which concluded in Mumbai on 25 August under the theme “Where Business Meets Technology.” Maharashtra’s Deputy Chief Minister, Eknath Shinde, spoke that evening about a longer horizon — a 2047 vision of world-class infrastructure, better governance, investment and inclusive development. The lesson I took was not that we have finished anything. It was that the standard we are trying to hold is bigger than us, and further out than a single evening.",
+    "p8": "What the recognition really does is raise the bar rather than settle it. The moment an outside body says a thing is being done well, that thing becomes a promise you now have to keep — to every family who reads it, in a city where you have never worked, on a night you cannot predict. A word of trust from the outside is worth something only if the inside keeps earning it, quietly, one family at a time, long after the evening is forgotten.",
+    "p9": "So we will treat this the way we would want to be treated: without noise. We are not going to place a trophy at the top of a page that a grieving family opens looking for help. We would rather you found the helpline first, and the honour second, if at all. Let it mean only this — that when you call, you are calling a house others have judged worthy of the trust you are about to place in it, and that we intend to be worthy of it again.",
+    "p10": "Thank you — to ET NOW, to our partners, and above all to the families who allowed us into the room. We know what it cost you to open the door. We will keep trying to deserve it."
+  },
+  "signature": {
+    "name": "Shaily Sharma",
+    "title": "Founder, Eternal Repos"
+  },
+  "recognition": {
+    "recognisedForBefore": "Recognised for",
+    "recognisedForAfter": "at the {{event}}, {{edition}}.",
+    "readAnnouncement": "Read the announcement",
+    "videoCaption": "A moment from the evening — {{event}}, {{edition}}.",
+    "talkToUs": "Talk to us"
+  }
+}

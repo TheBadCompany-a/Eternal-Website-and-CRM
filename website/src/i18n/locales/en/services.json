@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "eyebrow": "Support across Delhi NCR",
+    "title": "Complete care and support for your loved one's final journey.",
+    "description": "In difficult moments, your family should not have to face confusion or run around for arrangements. We assist you gently with everything — respectful ceremonial transport, hospital clearance, crematorium entry, flowers, and prayer meetings. Our team stays with you with complete warmth and care.",
+    "talkCta": "Talk to us — anytime",
+    "viewPackagesCta": "View Packages & Pricing",
+    "imageAlt": "Eternal Repos tribute vehicle and ceremonial care team standing beside a family"
+  },
+  "fiveCircles": {
+    "eyebrow": "How we help your family",
+    "title": "Five ways we stand beside you.",
+    "description": "From the very first call to the days following the farewell, we are here to support your family step by step with gentle, respectful care.",
+    "caption": "Five circles of care, held on a single thread — from the first call to the days long after.",
+    "items": [
+      {
+        "title": "Immediate Transport"
+      },
+      {
+        "title": "Prayer Hall & Flowers"
+      },
+      {
+        "title": "Family Support"
+      },
+      {
+        "title": "Pre-Planning"
+      },
+      {
+        "title": "Special Assistance"
+      }
+    ]
+  },
+  "pathways": {
+    "eyebrow": "SERVICE CATEGORIES",
+    "title": "How can we help?",
+    "exploreLabel": "EXPLORE",
+    "items": [
+      {
+        "kicker": "AVAILABLE 24×7 ACROSS DELHI NCR",
+        "title": "Immediate Help & Ceremonial Transport",
+        "description": "Clean, air-conditioned vehicle from hospital or home to the cremation ground. Includes complete help with hospital paperwork, gate passes, and an extra car for family members."
+      },
+      {
+        "kicker": "PRAYER MEETINGS & GATHERINGS",
+        "title": "Prayer Hall & Floral Services",
+        "description": "Arranging quiet prayer halls (Shok Sabha), flower decorations, simple tea and snacks for guests, and heartfelt obituary messages with trusted local partners."
+      },
+      {
+        "kicker": "CARING FOR YOUR FAMILY",
+        "title": "Family Support",
+        "description": "Simple step-by-step guidance for Asthi Visarjan (Haridwar, Garhmukteshwar, and sacred rivers) with comfortable cars and caring emotional support whenever you need."
+      },
+      {
+        "kicker": "PEACE OF MIND FOR TOMORROW",
+        "title": "Pre-Planning",
+        "description": "Thoughtful advance plans being developed to arrange services ahead of time, ensuring clarity and protecting your family from sudden stress."
+      },
+      {
+        "kicker": "OUTSTATION & REPATRIATION",
+        "title": "Special Assistance",
+        "description": "Help when taking your loved one to a hometown outside Delhi NCR, including interstate travel permits, police and hospital clearances, and international repatriation support."
+      }
+    ]
+  },
+  "packagesSection": {
+    "eyebrow": "Care Plans",
+    "title": "Farewell Care Packages",
+    "description": "Every detail itemized and clearly explained, so your family knows exactly what to expect with no hidden surprises.",
+    "vehicleLabel": "Vehicle Care",
+    "mediumLabel": "Complete Ceremonial Care",
+    "vipLabel": "Signature VIP Care",
+    "whatsIncluded": "What's Included",
+    "chooseCta": "Choose {{name}}",
+    "footnote": "Every farewell is sacred and personal. All packages can be customised according to your family's religious customs, priest traditions, and specific floral preferences.",
+    "needHelp": "Need help deciding?",
+    "callLine": "Call 24×7: +91 84486 61338"
+  },
+  "howItWorksSection": {
+    "eyebrow": "SIMPLE 5-STEP PROCESS",
+    "title": "What happens when you call us?",
+    "description": "We handle every arrangement step by step with quiet care, so your family does not have to worry about running around.",
+    "stepOf": "Step {{n}} of {{total}}"
+  },
+  "areasSection": {
+    "eyebrow": "ACROSS DELHI NCR",
+    "title": "Where our team serves",
+    "description": "Our team and clean ceremonial vehicles are active 24×7 across Delhi, Gurgaon, Noida, Greater Noida, Ghaziabad, and Faridabad to reach your location promptly with courteous support.",
+    "footnote": "Intercity transfers beyond Delhi NCR and international repatriation logistics are coordinated on a case-by-case basis."
+  },
+  "verse": {
+    "text": "We cannot make the weight lighter — only carry it with you.",
+    "attr": "Eternal Repos"
+  },
+  "mobileBar": {
+    "ariaLabel": "Mobile Immediate Assistance Bar",
+    "call": "Call 24×7",
+    "whatsapp": "WhatsApp"
+  },
+  "seo": {
+    "title": "Funeral Transport & Coordination Services in Delhi NCR | Eternal Repos",
+    "description": "Eternal Repos provides 24×7 dignified funeral transport, documentation support, funeral coordination and specialised assistance across Delhi NCR."
+  }
+}
