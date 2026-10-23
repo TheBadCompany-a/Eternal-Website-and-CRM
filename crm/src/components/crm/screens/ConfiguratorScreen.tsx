@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../../auth/useAuth';
 import { useArrangements } from '../../../data/useArrangements';
-import { useCreatePackage, useServiceCatalog, useSetPackageServices, useSharedPackage, useUpdatePackage } from '../../../data/usePackages';
+import { useCreatePackage, useReadyPackages, useServiceCatalog, useSetPackageServices, useSharedPackage, useUpdatePackage } from '../../../data/usePackages';
 import { whatsappLink } from '../../../lib/whatsapp';
 import { useToast } from '../../../toast/useToast';
 
@@ -14,6 +14,8 @@ export function ConfiguratorScreen() {
   const navigate = useNavigate();
   const arrangements = useArrangements();
   const catalog = useServiceCatalog();
+  const ready = useReadyPackages();
+  const [params, setParams] = useSearchParams();
 
   // The package is created on the first change so unused sessions leave no rows behind.
   const [token, setToken] = useState<string | null>(null);
@@ -69,6 +71,28 @@ export function ConfiguratorScreen() {
       failed();
     }
   };
+
+  const applyPackage = async (key: string) => {
+    if (converted) return;
+    const pkg = ready.data.find((item) => item.key === key);
+    if (!pkg) return;
+    try {
+      const { token: activeToken } = await ensurePackage();
+      await setServices.mutateAsync({ token: activeToken, keys: pkg.items.map((item) => item.key) });
+      showToast(`${pkg.name} added. Send the family the link when ready.`, 'info');
+    } catch {
+      failed();
+    }
+  };
+
+  // Arriving from Service Plans ("Give to a customer"): apply that package once, as soon as everything has loaded.
+  const wanted = params.get('package');
+  useEffect(() => {
+    if (!wanted || !leadReference || ready.data.length === 0) return;
+    setParams({}, { replace: true });
+    void applyPackage(wanted);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wanted, leadReference, ready.data.length]);
 
   const changeLead = (reference: string) => {
     setLeadReference(reference);
@@ -135,6 +159,18 @@ export function ConfiguratorScreen() {
             {lead && <div className="config-customer"><strong>{lead.contactName || lead.family}</strong><span>{lead.phone}</span></div>}
           </div>
 
+          {ready.data.length > 0 && (
+            <div style={{ margin: '14px 0 4px' }}>
+              <label className="comms-label">Start from a ready-made package</label>
+              <div className="config-chips" role="group" aria-label="Ready-made packages">
+                {ready.data.map((pkg) => (
+                  <button type="button" key={pkg.key} disabled={converted} onClick={() => void applyPackage(pkg.key)}>
+                    {pkg.name} · {rupees(pkg.total)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           {catalog.isError && <p className="comms-help">Service catalog could not be loaded. Run <code>supabase/008_shared_packages.sql</code> in Supabase.</p>}
           <input className="comms-control" style={{ margin: '14px 0 8px' }} placeholder="Search services…" value={search} onChange={(e) => setSearch(e.target.value)} />
           <div className="config-chips" role="tablist" aria-label="Service groups">

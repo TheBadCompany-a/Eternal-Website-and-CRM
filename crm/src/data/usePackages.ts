@@ -47,6 +47,37 @@ export function useServiceCatalog() {
   });
 }
 
+export interface ReadyPackage {
+  key: string;
+  name: string;
+  tagline: string;
+  highlighted: boolean;
+  items: { key: string; name: string; price: number }[];
+  total: number;
+}
+
+/** The ready-made packages. Each price is the sum of its services' current catalog prices. */
+export function useReadyPackages() {
+  const catalog = useServiceCatalog();
+  const packages = useQuery({
+    queryKey: ['service-packages'],
+    queryFn: async () => {
+      const { data, error } = await supabase.from('service_packages').select('*').order('sort_order');
+      if (error) throw error;
+      return data;
+    },
+  });
+  const byKey = new Map((catalog.data ?? []).map((service) => [service.key, service]));
+  const data: ReadyPackage[] = (packages.data ?? []).map((row) => {
+    const items = row.service_keys.flatMap((key) => {
+      const service = byKey.get(key);
+      return service ? [{ key, name: service.name, price: service.price }] : [];
+    });
+    return { key: row.package_key, name: row.name, tagline: row.tagline, highlighted: row.highlighted, items, total: items.reduce((sum, item) => sum + item.price, 0) };
+  });
+  return { data, isLoading: packages.isLoading || catalog.isLoading, isError: packages.isError };
+}
+
 export function useCreatePackage() {
   return useMutation({
     mutationFn: async ({ arrangementId, customerName, createdBy }: { arrangementId: string; customerName: string; createdBy: string }) => {

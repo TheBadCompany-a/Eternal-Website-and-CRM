@@ -207,6 +207,16 @@ export type RecordRow = {
   created_at: string;
 };
 
+export type ServicePackageRow = {
+  package_key: string;
+  name: string;
+  tagline: string;
+  highlighted: boolean;
+  sort_order: number;
+  service_keys: string[];
+  created_at: string;
+};
+
 export type LeadAccessRow = { arrangement_id: string; profile_id: string; created_at: string };
 
 export type DriverStatusRow = 'Assigned' | 'Accepted' | 'En route to pickup' | 'Arrived' | 'Picked up' | 'Completed';
@@ -309,6 +319,7 @@ export type Database = {
         Partial<Omit<RecordRow, 'id' | 'created_at'>> & Pick<RecordRow, 'title' | 'file_path' | 'file_name'>,
         Partial<RecordRow>
       >;
+      service_packages: TableDef<ServicePackageRow, Partial<ServicePackageRow> & Pick<ServicePackageRow, 'package_key' | 'name'>, Partial<ServicePackageRow>>;
       lead_access: TableDef<LeadAccessRow, Pick<LeadAccessRow, 'arrangement_id' | 'profile_id'>, Partial<LeadAccessRow>>;
       driver_tasks: TableDef<
         DriverTaskRow,

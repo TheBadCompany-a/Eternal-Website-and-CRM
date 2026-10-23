@@ -1,0 +1,160 @@
+/** More English → Hindi for CRM screens. Entries here win over hindi.ts. */
+export const HI_MORE: Record<string, string> = {
+  // section headings on the dashboard
+  '1 & 2. Arrangements Overview & Status': '1 और 2. व्यवस्थाओं का अवलोकन और स्थिति',
+  "3. Today's Schedule": '3. आज का कार्यक्रम',
+  '4. Recent Arrangements': '4. हाल की व्यवस्थाएँ',
+  '5. Coordinator Callbacks': '5. कोऑर्डिनेटर कॉलबैक',
+  '6. Fleet': '6. वाहन बेड़ा',
+  '7. Team': '7. टीम',
+  '8. Communications': '8. संवाद',
+  'En Route': 'रास्ते में',
+  '🟢 Operations Control Center': '🟢 ऑपरेशन कंट्रोल सेंटर',
+
+  // settings: access, account, activity, company, rules
+  'Admins always see everything. Everyone can open Settings for their own account.': 'एडमिन हमेशा सब कुछ देखते हैं। हर कोई अपने खाते की सेटिंग्स खोल सकता है।',
+  'Save access': 'एक्सेस सेव करें', Screen: 'स्क्रीन',
+  'A UPI payment reported by a family, or a Razorpay payment.': 'परिवार द्वारा बताया गया यूपीआई भुगतान, या रेज़रपे भुगतान।',
+  'Add photo': 'फ़ोटो जोड़ें', 'Change photo': 'फ़ोटो बदलें', 'For leads assigned to me.': 'मुझे सौंपी गई लीड के लिए।',
+  'From any website form.': 'वेबसाइट के किसी भी फ़ॉर्म से।', 'JPG, PNG or WebP, up to 2 MB.': 'JPG, PNG या WebP, अधिकतम 2 एमबी।',
+  'Lost a phone or left yourself signed in somewhere? This signs you out everywhere.': 'फ़ोन खो गया या कहीं साइन इन छोड़ दिया? इससे आप हर जगह से साइन आउट हो जाएँगे।',
+  'Tell me when… (shown on screen while the CRM is open)': 'मुझे बताएँ जब… (सीआरएम खुला होने पर स्क्रीन पर दिखेगा)',
+  'This changes the language of the whole CRM. You can also switch it from the top of any screen.': 'इससे पूरे सीआरएम की भाषा बदल जाती है। आप इसे किसी भी स्क्रीन के ऊपर से भी बदल सकते हैं।',
+  'When a coordinator is set on a lead.': 'जब किसी लीड पर कोऑर्डिनेटर तय हो जाए।',
+  'For example: leads are kept for 7 years; a full backup is downloaded on the 1st of every month.': 'उदाहरण: लीड 7 साल तक रखी जाती हैं; हर महीने की 1 तारीख़ को पूरा बैकअप डाउनलोड होता है।',
+  'Spreadsheet files you can open in Excel or Google Sheets.': 'स्प्रेडशीट फ़ाइलें जिन्हें आप एक्सेल या गूगल शीट्स में खोल सकते हैं।',
+  'The activity log could not be loaded.': 'गतिविधि लॉग लोड नहीं हो सका।', What: 'क्या', When: 'कब', Who: 'किसने',
+  'Who did what: deleted leads, payments, new and removed users, role, price and setting changes.': 'किसने क्या किया: हटाई गई लीड, भुगतान, नए और हटाए गए उपयोगकर्ता, भूमिका, कीमत और सेटिंग में बदलाव।',
+  'Bank, account number, IFSC': 'बैंक, खाता संख्या, आईएफ़एससी', 'For example: payment terms, what is not included…': 'उदाहरण: भुगतान की शर्तें, क्या शामिल नहीं है…',
+  'Razorpay online payments are connected separately, with keys in the Supabase project.': 'रेज़रपे ऑनलाइन भुगतान अलग से जुड़े हैं, इनकी कुंजियाँ सुपाबेस प्रोजेक्ट में हैं।',
+  'Give new leads to a coordinator automatically': 'नई लीड अपने-आप कोऑर्डिनेटर को दें',
+  'The coordinator with the fewest open cases gets the lead.': 'जिस कोऑर्डिनेटर के सबसे कम खुले केस हैं, उसे लीड मिलती है।',
+  'These are built into the system and cannot be edited here.': 'ये सिस्टम में पहले से बने हैं और यहाँ बदले नहीं जा सकते।',
+  'Website, Google Ads, Meta Ads, WhatsApp, Referral, Walk-in, Other': 'वेबसाइट, गूगल ऐड्स, मेटा ऐड्स, व्हाट्सऐप, रेफ़रल, वॉक-इन, अन्य',
+  'Saved staff logins': 'सेव किए गए स्टाफ़ लॉगिन', 'Edit credential': 'क्रेडेंशियल बदलें', Never: 'कभी नहीं',
+  'e.g. Razorpay dashboard': 'जैसे रेज़रपे डैशबोर्ड', 'Nothing saved yet. Use “Add credential” to store your first one.': 'अभी कुछ सेव नहीं है। पहला सेव करने के लिए “क्रेडेंशियल जोड़ें” दबाएँ।',
+  'Password / key (leave empty to keep the current one)': 'पासवर्ड / कुंजी (वर्तमान रखने के लिए खाली छोड़ें)',
+  'Administrators always can. Tick anyone else who needs access.': 'एडमिन हमेशा खोल सकते हैं। जिन्हें एक्सेस चाहिए उन्हें टिक करें।',
+  'Mark the lead as sensitive and save to choose who can open it.': 'लीड को संवेदनशील चिह्नित करें और सेव करें, फिर चुनें कि कौन इसे खोल सकता है।',
+  'Settings sections': 'सेटिंग्स के भाग', 'Change theme': 'थीम बदलें', Theme: 'थीम', Themes: 'थीम',
+
+  // common
+  'Saving…': 'सेव हो रहा है…', 'Sending…': 'भेजा जा रहा है…', 'Uploading…': 'अपलोड हो रहा है…', 'Creating…': 'बन रहा है…', 'Loading fleet…': 'वाहन बेड़ा लोड हो रहा है…',
+  'View as table': 'तालिका में देखें', 'View chart': 'चार्ट देखें', Undo: 'वापस करें', Payment: 'भुगतान', Note: 'नोट', Day: 'दिन', Dates: 'तारीख़ें',
+  'Date range': 'तारीख़ की सीमा', 'Eternal Repos': 'इटरनल रेपोस', 'Cannot reach the server. Check your internet connection and try again.': 'सर्वर से संपर्क नहीं हो पा रहा। इंटरनेट जाँचकर दोबारा कोशिश करें।',
+  'Active': 'सक्रिय', 'Hidden': 'छिपा हुआ',
+
+  // vehicles / users
+  'A vehicle with this registration already exists.': 'इस पंजीकरण वाला वाहन पहले से मौजूद है।', 'e.g. Premium Hearse': 'जैसे प्रीमियम शव वाहन',
+  'Hearse, Van, Ambulance…': 'शव वाहन, वैन, एम्बुलेंस…', 'Only admins can add vehicles.': 'केवल एडमिन वाहन जोड़ सकते हैं।', 'Save vehicle': 'वाहन सेव करें',
+  'No vehicles yet.': 'अभी कोई वाहन नहीं।', '+ Add user': '+ उपयोगकर्ता जोड़ें', 'Create user': 'उपयोगकर्ता बनाएँ', 'Only an admin can add users.': 'केवल एडमिन उपयोगकर्ता जोड़ सकते हैं।',
+  'Phone Contact': 'फ़ोन संपर्क',
+
+  // bookings, leads
+  'Every booking remains connected to its enquiry, quotation, payments and operations workflow.': 'हर बुकिंग अपनी पूछताछ, कोटेशन, भुगतान और ऑपरेशन से जुड़ी रहती है।',
+  '+ New lead': '+ नई लीड', '⚠ Possible duplicate (same phone)': '⚠ संभावित डुप्लिकेट (वही फ़ोन)',
+  'Ad source, WhatsApp reference, classification and sensitivity controls will be added to this record.': 'विज्ञापन स्रोत, व्हाट्सऐप संदर्भ, वर्गीकरण और संवेदनशीलता नियंत्रण इस रिकॉर्ड में जोड़े जाएँगे।',
+  'All leads': 'सभी लीड', 'Campaign / ad set': 'कैंपेन / ऐड सेट', 'Class / priority': 'वर्ग / प्राथमिकता', 'Example: Bangalore Search — October': 'उदाहरण: बेंगलुरु सर्च — अक्टूबर',
+  'External lead ID': 'बाहरी लीड आईडी', 'Follow-up': 'फ़ॉलो-अप', 'Google or Meta lead ID': 'गूगल या मेटा लीड आईडी',
+  'Lead records could not be loaded. Please refresh or check the database connection.': 'लीड रिकॉर्ड लोड नहीं हो सके। कृपया रीफ़्रेश करें या डेटाबेस कनेक्शन जाँचें।',
+  'Next data upgrade': 'अगला डेटा अपग्रेड', 'Save source': 'स्रोत सेव करें', 'Source / campaign': 'स्रोत / कैंपेन',
+  'Track enquiries from first contact through quotation and confirmed booking. Each lead is anchored to its permanent reference number so sales, operations and accounts stay aligned.': 'पहले संपर्क से कोटेशन और पक्की बुकिंग तक पूछताछ को ट्रैक करें। हर लीड अपने स्थायी संदर्भ नंबर से जुड़ी है ताकि सेल्स, ऑपरेशन और अकाउंट्स एक साथ रहें।',
+  'Use the global search to find a family, contact, phone number or reference.': 'परिवार, संपर्क, फ़ोन नंबर या संदर्भ खोजने के लिए ऊपर की खोज का उपयोग करें।',
+  'Visible in current view': 'मौजूदा दृश्य में दिख रही', 'Where did this lead come from? This feeds the lead-source report.': 'यह लीड कहाँ से आई? यह लीड-स्रोत रिपोर्ट में जाता है।',
+  'Create lead': 'लीड बनाएँ', 'e.g. Cremation transport': 'जैसे दाह संस्कार परिवहन', 'e.g. Delhi, Noida, Gurugram': 'जैसे दिल्ली, नोएडा, गुरुग्राम',
+  '✓ Closed': '✓ बंद', Classification: 'वर्गीकरण', 'Last service': 'अंतिम सेवा', 'No families match.': 'कोई परिवार नहीं मिला।',
+  'Search name, phone, email, reference…': 'नाम, फ़ोन, ईमेल, संदर्भ से खोजें…',
+
+  // communications
+  '● WhatsApp': '● व्हाट्सऐप', 'All channels': 'सभी माध्यम', 'Choose a customer first': 'पहले ग्राहक चुनें', 'Choose a template…': 'टेम्पलेट चुनें…',
+  'Conversation update': 'बातचीत का अपडेट', 'Every conversation tied to its lead reference.': 'हर बातचीत उसकी लीड के संदर्भ से जुड़ी है।',
+  'Example: Shared the quotation and scheduled a callback for 4:30 PM.': 'उदाहरण: कोटेशन भेजा और शाम 4:30 बजे कॉलबैक तय किया।',
+  'Feedback request': 'फ़ीडबैक अनुरोध', 'Find the customer by CRM reference before recording any update.': 'कोई अपडेट दर्ज करने से पहले सीआरएम संदर्भ से ग्राहक खोजें।',
+  'Keep messages factual: response, promise, follow-up, document or status.': 'संदेश तथ्यात्मक रखें: जवाब, वादा, फ़ॉलो-अप, दस्तावेज़ या स्थिति।',
+  'Log an update against the customer’s CRM reference to give sales, operations and accounts one shared timeline. “Send via WhatsApp” opens the chat with your message ready to send, and logs it here.': 'सेल्स, ऑपरेशन और अकाउंट्स को एक साझा टाइमलाइन देने के लिए ग्राहक के सीआरएम संदर्भ पर अपडेट दर्ज करें। “व्हाट्सऐप से भेजें” आपका संदेश तैयार करके चैट खोलता है और यहाँ दर्ज भी करता है।',
+  'New lead welcome': 'नई लीड का स्वागत', 'No lead selected': 'कोई लीड नहीं चुनी', 'Reference-first communication hygiene.': 'संदर्भ-आधारित साफ़-सुथरा संवाद।',
+  'Show all channels': 'सभी माध्यम दिखाएँ', 'Show WhatsApp only': 'केवल व्हाट्सऐप दिखाएँ', 'Start from a template': 'टेम्पलेट से शुरू करें',
+  'The lead reference is saved automatically with this entry.': 'इस प्रविष्टि के साथ लीड का संदर्भ अपने-आप सेव हो जाता है।',
+  'Use the same reference for every team handover and booking conversion.': 'हर टीम हैंडओवर और बुकिंग में बदलने के लिए यही संदर्भ इस्तेमाल करें।',
+  'WhatsApp lead tracking': 'व्हाट्सऐप लीड ट्रैकिंग', 'WhatsApp updates only': 'केवल व्हाट्सऐप अपडेट',
+
+  // sales configurator and plans
+  'Build a package': 'पैकेज बनाएँ', Converted: 'बदला गया', Shared: 'साझा किया', 'CRM lead reference': 'सीआरएम लीड संदर्भ', 'No other family matches.': 'कोई और परिवार नहीं मिला।',
+  'No services match.': 'कोई सेवा नहीं मिली।', 'Search name or phone…': 'नाम या फ़ोन से खोजें…', 'Search services…': 'सेवाएँ खोजें…', 'Service groups': 'सेवा समूह',
+  'Tap services to add them. Send the family a link when ready.': 'सेवाएँ जोड़ने के लिए उन पर टैप करें। तैयार होने पर परिवार को लिंक भेजें।',
+  'Offered in configurator': 'कॉन्फ़िगरेटर में उपलब्ध', 'Only admins can change prices.': 'केवल एडमिन कीमतें बदल सकते हैं।',
+  'The same three packages as the website. Each price is the total of its services below, so changing a price updates the package.': 'वेबसाइट जैसे ही तीन पैकेज। हर कीमत नीचे की सेवाओं का कुल है, इसलिए कीमत बदलने पर पैकेज भी बदल जाता है।',
+  'Could not save your change. Please try again.': 'आपका बदलाव सेव नहीं हो सका। कृपया दोबारा कोशिश करें।', 'ETERNAL REPOS · LIVE PACKAGE SESSION': 'इटरनल रेपोस · लाइव पैकेज सत्र',
+  'Package session not found': 'पैकेज सत्र नहीं मिला', 'Please ask your sales coordinator for a fresh shared link.': 'कृपया अपने सेल्स कोऑर्डिनेटर से नया लिंक माँगें।',
+  'This package has been finalised by your coordinator.': 'यह पैकेज आपके कोऑर्डिनेटर ने अंतिम कर दिया है।', 'Your coordinator and you see changes to this package in real time.': 'आप और आपके कोऑर्डिनेटर इस पैकेज के बदलाव उसी समय देखते हैं।',
+  'Both are already chosen.': 'दोनों पहले से चुने हैं।', '✏️ Custom…': '✏️ अन्य…',
+
+  // documents, operations, driver app
+  'Active cases still pending': 'सक्रिय केस जो अभी बाकी हैं', 'Paperwork to collect': 'जमा करने वाले कागज़ात', Verified: 'सत्यापित',
+  'Ticking “verified” also completes the documents step on the Operations and Driver checklists.': '“सत्यापित” टिक करने से ऑपरेशन और ड्राइवर चेकलिस्ट में दस्तावेज़ वाला चरण भी पूरा हो जाता है।',
+  'No cases yet.': 'अभी कोई केस नहीं।', 'Cases could not be loaded. Please refresh.': 'केस लोड नहीं हो सके। कृपया रीफ़्रेश करें।', 'Operations views': 'ऑपरेशन दृश्य',
+  'No driver': 'कोई ड्राइवर नहीं', 'No vehicle': 'कोई वाहन नहीं', 'Search case, family, place…': 'केस, परिवार, स्थान खोजें…',
+  '“On the way” will include a map link once the driver’s location is available.': 'ड्राइवर की लोकेशन मिलते ही “रास्ते में” संदेश में मैप लिंक जुड़ जाएगा।',
+  '📍 No location yet. It appears once the driver shares it from the Driver App.': '📍 अभी लोकेशन नहीं। ड्राइवर के ऐप से साझा करते ही दिखेगी।',
+  'Anything worth remembering': 'याद रखने लायक कोई बात', 'Arrived at the crematorium or cemetery': 'श्मशान या कब्रिस्तान पहुँचे', 'Ceremonial transit and escort under way': 'अंतिम यात्रा और एस्कॉर्ट जारी है',
+  'Driver expenses approved': 'ड्राइवर के खर्च मंज़ूर', 'Driver leaves for the pickup point': 'ड्राइवर पिकअप के लिए निकलता है', 'Family feedback not received yet': 'परिवार का फ़ीडबैक अभी नहीं मिला',
+  'Family feedback received': 'परिवार का फ़ीडबैक मिला', 'Name and relation, e.g. Ramesh, son': 'नाम और रिश्ता, जैसे रमेश, बेटा', 'No phone number on this case.': 'इस केस में फ़ोन नंबर नहीं है।',
+  'Open on map': 'मैप पर खोलें', 'Payment complete': 'भुगतान पूरा', 'Reached the hospital mortuary or family home': 'अस्पताल के मुर्दाघर या परिवार के घर पहुँचे',
+  'Service completed and handover closed': 'सेवा पूरी और हैंडओवर बंद', 'Write down who received the family or the body, so there is always a record.': 'लिख लें कि परिवार या पार्थिव शरीर को किसने लिया, ताकि हमेशा रिकॉर्ड रहे।',
+  '“On time” means the driver marked Arrived within 15 minutes of the service time.': '“समय पर” का मतलब है कि ड्राइवर ने सेवा के समय के 15 मिनट के भीतर “पहुँचा” दर्ज किया।',
+  'Not assigned': 'सौंपा नहीं गया', 'NOT ASSIGNED': 'सौंपा नहीं गया', 'Nothing assigned yet.': 'अभी कुछ सौंपा नहीं गया।', 'Send tomorrow’s schedule to drivers and the office.': 'कल का कार्यक्रम ड्राइवरों और ऑफ़िस को भेजें।',
+  '⌖ Update location': '⌖ लोकेशन अपडेट करें', '✓ Confirm attendance': '✓ उपस्थिति की पुष्टि करें', 'Activity note': 'गतिविधि नोट', 'Attendance not confirmed': 'उपस्थिति की पुष्टि नहीं हुई',
+  'Check in, record task progress, confirm arrival and pickup, add expenses. Every update reaches the office live.': 'चेक इन करें, काम की प्रगति दर्ज करें, पहुँचने और पिकअप की पुष्टि करें, खर्च जोड़ें। हर अपडेट ऑफ़िस तक तुरंत पहुँचता है।',
+  'Location shared with the office.': 'लोकेशन ऑफ़िस को भेज दी गई।', 'Location unavailable — logged the update without coordinates.': 'लोकेशन उपलब्ध नहीं — अपडेट बिना निर्देशांक के दर्ज हुआ।',
+  'No driver activity yet. Tasks appear here as soon as a driver checks in.': 'अभी ड्राइवर की कोई गतिविधि नहीं। ड्राइवर के चेक इन करते ही काम यहाँ दिखेंगे।', 'No location update yet': 'अभी कोई लोकेशन अपडेट नहीं',
+  'Optional update for operations…': 'ऑपरेशन के लिए वैकल्पिक अपडेट…', 'Task completed': 'काम पूरा हुआ', 'You are not signed in. Please sign out and sign in again.': 'आप साइन इन नहीं हैं। कृपया साइन आउट करके दोबारा साइन इन करें।',
+  'You are checked in. Have a safe day.': 'आप चेक इन हैं। आपका दिन सुरक्षित रहे।',
+  'Step 20 · Respectful Bereavement Feedback & Care Quality': 'चरण 20 · संवेदनशील शोक फ़ीडबैक और देखभाल की गुणवत्ता',
+
+  // the 14 services (same names as the website)
+  'Transport & Documentation Support': 'परिवहन और दस्तावेज़ सहायता', 'Pre & Post Funeral Service Coordination': 'अंतिम संस्कार से पहले और बाद की सेवाओं का समन्वय',
+  'Prayer Hall Booking': 'प्रार्थना सभागार बुकिंग', 'Hall Decoration': 'सभागार सजावट', Catering: 'कैटरिंग', 'Obituary Writing': 'श्रद्धांजलि लेख लेखन',
+  'Memorial Service & Memory Mementos': 'स्मृति सभा और यादगार स्मृति-चिह्न', 'Funeral Flower Decor': 'अंतिम संस्कार की पुष्प सजावट', 'Asthi Visarjan': 'अस्थि विसर्जन',
+  'Grief Counselling': 'शोक परामर्श', 'Subscription / Pre-Booking Plans': 'सब्सक्रिप्शन / अग्रिम बुकिंग योजनाएँ', 'Insurance Company Tie-Ups': 'बीमा कंपनियों से साझेदारी',
+  'International Repatriation': 'अंतरराष्ट्रीय पार्थिव शरीर स्थानांतरण', 'End-to-End Documentation Assistance (Intercity/International)': 'शुरू से अंत तक दस्तावेज़ सहायता (शहरों के बीच / अंतरराष्ट्रीय)',
+  // package items
+  'Basic decor': 'सामान्य सजावट', 'Medium decor': 'मध्यम सजावट', 'High-end decor': 'उच्च स्तरीय सजावट', 'Fuel car (8.8km)': 'ईंधन सहित कार (8.8 किमी)', 'Fuel car (80km)': 'ईंधन सहित कार (80 किमी)',
+  '5 tailgating escort vehicles': '5 साथ चलने वाले एस्कॉर्ट वाहन', 'Fuel on ground (cremation fuel / wood)': 'स्थल पर ईंधन (दाह संस्कार का ईंधन / लकड़ी)', 'Pandit ji (Priest for rites)': 'पंडित जी (अनुष्ठान के पुरोहित)',
+  'Complete sacred samagri': 'संपूर्ण पूजन सामग्री', 'Small memory token': 'छोटा स्मृति-चिह्न', 'Drinking water': 'पीने का पानी', 'Hi-tea (up to 50 people)': 'हाई-टी (50 लोगों तक)',
+  'Services': 'सेवाएँ',
+
+  // the day's timeline on a case
+  'Start Journey': 'यात्रा शुरू', 'Arrived at Pickup': 'पिकअप पर पहुँचे', 'Service Started': 'सेवा शुरू', 'Reached Destination': 'गंतव्य पर पहुँचे', 'Complete Service': 'सेवा पूरी',
+
+  // HR
+  'A few words are enough. For example: family function, fever, travel.': 'कुछ शब्द काफ़ी हैं। जैसे: पारिवारिक कार्यक्रम, बुखार, यात्रा।',
+  'Approved Casual, Sick, Earned and Other leave uses up the yearly allowance. Unpaid leave does not.': 'मंज़ूर आकस्मिक, बीमारी, अर्जित और अन्य छुट्टियाँ वार्षिक सीमा में गिनी जाती हैं। बिना वेतन की छुट्टी नहीं गिनी जाती।',
+  'Check in for the day and request leave. HR will review it.': 'दिन का चेक इन करें और छुट्टी माँगें। एचआर इसे देखेगा।', 'Check the dates': 'तारीख़ें जाँचें', 'HR sections': 'एचआर के भाग', 'Leave status': 'छुट्टी की स्थिति',
+  'Mark attendance for the team and decide leave requests.': 'टीम की उपस्थिति दर्ज करें और छुट्टी के अनुरोधों पर फ़ैसला करें।', 'Mark…': 'दर्ज करें…', 'No attendance logged yet.': 'अभी कोई उपस्थिति दर्ज नहीं।',
+  'No cases assigned to a coordinator yet.': 'अभी किसी कोऑर्डिनेटर को कोई केस नहीं सौंपा गया।', Out: 'आउट', 'Send request': 'अनुरोध भेजें',
+  'The first day is in the past. That is fine for sick leave you are reporting late.': 'पहला दिन बीत चुका है। देर से बताई जा रही बीमारी की छुट्टी के लिए यह ठीक है।',
+  'You can see your own record only.': 'आप केवल अपना रिकॉर्ड देख सकते हैं।', 'Your request goes to HR. You will see the decision in the list.': 'आपका अनुरोध एचआर के पास जाता है। फ़ैसला आपको सूची में दिखेगा।',
+
+  // payments
+  '₹20 offerings made on the website for the girl child’s education fund. They are kept apart from service money.': 'वेबसाइट पर बालिका शिक्षा कोष के लिए दिए गए ₹20 के दान। इन्हें सेवा के पैसे से अलग रखा जाता है।',
+  'Biggest balance first. Use the search box at the top to find a customer or reference.': 'सबसे ज़्यादा बकाया पहले। ग्राहक या संदर्भ खोजने के लिए ऊपर की खोज का उपयोग करें।', 'Card, cash, cheque': 'कार्ड, नकद, चेक',
+  'Change these in Settings, Company & messages, Payment details.': 'इन्हें सेटिंग्स, कंपनी और संदेश, भुगतान विवरण में बदलें।', 'Diya summary': 'दिया सारांश',
+  'Families reported these from the website. Match the transaction ID in your bank app, then press Verify.': 'परिवारों ने ये वेबसाइट से बताए। अपने बैंक ऐप में ट्रांज़ैक्शन आईडी मिलाएँ, फिर “सत्यापित करें” दबाएँ।',
+  'Kind of booking': 'बुकिंग का प्रकार', 'No diya donations yet.': 'अभी कोई दिया दान नहीं।', 'Record them here when received': 'मिलने पर यहाँ दर्ज करें',
+  'Reference or note (optional)': 'संदर्भ या नोट (वैकल्पिक)', Reported: 'बताया गया', UPI: 'यूपीआई', 'UPI transaction ID, cheque number, advance…': 'यूपीआई ट्रांज़ैक्शन आईडी, चेक नंबर, एडवांस…',
+  'UTR / transaction ID': 'यूटीआर / ट्रांज़ैक्शन आईडी',
+
+  // Records
+  'Case (attach to a case)': 'केस (किसी केस से जोड़ें)', 'e.g. Death summary — Sharma family': 'जैसे मृत्यु सारांश — शर्मा परिवार', Folders: 'फ़ोल्डर', 'No records match this view.': 'इस दृश्य में कोई रिकॉर्ड नहीं मिला।',
+  'No records yet. Add the first one above.': 'अभी कोई रिकॉर्ड नहीं। ऊपर से पहला जोड़ें।', 'PDF, image, Word, Excel, CSV or text. Up to 20 MB. Only HR and admin can see records.': 'पीडीएफ़, इमेज, वर्ड, एक्सेल, सीएसवी या टेक्स्ट। अधिकतम 20 एमबी। रिकॉर्ड केवल एचआर और एडमिन देख सकते हैं।',
+  'Search records': 'रिकॉर्ड खोजें', 'Search title, file, case…': 'शीर्षक, फ़ाइल, केस खोजें…', 'Start typing a reference or family': 'संदर्भ या परिवार का नाम लिखना शुरू करें',
+
+  // reports, stars, tributes
+  'Became bookings': 'बुकिंग में बदलीं', 'same as before': 'पहले जितना ही', 'Urgent leads and callbacks waiting over 30 minutes.': '30 मिनट से ज़्यादा इंतज़ार कर रही ज़रूरी लीड और कॉलबैक।',
+  '+ New star': '+ नया सितारा', 'About them': 'उनके बारे में', 'Book a Star · Signature Farewell': 'सितारा बुक करें · सिग्नेचर फ़ेयरवेल', 'Requested by': 'अनुरोधकर्ता', 'Save star': 'सितारा सेव करें',
+  'Stars could not be loaded. Please refresh or check the database connection.': 'सितारे लोड नहीं हो सके। कृपया रीफ़्रेश करें या डेटाबेस कनेक्शन जाँचें।', 'UPI claim to verify (Payments)': 'सत्यापित करने के लिए यूपीआई दावा (भुगतान)',
+  'Use the global search to find a family, memorial name, phone number or reference.': 'परिवार, स्मृति का नाम, फ़ोन नंबर या संदर्भ खोजने के लिए ऊपर की खोज का उपयोग करें।',
+  'Check the name and message, then approve or reject.': 'नाम और संदेश जाँचें, फिर मंज़ूर या अस्वीकार करें।', 'Name a Star · free tributes': 'सितारे को नाम दें · निःशुल्क श्रद्धांजलि',
+  'Nothing shows on the website until you approve it. Approved tributes appear as stars on the Eternal Sky; rejected ones never do.': 'आपके मंज़ूर करने तक वेबसाइट पर कुछ नहीं दिखता। मंज़ूर श्रद्धांजलियाँ इटरनल स्काई पर सितारों के रूप में दिखती हैं; अस्वीकार की गई कभी नहीं।',
+  'Submitted by': 'किसने भेजा', 'Tributes could not be loaded. Please refresh or check the database connection.': 'श्रद्धांजलियाँ लोड नहीं हो सकीं। कृपया रीफ़्रेश करें या डेटाबेस कनेक्शन जाँचें।',
+};

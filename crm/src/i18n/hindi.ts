@@ -1,3 +1,5 @@
+import { HI_MORE } from './hindiMore';
+
 /** English → Hindi for the CRM screens. Anything not listed stays in English. */
 const BASE_HI: Record<string, string> = {
   // navigation
@@ -159,7 +161,9 @@ const MORE_HI: Record<string, string> = {
   'Hospital death summary': 'अस्पताल का मृत्यु सारांश', 'Police NOC': 'पुलिस एनओसी', 'Municipal death certificate': 'नगर निगम मृत्यु प्रमाणपत्र',
   'Family ID proof': 'परिवार का पहचान पत्र', 'Crematorium / cemetery slip': 'श्मशान / कब्रिस्तान पर्ची', 'Embassy clearance': 'दूतावास की मंज़ूरी',
   Quotation: 'कोटेशन', Receipt: 'रसीद', Photo: 'फ़ोटो', Other: 'अन्य', Legal: 'क़ानूनी', Finance: 'वित्त',
+  'Ready-made packages': 'तैयार पैकेज', 'Give to a customer': 'ग्राहक को दें', 'Start from a ready-made package': 'तैयार पैकेज से शुरू करें', 'Package items': 'पैकेज की सेवाएँ',
+  'Essential Farewell': 'एसेंशियल फ़ेयरवेल', 'Complete Farewell': 'कंप्लीट फ़ेयरवेल', 'Signature Farewell': 'सिग्नेचर फ़ेयरवेल',
   'Awaiting first contact': 'पहले संपर्क की प्रतीक्षा', 'Follow-ups in progress': 'फ़ॉलो-अप जारी', 'Total enquiries': 'कुल पूछताछ',
 };
 
-export const HI: Record<string, string> = { ...BASE_HI, ...MORE_HI };
+export const HI: Record<string, string> = { ...BASE_HI, ...MORE_HI, ...HI_MORE };
