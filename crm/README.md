@@ -22,3 +22,5 @@ npm run build   # tsc && vite build -> dist/
 
 ## Deploy
 Vercel project, auto-builds on push to `main`. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as Environment Variables in the Vercel project settings (Project → Settings → Environment Variables) — these are not committed to git.
+
+In the combined `Eternal-Website-and-CRM` repo this CRM lives in `crm/`, so the CRM Vercel project must have its Root Directory set to `crm`.
