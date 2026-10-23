@@ -109,6 +109,7 @@ export const SCREEN_LABELS: { key: CrmSidebarItem; label: string }[] = [
   { key: 'team', label: 'Drivers & Teams' },
   { key: 'hr', label: 'HR Overview' },
   { key: 'documents', label: 'Documents' },
+  { key: 'records', label: 'Records' },
   { key: 'payments', label: 'Payments' },
   { key: 'communications', label: 'Communications' },
   { key: 'feedback', label: 'Feedback' },

@@ -25,6 +25,7 @@ import { DriverAppScreen } from './screens/DriverAppScreen';
 import { ConfiguratorScreen } from './screens/ConfiguratorScreen';
 import { ReportsScreen } from './screens/ReportsScreen';
 import { BookingsScreen } from './screens/BookingsScreen';
+import { RecordsScreen } from './screens/RecordsScreen';
 import { HrScreen } from './screens/HrScreen';
 import { CustomersScreen } from './screens/CustomersScreen';
 import { ServicePlansScreen } from './screens/ServicePlansScreen';
@@ -48,6 +49,7 @@ const VALID_ITEMS: CrmSidebarItem[] = [
   'team',
   'hr',
   'documents',
+  'records',
   'payments',
   'communications',
   'feedback',
@@ -103,6 +105,7 @@ export function CrmPortal() {
           {activeItem === 'customers' && <CustomersScreen />}
           {activeItem === 'service-plans' && <ServicePlansScreen />}
           {activeItem === 'documents' && <DocumentsScreen />}
+          {activeItem === 'records' && <RecordsScreen />}
           {activeItem === 'settings' && <SettingsScreen />}
         </section>
       </div>

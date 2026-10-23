@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useAuth } from '../../../auth/useAuth';
 import type { HrAttendanceStatusRow, HrLeaveTypeRow } from '../../../data/database.types';
-import { todayIso, useAttendance, useDecideLeave, useLeaveRequests, useMarkAttendance, useRequestLeave } from '../../../data/useHr';
+import { todayIso, useAttendance, useDecideLeave, useLeaveRequests, useMarkAttendance, useRequestLeave, useSalaries, useSalaryPayments, useSaveSalary, useSetSalaryPaid } from '../../../data/useHr';
+import { useArrangements } from '../../../data/useArrangements';
+import { BarList, ChartCard, StackedBars } from '../charts/Charts';
 import { useProfiles } from '../../../data/useProfiles';
 import { useToast } from '../../../toast/useToast';
 
@@ -11,6 +13,7 @@ const LEAVE_TYPES: HrLeaveTypeRow[] = ['Casual', 'Sick', 'Earned', 'Unpaid', 'Ot
 const formatTime = (iso: string | null) => (iso ? new Date(iso).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) : '—');
 const formatDate = (iso: string) => new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
 const daysBetween = (a: string, b: string) => Math.round((new Date(`${b}T00:00:00`).getTime() - new Date(`${a}T00:00:00`).getTime()) / 86_400_000) + 1;
+const inr = (n: number) => `₹${Math.round(n).toLocaleString('en-IN')}`;
 const leaveBadge = (status: string) => (status === 'Approved' ? 'status-confirmed' : status === 'Rejected' ? 'status-urgent' : 'status-inquiry');
 
 export function HrScreen() {
@@ -22,6 +25,14 @@ export function HrScreen() {
   const markAttendance = useMarkAttendance();
   const requestLeave = useRequestLeave();
   const decideLeave = useDecideLeave();
+  const salaries = useSalaries();
+  const payments = useSalaryPayments();
+  const saveSalary = useSaveSalary();
+  const setPaid = useSetSalaryPaid();
+  const arrangements = useArrangements();
+  const selfService = profile?.app_role === 'driver' || profile?.app_role === 'backend_executive';
+  const [tab, setTab] = useState<'overview' | 'leaves' | 'salary' | 'performance'>(selfService ? 'leaves' : 'overview');
+  const [payMonth, setPayMonth] = useState(() => todayIso().slice(0, 7));
 
   const canManage = profile?.app_role === 'hr' || profile?.app_role === 'admin';
   const today = todayIso();
@@ -57,7 +68,6 @@ export function HrScreen() {
   const shownLeave = [...leaveRows]
     .filter((item) => leaveFilter === 'All' || item.status === leaveFilter)
     .sort((a, b) => Number(b.status === 'Pending') - Number(a.status === 'Pending'));
-  const onLeaveToday = leaveRows.filter((item) => item.status === 'Approved' && item.start_date <= today && item.end_date >= today).length;
   const presentToday = [...todayByPerson.values()].filter((row) => row.status === 'Present' || row.status === 'Half day').length;
   const roleCounts = team.reduce<Record<string, number>>((all, member) => ({ ...all, [member.appRole]: (all[member.appRole] ?? 0) + 1 }), {});
 
@@ -114,12 +124,54 @@ export function HrScreen() {
 
   const failed = attendance.isError || leave.isError;
 
+  const onSalaryError = (err: unknown) => showToast(`Could not save: ${(err as { message?: string })?.message ?? 'unknown error'}. Has supabase/031_hr_salary_leave.sql been run?`, 'info');
+  const salaryOf = (id: string) => salaries.data?.find((row) => row.profile_id === id);
+  const paymentOf = (id: string) => payments.data?.find((row) => row.profile_id === id && row.pay_month === payMonth);
+  const people = team.filter((member) => canManage || member.id === user?.id);
+  const year = today.slice(0, 4);
+  // Paid leave = any approved leave that is not Unpaid, counted by the year it starts in.
+  const paidLeaveUsed = (id: string) =>
+    leaveRows
+      .filter((item) => item.profile_id === id && item.status === 'Approved' && item.leave_type !== 'Unpaid' && item.start_date.startsWith(year))
+      .reduce((sum, item) => sum + daysBetween(item.start_date, item.end_date), 0);
+  const saveNumber = (id: string, field: 'monthlySalary' | 'paidLeaveQuota', raw: string, current: number) => {
+    const value = Number(raw);
+    if (raw === '' || !Number.isFinite(value) || value < 0 || value === current) return;
+    saveSalary.mutate({ profileId: id, [field]: value }, { onSuccess: () => showToast(`${nameOf(id)} updated.`, 'info'), onError: onSalaryError });
+  };
+  const paidTotal = people.reduce((sum, m) => sum + (paymentOf(m.id)?.status === 'Paid' ? paymentOf(m.id)!.amount : 0), 0);
+  const dueTotal = people.reduce((sum, m) => sum + (paymentOf(m.id)?.status === 'Paid' ? 0 : salaryOf(m.id)?.monthly_salary ?? 0), 0);
+  const togglePaid = (id: string, paid: boolean) => {
+    const amount = salaryOf(id)?.monthly_salary ?? 0;
+    if (paid && amount <= 0) return showToast(`Set ${nameOf(id)}'s monthly salary first, then mark it paid.`, 'info');
+    setPaid.mutate({ profileId: id, month: payMonth, amount, paid }, {
+      onSuccess: () => showToast(paid ? `${nameOf(id)} marked paid for ${payMonth}.` : `${nameOf(id)} set back to pending.`, 'info'),
+      onError: onSalaryError,
+    });
+  };
+
+  const attendanceBars = team
+    .filter((m) => monthRate.has(m.id))
+    .map((m) => {
+      const rate = monthRate.get(m.id)!;
+      return { label: m.name, value: Math.round((rate.worked / rate.total) * 100), note: `${rate.total} days logged` };
+    })
+    .sort((a, b) => b.value - a.value);
+  const caseRows = team
+    .map((m) => {
+      const mine = (arrangements.data ?? []).filter((a) => a.coordinator === m.name);
+      const done = mine.filter((a) => a.status === 'Completed').length;
+      return { label: m.name, a: done, b: mine.length - done };
+    })
+    .filter((row) => row.a + row.b > 0)
+    .sort((x, y) => y.a + y.b - (x.a + x.b));
+
   return (
     <div className="crm-screen active">
       <section className="reports-hero">
         <div>
-          <span>HR overview</span>
-          <h3>Attendance, leave and team strength in one place.</h3>
+          <span>{selfService ? 'Salary & leave' : 'HR overview'}</span>
+          <h3>{selfService ? 'Your salary and leave in one place.' : 'Attendance, leave and team strength in one place.'}</h3>
           <p>{canManage ? 'Mark attendance for the team and decide leave requests.' : 'Check in for the day and request leave. HR will review it.'}</p>
         </div>
         <div><strong>{pending.length}</strong><small>pending leave requests</small></div>
@@ -131,13 +183,32 @@ export function HrScreen() {
         </div>
       )}
 
-      <div className="leads-kpis">
+      {!selfService && <div className="leads-kpis">
         <div><strong>{team.length}</strong><span>Total headcount</span></div>
         <div><strong>{presentToday}</strong><span>Present today</span></div>
-        <div><strong>{onLeaveToday}</strong><span>On approved leave</span></div>
-        <div><strong>{pending.length}</strong><span>Leave awaiting decision</span></div>
+        {([['leaves', pending.length, 'Leaves'], ['salary', inr(dueTotal), 'Salary']] as const).map(([key, value, label]) => (
+          <div
+            key={key}
+            role="button"
+            tabIndex={0}
+            aria-pressed={tab === key}
+            style={{ cursor: 'pointer', outline: tab === key ? '2px solid var(--moss-700, #3c5a3c)' : undefined }}
+            onClick={() => setTab(key)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setTab(key); } }}
+          >
+            <strong>{value}</strong><span>{label}</span>
+          </div>
+        ))}
+      </div>}
+
+      <div className="lead-filter-tabs" role="tablist" aria-label="HR sections" style={{ marginBottom: 14 }}>
+        {([['overview', 'Overview'], ['leaves', 'Leaves'], ['salary', 'Salary'], ['performance', 'Performance']] as const).filter(([key]) => !selfService || key === 'leaves' || key === 'salary').map(([key, label]) => (
+          <button key={key} type="button" role="tab" aria-selected={tab === key} className={tab === key ? 'active' : ''} onClick={() => setTab(key)}>{label}</button>
+        ))}
       </div>
 
+      {tab === 'overview' && (
+        <>
       <div className="dashboard-grid-layout">
         <section className="crm-section-card">
           <div className="crm-card-header"><h3>Team by role</h3></div>
@@ -186,7 +257,79 @@ export function HrScreen() {
           </table>
         </div>
       </section>
+      <section className="crm-section-card">
+        <div className="crm-card-header">
+          <h3>Today’s attendance · {formatDate(today)}</h3>
+          {!canManage && <span style={{ fontSize: '0.75rem', color: 'var(--ink-muted)' }}>You can see your own record only.</span>}
+        </div>
+        <div className="crm-table-wrapper">
+          <table className="crm-table">
+            <thead>
+              <tr><th>Name</th><th>Job title</th><th>Today</th><th>In</th><th>Out</th><th>Last 30 days</th>{canManage && <th>Mark</th>}</tr>
+            </thead>
+            <tbody>
+              {team.filter((member) => canManage || member.id === user?.id).map((member) => {
+                const row = todayByPerson.get(member.id);
+                const rate = monthRate.get(member.id);
+                return (
+                  <tr key={member.id}>
+                    <td><strong>{member.name}</strong></td>
+                    <td>{member.role}</td>
+                    <td>{row?.status ?? '—'}</td>
+                    <td>{formatTime(row?.check_in ?? null)}</td>
+                    <td>{formatTime(row?.check_out ?? null)}</td>
+                    <td>{rate ? `${Math.round((rate.worked / rate.total) * 100)}% (${rate.total} days logged)` : '—'}</td>
+                    {canManage && (
+                      <td>
+                        <select className="form-select" style={{ fontSize: '0.82rem', padding: '4px 8px' }} value={row?.status ?? ''} onChange={(e) => mark(member.id, e.target.value as HrAttendanceStatusRow)}>
+                          <option value="" disabled>Mark…</option>
+                          {ATTENDANCE_STATUSES.map((status) => <option key={status} value={status}>{status}</option>)}
+                        </select>
+                      </td>
+                    )}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
+        </>
+      )}
 
+      {tab === 'leaves' && (
+        <>
+        <section className="crm-section-card">
+        <div className="crm-card-header">
+          <div>
+            <h3>Paid leaves · {year}</h3>
+            <p className="comms-help" style={{ margin: 0 }}>Approved Casual, Sick, Earned and Other leave uses up the yearly allowance. Unpaid leave does not.</p>
+          </div>
+        </div>
+        <div className="crm-table-wrapper">
+          <table className="crm-table">
+            <thead><tr><th>Name</th><th>Yearly paid leaves</th><th>Used</th><th>Remaining</th></tr></thead>
+            <tbody>
+              {people.map((member) => {
+                const quota = salaryOf(member.id)?.paid_leave_quota ?? 12;
+                const used = paidLeaveUsed(member.id);
+                return (
+                  <tr key={member.id}>
+                    <td><strong>{member.name}</strong></td>
+                    <td>
+                      {canManage ? (
+                        <input key={`${member.id}-${quota}`} className="form-input" type="number" min={0} style={{ width: 80, padding: '4px 8px' }} defaultValue={quota} aria-label={`Yearly paid leaves for ${member.name}`} onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()} onBlur={(e) => saveNumber(member.id, 'paidLeaveQuota', e.target.value, quota)} />
+                      ) : quota}
+                    </td>
+                    <td>{used}</td>
+                    <td><strong style={{ color: quota - used < 0 ? 'var(--crimson-600)' : undefined }}>{quota - used}</strong></td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
       <div className="dashboard-grid-layout">
         <section className="crm-section-card">
           <div className="crm-card-header">
@@ -288,6 +431,85 @@ export function HrScreen() {
           </div>
         </section>
       </div>
+        </>
+      )}
+
+      {tab === 'salary' && (
+        <>
+      <section className="crm-section-card">
+        <div className="crm-card-header">
+          <div>
+            <h3>Salary records</h3>
+            <p className="comms-help" style={{ margin: 0 }}>{canManage ? 'Type each person salary in their own box and press Enter (or click away) to save it, then mark the month paid once it is sent.' : 'You can see your own salary record only.'}</p>
+          </div>
+          <input className="form-input" type="month" value={payMonth} onChange={(e) => e.target.value && setPayMonth(e.target.value)} aria-label="Salary month" style={{ width: 'auto' }} />
+        </div>
+        {canManage && (
+          <div className="leads-kpis" style={{ marginBottom: 14 }}>
+            <div><strong>{inr(paidTotal)}</strong><span>Paid for the month</span></div>
+            <div><strong>{inr(dueTotal)}</strong><span>Still to pay</span></div>
+          </div>
+        )}
+        <div className="crm-table-wrapper">
+          <table className="crm-table">
+            <thead><tr><th>Name</th><th>Job title</th><th>Monthly salary</th><th>Status</th><th>Paid on</th>{canManage && <th>Action</th>}</tr></thead>
+            <tbody>
+              {people.map((member) => {
+                const base = salaryOf(member.id)?.monthly_salary ?? 0;
+                const pay = paymentOf(member.id);
+                const paid = pay?.status === 'Paid';
+                return (
+                  <tr key={member.id}>
+                    <td><strong>{member.name}</strong></td>
+                    <td>{member.role}</td>
+                    <td>
+                      {canManage ? (
+                        <input key={`${member.id}-${base}`} className="form-input" type="number" min={0} style={{ width: 120, padding: '4px 8px' }} defaultValue={base} aria-label={`Monthly salary for ${member.name}`} onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()} onBlur={(e) => saveNumber(member.id, 'monthlySalary', e.target.value, base)} />
+                      ) : inr(base)}
+                    </td>
+                    <td>
+                      <span className={`status-badge ${paid ? 'status-confirmed' : 'status-inquiry'}`}>{paid ? 'Paid' : 'Pending'}</span>
+                      {paid && pay && <div style={{ fontSize: '0.75rem', color: 'var(--ink-muted)' }}>{inr(pay.amount)}</div>}
+                    </td>
+                    <td>{pay?.paid_on ? formatDate(pay.paid_on) : '—'}</td>
+                    {canManage && (
+                      <td>
+                        <button className={`btn btn-sm ${paid ? 'btn-secondary' : 'btn-primary'}`} type="button" disabled={setPaid.isPending} onClick={() => togglePaid(member.id, !paid)}>
+                          {paid ? 'Undo' : 'Mark paid'}
+                        </button>
+                      </td>
+                    )}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
+        </>
+      )}
+
+      {tab === 'performance' && canManage && (
+        <>
+        <div className="dashboard-grid-layout">
+          <ChartCard
+            title="Performance · attendance"
+            subtitle="Share of logged days worked in the last 30 days"
+            table={{ head: ['Name', 'Attendance %'], rows: attendanceBars.map((b) => [b.label, `${b.value}%`]) }}
+          >
+            {attendanceBars.length === 0 ? <p className="comms-help">No attendance logged yet.</p> : <BarList items={attendanceBars} format={(n) => `${n}%`} />}
+          </ChartCard>
+          <ChartCard
+            title="Performance · cases handled"
+            subtitle="Cases each coordinator owns, completed and still open"
+            table={{ head: ['Name', 'Completed', 'Open'], rows: caseRows.map((row) => [row.label, row.a, row.b]) }}
+          >
+            {caseRows.length === 0 ? <p className="comms-help">No cases assigned to a coordinator yet.</p> : <StackedBars rows={caseRows} aLabel="Completed" bLabel="Open" format={(n) => String(n)} />}
+          </ChartCard>
+        </div>
+        </>
+      )}
+
     </div>
   );
 }

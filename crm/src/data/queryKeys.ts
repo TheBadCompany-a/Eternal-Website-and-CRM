@@ -14,6 +14,8 @@ export const queryKeys = {
   profiles: ['profiles'] as const,
   hrAttendance: ['hr-attendance'] as const,
   hrLeave: ['hr-leave'] as const,
+  hrSalary: ['hr-salary'] as const,
+  hrPayments: ['hr-salary-payments'] as const,
   communications: (arrangementId?: string) => ['communications', arrangementId ?? 'all'] as const,
   tracked: (id: string, token: string) => ['tracked-arrangement', id, token] as const,
 };
@@ -34,4 +36,5 @@ export const REALTIME_TABLE_TO_QUERY_KEY: Record<string, readonly unknown[]> = {
   driver_tasks: ['driver'],
   driver_task_updates: ['driver'],
   driver_expenses: ['driver'],
+  hr_leave_requests: queryKeys.hrLeave,
 };

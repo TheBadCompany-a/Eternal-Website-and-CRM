@@ -42,12 +42,22 @@ export function useLeadAlerts() {
     channel.on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'gateway_payments' }, () => {
       if (on('payment')) showToast('A Razorpay payment was received.', 'info');
     });
+    // A leave request, for the people who decide on it (HR and admin).
+    if (profile?.app_role === 'hr' || profile?.app_role === 'admin') {
+      channel.on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'hr_leave_requests' }, (payload) => {
+        const row = payload.new as { profile_id: string; leave_type: string; start_date: string; end_date: string };
+        if (row.profile_id === user.id) return;
+        const who = (queryClient.getQueryData(queryKeys.profiles) as { id: string; name: string }[] | undefined)?.find((p) => p.id === row.profile_id)?.name ?? 'A team member';
+        const days = row.start_date === row.end_date ? row.start_date : `${row.start_date} to ${row.end_date}`;
+        showToast(`${who} asked for ${row.leave_type.toLowerCase()} leave (${days}). Check HR.`, 'alert');
+      });
+    }
     channel.subscribe();
     return () => {
       void supabase.removeChannel(channel);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id, flags]);
+  }, [user?.id, flags, profile?.app_role]);
 
   // A follow-up that has just become due, for leads assigned to me.
   useEffect(() => {

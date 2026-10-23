@@ -177,6 +177,36 @@ export type HrLeaveRequestRow = {
   created_at: string;
 };
 
+export type HrSalaryRow = { profile_id: string; monthly_salary: number; paid_leave_quota: number; updated_at: string };
+
+export type HrSalaryPaymentRow = {
+  id: string;
+  profile_id: string;
+  pay_month: string;
+  amount: number;
+  status: 'Pending' | 'Paid';
+  paid_on: string | null;
+  note: string;
+  created_at: string;
+};
+
+export type RecordCategoryRow = 'Case' | 'HR' | 'Vehicles' | 'Legal' | 'Finance' | 'Other';
+
+export type RecordRow = {
+  id: string;
+  title: string;
+  category: RecordCategoryRow;
+  doc_type: string;
+  arrangement_id: string | null;
+  file_path: string;
+  file_name: string;
+  mime_type: string;
+  size_bytes: number;
+  note: string;
+  uploaded_by: string | null;
+  created_at: string;
+};
+
 export type LeadAccessRow = { arrangement_id: string; profile_id: string; created_at: string };
 
 export type DriverStatusRow = 'Assigned' | 'Accepted' | 'En route to pickup' | 'Arrived' | 'Picked up' | 'Completed';
@@ -267,6 +297,17 @@ export type Database = {
         HrLeaveRequestRow,
         Partial<Omit<HrLeaveRequestRow, 'id' | 'created_at'>> & Pick<HrLeaveRequestRow, 'profile_id' | 'start_date' | 'end_date'>,
         Partial<HrLeaveRequestRow>
+      >;
+      hr_salary: TableDef<HrSalaryRow, Partial<HrSalaryRow> & Pick<HrSalaryRow, 'profile_id'>, Partial<HrSalaryRow>>;
+      hr_salary_payments: TableDef<
+        HrSalaryPaymentRow,
+        Partial<Omit<HrSalaryPaymentRow, 'id' | 'created_at'>> & Pick<HrSalaryPaymentRow, 'profile_id' | 'pay_month'>,
+        Partial<HrSalaryPaymentRow>
+      >;
+      records: TableDef<
+        RecordRow,
+        Partial<Omit<RecordRow, 'id' | 'created_at'>> & Pick<RecordRow, 'title' | 'file_path' | 'file_name'>,
+        Partial<RecordRow>
       >;
       lead_access: TableDef<LeadAccessRow, Pick<LeadAccessRow, 'arrangement_id' | 'profile_id'>, Partial<LeadAccessRow>>;
       driver_tasks: TableDef<

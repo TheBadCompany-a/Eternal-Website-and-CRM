@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Arrangement } from '../../../types';
 import { useAssignResources } from '../../../data/useArrangements';
 import { useToast } from '../../../toast/useToast';
@@ -29,13 +30,7 @@ export function ResourcePicker({ a, ctx, driverNames, compact }: { a: Arrangemen
   };
 
   const select = (value: string, options: string[], conflict: (o: string) => string | null, onChange: (v: string) => void, label: string) => (
-    <select className="form-select" aria-label={label} style={{ fontSize: '0.85rem', width: '100%' }} value={value} onChange={(e) => onChange(e.target.value)}>
-      <option value="">{label}…</option>
-      {withCurrent(options, value).map((o) => {
-        const why = o === value ? null : conflict(o);
-        return <option key={o} value={o} disabled={Boolean(why)}>{why ? `${o} — ${why}` : o}</option>;
-      })}
-    </select>
+    <PickOrType value={value} options={withCurrent(options, value)} conflict={conflict} onChange={onChange} label={label} />
   );
 
   return (
@@ -52,5 +47,48 @@ export function ResourcePicker({ a, ctx, driverNames, compact }: { a: Arrangemen
         <button type="button" className="btn btn-sm btn-secondary" disabled={assign.isPending} onClick={doSuggest}>✨ Suggest a free driver and vehicle</button>
       )}
     </div>
+  );
+}
+
+const CUSTOM = '__custom__';
+
+/** A dropdown with a "Custom…" entry that swaps to a text box, for a driver or vehicle not in the list. */
+function PickOrType({ value, options, conflict, onChange, label }: { value: string; options: string[]; conflict: (o: string) => string | null; onChange: (v: string) => void; label: string }) {
+  const [typing, setTyping] = useState(false);
+  const [text, setText] = useState('');
+  const commit = () => {
+    if (text.trim()) onChange(text.trim());
+    setTyping(false);
+    setText('');
+  };
+
+  if (typing) {
+    return (
+      <div style={{ display: 'flex', gap: 6 }}>
+        <input
+          className="form-input"
+          autoFocus
+          aria-label={`${label} (custom)`}
+          placeholder={`Type ${label.toLowerCase().replace('choose ', '')} name`}
+          style={{ fontSize: '0.85rem', flex: 1 }}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') commit(); if (e.key === 'Escape') setTyping(false); }}
+        />
+        <button type="button" className="btn btn-sm btn-primary" onClick={commit}>Save</button>
+        <button type="button" className="btn btn-sm btn-secondary" onClick={() => setTyping(false)}>Cancel</button>
+      </div>
+    );
+  }
+
+  return (
+    <select className="form-select" aria-label={label} style={{ fontSize: '0.85rem', width: '100%' }} value={value} onChange={(e) => (e.target.value === CUSTOM ? setTyping(true) : onChange(e.target.value))}>
+      <option value="">{label}…</option>
+      {options.map((o) => {
+        const why = o === value ? null : conflict(o);
+        return <option key={o} value={o} disabled={Boolean(why)}>{why ? `${o} — ${why}` : o}</option>;
+      })}
+      <option value={CUSTOM}>✏️ Custom…</option>
+    </select>
   );
 }

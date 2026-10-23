@@ -71,7 +71,7 @@ export const HI: Record<string, string> = {
   'Average family rating': 'परिवार की औसत रेटिंग', 'Ratings of 3 or below': '3 या उससे कम रेटिंग', 'Completed services': 'पूर्ण सेवाएँ', 'Live field tracking': 'लाइव फ़ील्ड ट्रैकिंग',
   'Where cases are right now': 'केस अभी कहाँ हैं', 'How many cases sit at each stage.': 'हर चरण में कितने केस हैं।', 'By kind of booking.': 'बुकिंग के प्रकार के अनुसार।',
   // hr / driver
-  'HR Overview': 'HR अवलोकन', 'HR overview': 'HR अवलोकन', 'Leave requests': 'छुट्टी के अनुरोध', 'Type of leave': 'छुट्टी का प्रकार', 'First day': 'पहला दिन', 'Last day': 'अंतिम दिन', 'Quick pick:': 'जल्दी चुनें:',
+  'HR Overview': 'HR अवलोकन', 'Salary & Leave': 'वेतन और छुट्टी', 'HR overview': 'HR अवलोकन', 'Leave requests': 'छुट्टी के अनुरोध', 'Type of leave': 'छुट्टी का प्रकार', 'First day': 'पहला दिन', 'Last day': 'अंतिम दिन', 'Quick pick:': 'जल्दी चुनें:',
   'Present today': 'आज उपस्थित', 'On approved leave': 'मंज़ूर छुट्टी पर', 'Leave awaiting decision': 'निर्णय का इंतज़ार करती छुट्टी', 'Working days': 'कार्य दिवस', 'Working hours and holidays': 'कार्य समय और छुट्टियाँ',
   'Next 3 days': 'अगले 3 दिन', 'My day': 'मेरा दिन', 'My duty today': 'आज मेरी ड्यूटी', 'Duty status': 'ड्यूटी स्थिति', 'Today’s field tasks': 'आज के फ़ील्ड कार्य', 'Task card': 'कार्य कार्ड', Expenses: 'खर्चे',
   Fuel: 'ईंधन', Toll: 'टोल', Parking: 'पार्किंग', Supplies: 'सामग्री', Other: 'अन्य', 'Assigned Vehicle:': 'सौंपा वाहन:', 'Assigned Driver:': 'सौंपा ड्राइवर:', 'Lead Coordinator:': 'मुख्य समन्वयक:',

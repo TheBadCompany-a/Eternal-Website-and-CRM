@@ -160,6 +160,7 @@ export type CrmSidebarItem =
   | 'team'
   | 'hr'
   | 'documents'
+  | 'records'
   | 'payments'
   | 'communications'
   | 'feedback'

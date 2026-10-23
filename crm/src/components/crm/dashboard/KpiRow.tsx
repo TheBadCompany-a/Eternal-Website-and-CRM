@@ -26,8 +26,8 @@ export function KpiRow({ arrangements }: { arrangements: Arrangement[] }) {
         <button
           key={k.label}
           type="button"
-          onClick={() => setOpen(k.label)}
-          aria-label={`${k.label}: ${k.items.length}. Show the list`}
+          onClick={() => setOpen(open === k.label ? null : k.label)}
+          aria-label={`${k.label}: ${k.items.length}. Show the list below`}
           className={`kpi-stat-card ${k.alert ? 'alert-stat' : ''}`}
           style={{ cursor: 'pointer', textAlign: 'left', font: 'inherit' }}
         >

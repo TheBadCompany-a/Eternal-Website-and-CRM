@@ -3,6 +3,7 @@ import type { CrmSidebarItem } from '../../types';
 import { useAuth } from '../../auth/useAuth';
 import { canOpen } from '../../auth/access';
 import { useOps } from '../../data/useOps';
+import { useLeaveRequests } from '../../data/useHr';
 import { useAppSettings } from '../../data/useSettings';
 
 const NAV_ITEMS: { key: CrmSidebarItem; label: string; icon: React.ReactNode }[] = [
@@ -169,6 +170,15 @@ const NAV_ITEMS: { key: CrmSidebarItem; label: string; icon: React.ReactNode }[]
     ),
   },
   {
+    key: 'records',
+    label: 'Records',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+    ),
+  },
+  {
     key: 'payments',
     label: 'Payments',
     icon: (
@@ -231,6 +241,23 @@ function OpsBadge() {
   );
 }
 
+/** Red count beside HR when leave requests are waiting for a decision (HR and admin only). */
+function LeaveBadge() {
+  const { profile } = useAuth();
+  const canDecide = profile?.app_role === 'hr' || profile?.app_role === 'admin';
+  const leave = useLeaveRequests({ enabled: canDecide });
+  const waiting = canDecide ? (leave.data ?? []).filter((item) => item.status === 'Pending').length : 0;
+  if (!waiting) return null;
+  return (
+    <span aria-label={`${waiting} leave requests waiting`} style={{ marginLeft: 'auto', background: '#b3261e', color: '#fff', borderRadius: 999, fontSize: '0.7rem', fontWeight: 700, padding: '1px 8px' }}>
+      {waiting}
+    </span>
+  );
+}
+
+// Drivers and backend executives only use this screen for their own salary and leave.
+const SELF_SERVICE_ROLES = ['driver', 'backend_executive'];
+
 export function CrmSidebar({ activeItem }: { activeItem: CrmSidebarItem }) {
   const navigate = useNavigate();
   const { profile } = useAuth();
@@ -249,8 +276,9 @@ export function CrmSidebar({ activeItem }: { activeItem: CrmSidebarItem }) {
               onClick={() => navigate(`/crm/${item.key}`)}
             >
               {item.icon}
-              {item.label}
+              {item.key === 'hr' && SELF_SERVICE_ROLES.includes(profile?.app_role ?? '') ? 'Salary & Leave' : item.label}
               {item.key === 'operations' && <OpsBadge />}
+              {item.key === 'hr' && <LeaveBadge />}
             </div>
           ))}
         </nav>

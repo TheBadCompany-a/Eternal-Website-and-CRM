@@ -2000,8 +2000,8 @@ button, input, select, textarea {
 .crm-section-card > .form-group + .btn-group { margin-top: 6px; }
 .crm-section-card > .btn { margin-top: 6px; }
 .crm-section-card > .comms-help { margin: 0 0 12px; }
-.comms-help + .btn,
-.comms-help + div { margin-top: 10px; }
+p.comms-help + .btn,
+p.comms-help + div { margin-top: 10px; }
 .crm-section-card > .comms-help + div[style*="flex"] { margin-top: 12px; }
 .crm-section-card > hr + .comms-help { margin-top: 0; }
 .crm-section-card .btn + .btn { margin-left: 0; }
