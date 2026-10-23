@@ -1,5 +1,5 @@
 /** English → Hindi for the CRM screens. Anything not listed stays in English. */
-export const HI: Record<string, string> = {
+const BASE_HI: Record<string, string> = {
   // navigation
   Dashboard: 'डैशबोर्ड', Arrangements: 'व्यवस्थाएँ', Leads: 'लीड्स', Stars: 'सितारे', Tributes: 'श्रद्धांजलि', Customers: 'ग्राहक',
   'Service Plans': 'सेवा योजनाएँ', 'Sales Configurator': 'सेल्स कॉन्फ़िगरेटर', 'Sales configurator': 'सेल्स कॉन्फ़िगरेटर', Quotations: 'कोटेशन', Bookings: 'बुकिंग',
@@ -137,3 +137,29 @@ export const HI: Record<string, string> = {
   '1. Select customer': '1. ग्राहक चुनें', '2. Build package': '2. पैकेज बनाएँ', '3. Review & share': '3. जाँचें और भेजें',
   Appearance: 'रूप-रंग', 'Pick the colours you like. It changes only how the CRM looks for you, on this device.': 'अपनी पसंद के रंग चुनें। यह केवल इस डिवाइस पर आपके लिए सीआरएम का रंग बदलता है।',
 };
+
+/** Later additions (duty checklist, HR salary and leave, Records). Entries here win over the list above. */
+const MORE_HI: Record<string, string> = {
+  // duty checklist
+  'Duty checklist': 'ड्यूटी चेकलिस्ट', 'Vehicle ready': 'वाहन तैयार', 'Vehicle clean': 'वाहन साफ़', 'Equipment ready': 'उपकरण तैयार',
+  'Driver briefed': 'ड्राइवर को जानकारी दी', 'Destination confirmed': 'गंतव्य की पुष्टि हुई', 'Family told ETA': 'परिवार को पहुँचने का समय बताया',
+  'Documents checked': 'दस्तावेज़ जाँचे गए', 'Extras confirmed': 'अतिरिक्त सेवाओं की पुष्टि हुई', 'Before the service': 'सेवा से पहले',
+  'tap to tick': 'टिक करने के लिए टैप करें', 'Custom…': 'अन्य…',
+  // HR
+  Overview: 'अवलोकन', Leaves: 'छुट्टियाँ', Salary: 'वेतन', Performance: 'प्रदर्शन', 'Salary records': 'वेतन रिकॉर्ड', 'Monthly salary': 'मासिक वेतन',
+  'Mark paid': 'भुगतान दर्ज करें', '✓ Paid': '✓ चुकाया गया', Paid: 'चुकाया गया', 'Paid on': 'भुगतान की तारीख', 'Paid for the month': 'इस माह का भुगतान',
+  'Still to pay': 'अभी देना बाकी', 'Paid leaves': 'सवेतन छुट्टियाँ', 'Yearly paid leaves': 'वार्षिक सवेतन छुट्टियाँ', Used: 'उपयोग की', Remaining: 'शेष',
+  'Performance · attendance': 'प्रदर्शन · उपस्थिति', 'Performance · cases handled': 'प्रदर्शन · संभाले गए केस', 'Salary & leave': 'वेतन और छुट्टी',
+  'Your salary and leave in one place.': 'आपका वेतन और छुट्टी एक ही जगह।', 'Salary month': 'वेतन का महीना',
+  'You can see your own salary record only.': 'आप केवल अपना वेतन रिकॉर्ड देख सकते हैं।',
+  // Records
+  Records: 'रिकॉर्ड', 'Add a record': 'रिकॉर्ड जोड़ें', 'Save record': 'रिकॉर्ड सेव करें', 'All records': 'सभी रिकॉर्ड', 'Total records': 'कुल रिकॉर्ड',
+  'Case files': 'केस फ़ाइलें', 'General files': 'सामान्य फ़ाइलें', 'Document type': 'दस्तावेज़ का प्रकार', Folder: 'फ़ोल्डर', File: 'फ़ाइल', Title: 'शीर्षक',
+  Case: 'केस', Added: 'जोड़ा गया', 'Folder / case': 'फ़ोल्डर / केस', 'Note (optional)': 'नोट (वैकल्पिक)',
+  'Hospital death summary': 'अस्पताल का मृत्यु सारांश', 'Police NOC': 'पुलिस एनओसी', 'Municipal death certificate': 'नगर निगम मृत्यु प्रमाणपत्र',
+  'Family ID proof': 'परिवार का पहचान पत्र', 'Crematorium / cemetery slip': 'श्मशान / कब्रिस्तान पर्ची', 'Embassy clearance': 'दूतावास की मंज़ूरी',
+  Quotation: 'कोटेशन', Receipt: 'रसीद', Photo: 'फ़ोटो', Other: 'अन्य', Legal: 'क़ानूनी', Finance: 'वित्त',
+  'Awaiting first contact': 'पहले संपर्क की प्रतीक्षा', 'Follow-ups in progress': 'फ़ॉलो-अप जारी', 'Total enquiries': 'कुल पूछताछ',
+};
+
+export const HI: Record<string, string> = { ...BASE_HI, ...MORE_HI };

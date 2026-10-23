@@ -9,13 +9,19 @@ const read = (): Lang => {
   try { return localStorage.getItem(STORAGE_KEY) === 'hi' ? 'hi' : 'en'; } catch { return 'en'; }
 };
 
+/** Counters such as "8/8 done" that change with the data, so they cannot be listed word for word. */
+const counter = (text: string): string | undefined => {
+  const m = /^(\d+)\/(\d+) done$/.exec(text);
+  return m ? `${m[1]}/${m[2]} पूर्ण` : undefined;
+};
+
 /** Looks a piece of text up in the Hindi list, keeping surrounding spaces. Returns the input if there is no match. */
 export function translateText(text: string): string {
   const core = text.trim();
   if (!core) return text;
   const at = text.indexOf(core);
   const wrap = (v: string) => text.slice(0, at) + v + text.slice(at + core.length);
-  const direct = HI[core] ?? HI[core.replace(/\s*[:：]$/, '')];
+  const direct = HI[core] ?? HI[core.replace(/\s*[:：]$/, '')] ?? counter(core);
   if (direct) return wrap(direct);
   // "Came from: Website · Customised package · 98765…" and similar: translate each piece on its own.
   const pieces = core.split(/( · |: )/);
@@ -23,7 +29,7 @@ export function translateText(text: string): string {
     let changed = false;
     const out = pieces.map((piece, i) => {
       if (i % 2 === 1) return piece;
-      const hit = HI[piece.trim()];
+      const hit = HI[piece.trim()] ?? counter(piece.trim());
       if (!hit) return piece;
       changed = true;
       return hit;
