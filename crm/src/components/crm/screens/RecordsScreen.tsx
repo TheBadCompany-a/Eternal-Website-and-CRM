@@ -8,7 +8,7 @@ import { useToast } from '../../../toast/useToast';
 const CATEGORIES: RecordCategoryRow[] = ['Case', 'HR', 'Vehicles', 'Legal', 'Finance', 'Other'];
 const DOC_TYPES = [
   'Hospital death summary', 'Police NOC', 'Municipal death certificate', 'Family ID proof', 'Crematorium / cemetery slip',
-  'Embassy clearance', 'Quotation', 'Receipt', 'Photo', 'Other',
+  'Embassy clearance', 'Quotation', 'Receipt', 'Photo', 'Attendance sheet', 'Other',
 ];
 const MAX_BYTES = 20 * 1024 * 1024;
 
@@ -75,9 +75,19 @@ export function RecordsScreen() {
     );
   };
 
-  const open = async (path: string) => {
+  const open = async (record: (typeof rows)[number]) => {
     try {
-      window.open(await recordLink(path), '_blank', 'noopener');
+      // Sheets the system files by itself (daily attendance) are stored in the record, not as an uploaded file.
+      if (record.content !== null) {
+        const url = URL.createObjectURL(new Blob([record.content], { type: record.mime_type || 'text/csv' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = record.file_name;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 10_000);
+        return;
+      }
+      window.open(await recordLink(record.file_path), '_blank', 'noopener');
     } catch {
       showToast('Could not open this file.', 'info');
     }
@@ -172,7 +182,7 @@ export function RecordsScreen() {
                   <td>{r.file_name}<div style={{ fontSize: '0.78rem', color: 'var(--ink-muted)' }}>{formatSize(r.size_bytes)}</div></td>
                   <td>{formatDate(r.created_at)}<div style={{ fontSize: '0.78rem', color: 'var(--ink-muted)' }}>{nameOf(r.uploaded_by)}</div></td>
                   <td style={{ whiteSpace: 'nowrap' }}>
-                    <button type="button" className="btn btn-sm btn-secondary" onClick={() => open(r.file_path)}>Open</button>{' '}
+                    <button type="button" className="btn btn-sm btn-secondary" onClick={() => void open(r)}>{r.content !== null ? 'Download' : 'Open'}</button>{' '}
                     <button type="button" className="btn btn-sm btn-secondary" style={{ color: 'var(--crimson-600)' }} disabled={remove.isPending} onClick={() => del(r.id)}>Delete</button>
                   </td>
                 </tr>

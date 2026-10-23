@@ -203,6 +203,7 @@ export type RecordRow = {
   mime_type: string;
   size_bytes: number;
   note: string;
+  content: string | null;
   uploaded_by: string | null;
   created_at: string;
 };

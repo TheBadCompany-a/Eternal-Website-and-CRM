@@ -127,6 +127,8 @@ export const HI_MORE: Record<string, string> = {
   'Start Journey': 'यात्रा शुरू', 'Arrived at Pickup': 'पिकअप पर पहुँचे', 'Service Started': 'सेवा शुरू', 'Reached Destination': 'गंतव्य पर पहुँचे', 'Complete Service': 'सेवा पूरी',
 
   // HR
+  Download: 'डाउनलोड',
+  'Save month to Records': 'महीना रिकॉर्ड में सेव करें', 'Attendance sheet': 'उपस्थिति शीट', 'Attendance month': 'उपस्थिति का महीना',
   'A few words are enough. For example: family function, fever, travel.': 'कुछ शब्द काफ़ी हैं। जैसे: पारिवारिक कार्यक्रम, बुखार, यात्रा।',
   'Approved Casual, Sick, Earned and Other leave uses up the yearly allowance. Unpaid leave does not.': 'मंज़ूर आकस्मिक, बीमारी, अर्जित और अन्य छुट्टियाँ वार्षिक सीमा में गिनी जाती हैं। बिना वेतन की छुट्टी नहीं गिनी जाती।',
   'Check in for the day and request leave. HR will review it.': 'दिन का चेक इन करें और छुट्टी माँगें। एचआर इसे देखेगा।', 'Check the dates': 'तारीख़ें जाँचें', 'HR sections': 'एचआर के भाग', 'Leave status': 'छुट्टी की स्थिति',
