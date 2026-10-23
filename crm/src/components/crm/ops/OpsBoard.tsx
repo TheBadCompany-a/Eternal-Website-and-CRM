@@ -31,7 +31,7 @@ export function OpsBoard({ ctx, board, driverNames, alerts, onOpen }: Props) {
   const [search, setSearch] = useState('');
   const [driver, setDriver] = useState('');
   const [onlyColumn, setOnlyColumn] = useState<OpsColumn | ''>('');
-  const [showEnquiries, setShowEnquiries] = useState(false);
+  const [showEnquiries, setShowEnquiries] = useState(true);
   const [showAllAlerts, setShowAllAlerts] = useState(false);
 
   const inRange = (a: Arrangement, done: boolean) => {
