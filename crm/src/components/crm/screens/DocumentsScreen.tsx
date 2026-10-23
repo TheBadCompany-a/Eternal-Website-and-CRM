@@ -93,7 +93,7 @@ export function DocumentsScreen() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 18, alignItems: 'flex-start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '270px minmax(0, 1fr)', gap: 20, alignItems: 'flex-start' }}>
         {/* Case Selector list */}
         <section className="crm-section-card" style={{ marginBottom: 0 }}>
           <div className="crm-card-header">
@@ -134,37 +134,37 @@ export function DocumentsScreen() {
         </section>
 
         {/* Selected Case Document Verification Details */}
-        <section className="crm-section-card" style={{ marginBottom: 0 }}>
+        <section className="crm-section-card" style={{ marginBottom: 0, minWidth: 0 }}>
           {selectedCase ? (
             <>
-              <div className="crm-card-header">
-                <div>
+              <div className="crm-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+                <div style={{ minWidth: 260, flex: '1 1 300px' }}>
                   <h3 style={{ margin: 0 }}>Regulatory paperwork checks · {selectedCase.id}</h3>
                   <p className="comms-help" style={{ margin: '4px 0 0' }}>
                     {selectedCase.family} ({selectedCase.serviceType}) · {verifiedCount} of {applicableCount} required documents verified
                   </p>
                 </div>
-                <div>
+                <div style={{ flexShrink: 0 }}>
                   <span
                     className={`status-badge ${selectedCase.checklist.docsChecked ? 'status-confirmed' : 'status-inquiry'}`}
-                    style={{ fontSize: '0.85rem' }}
+                    style={{ fontSize: '0.85rem', whiteSpace: 'nowrap', display: 'inline-block' }}
                   >
                     {selectedCase.checklist.docsChecked ? '✓ Case Paperwork Complete' : '⏳ Verification In Progress'}
                   </span>
                 </div>
               </div>
 
-              <div className="crm-table-wrapper" style={{ marginTop: 12 }}>
-                <table className="crm-table">
+              <div className="crm-table-wrapper" style={{ marginTop: 12, overflowX: 'auto', width: '100%' }}>
+                <table className="crm-table" style={{ width: '100%', minWidth: 740 }}>
                   <thead>
                     <tr>
-                      <th>Document</th>
-                      <th>Applicable</th>
-                      <th>Status</th>
-                      <th>Checked By</th>
-                      <th>Checked When</th>
-                      <th>Reference / Notes</th>
-                      <th aria-label="Actions" />
+                      <th style={{ minWidth: 160 }}>Document</th>
+                      <th style={{ width: 95 }}>Applicable</th>
+                      <th style={{ width: 110 }}>Status</th>
+                      <th style={{ minWidth: 110 }}>Checked By</th>
+                      <th style={{ minWidth: 130 }}>Checked When</th>
+                      <th style={{ minWidth: 170 }}>Reference / Notes</th>
+                      <th style={{ width: 130, textAlign: 'right' }} aria-label="Actions" />
                     </tr>
                   </thead>
                   <tbody>
@@ -176,7 +176,7 @@ export function DocumentsScreen() {
                             <strong>{doc.label}</strong>
                           </td>
                           <td>
-                            <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: '0.84rem' }}>
+                            <label style={{ display: 'inline-flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: '0.84rem', whiteSpace: 'nowrap' }}>
                               <input
                                 type="checkbox"
                                 checked={doc.applicable}
@@ -194,12 +194,13 @@ export function DocumentsScreen() {
                                   ? 'status-confirmed'
                                   : 'status-urgent'
                               }`}
+                              style={{ whiteSpace: 'nowrap' }}
                             >
                               {doc.status}
                             </span>
                           </td>
-                          <td>{doc.verifiedBy || '—'}</td>
-                          <td>
+                          <td style={{ whiteSpace: 'nowrap' }}>{doc.verifiedBy || '—'}</td>
+                          <td style={{ whiteSpace: 'nowrap', fontSize: '0.82rem' }}>
                             {doc.verifiedAt
                               ? new Date(doc.verifiedAt).toLocaleString('en-IN', {
                                   day: '2-digit',
@@ -212,17 +213,18 @@ export function DocumentsScreen() {
                           <td>
                             <input
                               className="form-input"
-                              style={{ fontSize: '0.82rem', padding: '4px 8px', maxWidth: 180 }}
+                              style={{ fontSize: '0.82rem', padding: '5px 10px', width: '100%', minWidth: 140 }}
                               placeholder="No. / notes"
                               defaultValue={doc.notes}
                               onBlur={(e) => handleNotesChange(doc.key, e.target.value)}
                             />
                           </td>
-                          <td>
+                          <td style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>
                             {doc.applicable && (
                               <button
                                 type="button"
                                 className={`btn btn-sm ${isVerified ? 'btn-secondary' : 'btn-primary'}`}
+                                style={{ whiteSpace: 'nowrap' }}
                                 onClick={() => handleToggleVerify(doc.key, isVerified)}
                               >
                                 {isVerified ? 'Revoke check' : '✓ Mark verified'}

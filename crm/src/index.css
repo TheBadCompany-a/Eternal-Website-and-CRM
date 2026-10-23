@@ -134,9 +134,10 @@ button, input, select, textarea {
 
 /* Utility Containers */
 .app-container {
-  max-width: 1360px;
+  width: 96%;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 24px 28px 80px;
+  padding: 20px 24px 80px;
 }
 
 /* ==========================================================================
@@ -1154,7 +1155,7 @@ button, input, select, textarea {
    ========================================================================== */
 .crm-shell {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 240px minmax(0, 1fr);
   background: var(--bg-surface);
   border: 1px solid var(--border-delicate);
   border-radius: var(--radius-lg);
@@ -1245,9 +1246,10 @@ button, input, select, textarea {
 
 /* CRM Main Content Area */
 .crm-content-area {
-  padding: 28px 34px;
+  padding: 24px 30px;
   background: var(--bg-surface);
   overflow-y: auto;
+  min-width: 0;
 }
 
 .crm-screen {
