@@ -154,7 +154,7 @@ export function HrScreen() {
     .filter((m) => monthRate.has(m.id))
     .map((m) => {
       const rate = monthRate.get(m.id)!;
-      return { label: m.name, value: Math.round((rate.worked / rate.total) * 100), note: `${rate.total} days logged` };
+      return { label: m.name, value: Math.round((rate.worked / rate.total) * 100), note: `${rate.total} ${rate.total === 1 ? 'day' : 'days'} logged` };
     })
     .sort((a, b) => b.value - a.value);
   const caseRows = team
@@ -241,44 +241,7 @@ export function HrScreen() {
                     <td>{row?.status ?? '—'}</td>
                     <td>{formatTime(row?.check_in ?? null)}</td>
                     <td>{formatTime(row?.check_out ?? null)}</td>
-                    <td>{rate ? `${Math.round((rate.worked / rate.total) * 100)}% (${rate.total} days logged)` : '—'}</td>
-                    {canManage && (
-                      <td>
-                        <select className="form-select" style={{ fontSize: '0.82rem', padding: '4px 8px' }} value={row?.status ?? ''} onChange={(e) => mark(member.id, e.target.value as HrAttendanceStatusRow)}>
-                          <option value="" disabled>Mark…</option>
-                          {ATTENDANCE_STATUSES.map((status) => <option key={status} value={status}>{status}</option>)}
-                        </select>
-                      </td>
-                    )}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section className="crm-section-card">
-        <div className="crm-card-header">
-          <h3>Today’s attendance · {formatDate(today)}</h3>
-          {!canManage && <span style={{ fontSize: '0.75rem', color: 'var(--ink-muted)' }}>You can see your own record only.</span>}
-        </div>
-        <div className="crm-table-wrapper">
-          <table className="crm-table">
-            <thead>
-              <tr><th>Name</th><th>Job title</th><th>Today</th><th>In</th><th>Out</th><th>Last 30 days</th>{canManage && <th>Mark</th>}</tr>
-            </thead>
-            <tbody>
-              {team.filter((member) => canManage || member.id === user?.id).map((member) => {
-                const row = todayByPerson.get(member.id);
-                const rate = monthRate.get(member.id);
-                return (
-                  <tr key={member.id}>
-                    <td><strong>{member.name}</strong></td>
-                    <td>{member.role}</td>
-                    <td>{row?.status ?? '—'}</td>
-                    <td>{formatTime(row?.check_in ?? null)}</td>
-                    <td>{formatTime(row?.check_out ?? null)}</td>
-                    <td>{rate ? `${Math.round((rate.worked / rate.total) * 100)}% (${rate.total} days logged)` : '—'}</td>
+                    <td>{rate ? `${Math.round((rate.worked / rate.total) * 100)}% (${rate.total} ${rate.total === 1 ? 'day' : 'days'} logged)` : '—'}</td>
                     {canManage && (
                       <td>
                         <select className="form-select" style={{ fontSize: '0.82rem', padding: '4px 8px' }} value={row?.status ?? ''} onChange={(e) => mark(member.id, e.target.value as HrAttendanceStatusRow)}>
