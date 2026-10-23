@@ -1,22 +1,28 @@
 import { useState } from 'react';
 import type { Arrangement } from '../../../types';
 import { CaseListModal } from './CaseListModal';
+import { todayIso } from '../../../data/useHr';
+import { amountDue, isBooked } from '../../../lib/caseStatus';
+import { isNonDispatchService } from '../../../lib/opsLogic';
+import { categoryOf } from '../../../lib/paymentCategory';
 
 export function KpiRow({ arrangements }: { arrangements: Arrangement[] }) {
   const [open, setOpen] = useState<string | null>(null);
-  const latestDate = arrangements.reduce((max, a) => (a.date > max ? a.date : max), arrangements[0]?.date ?? '');
+  const today = todayIso();
 
   const kpis: { label: string; alert: boolean; items: Arrangement[] }[] = [
-    { label: 'Active Arrangements', alert: false, items: arrangements.filter((a) => a.status !== 'Completed') },
+    // Services the family has accepted and that are not finished yet.
+    { label: 'Active Arrangements', alert: false, items: arrangements.filter((a) => isBooked(a) && a.status !== 'Completed') },
     {
       label: 'Immediate Requests',
       alert: true,
       items: arrangements.filter((a) => a.needCategory === 'Immediate Arrangement' && a.status !== 'Completed'),
     },
-    { label: 'Upcoming Today', alert: false, items: arrangements.filter((a) => a.date === latestDate) },
+    { label: 'Upcoming Today', alert: false, items: arrangements.filter((a) => a.date === today && (a.status === 'Confirmed' || a.status === 'In Execution')) },
     { label: 'Services In Progress', alert: false, items: arrangements.filter((a) => a.status === 'In Execution') },
-    { label: 'Completed Today', alert: false, items: arrangements.filter((a) => a.status === 'Completed') },
-    { label: 'Pending Payments', alert: false, items: arrangements.filter((a) => a.paymentStatus !== 'Receipt Generated') },
+    { label: 'Completed Today', alert: false, items: arrangements.filter((a) => a.status === 'Completed' && a.date === today && !isNonDispatchService(a.serviceType)) },
+    // A balance still to collect on a booked service or star, including services already completed.
+    { label: 'Pending Payments', alert: false, items: arrangements.filter((a) => (isBooked(a) || categoryOf(a) === 'star') && amountDue(a) > 0) },
   ];
   const selected = kpis.find((k) => k.label === open);
 

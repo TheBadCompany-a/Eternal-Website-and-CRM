@@ -42,8 +42,24 @@ export const timeLabel = (a: Pick<Arrangement, 'date' | 'time'>) => {
 export const dateLabel = (iso: string) => (iso ? new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) : '—');
 export const checklistDone = (a: Arrangement) => Object.values(a.checklist).filter(Boolean).length;
 
-/** Cases that belong on the operations board. Enquiries that are not confirmed yet only show when asked for. */
-export const isOpsCase = (a: Arrangement) => a.status === 'Confirmed' || a.status === 'In Execution' || a.status === 'Completed';
+/** Non-dispatch services (demonstrations, institutional enquiries, memorials) follow their own pipelines and do not require hearse/driver dispatch */
+export const isNonDispatchService = (serviceType: string = '') => {
+  const s = serviceType.toLowerCase();
+  return (
+    s.startsWith('book a star') ||
+    s.includes('star tribute') ||
+    s.includes('name a star') ||
+    s.includes('demonstration') ||
+    s.includes('demo') ||
+    s.includes('institutional') ||
+    s.includes('partnership')
+  );
+};
+
+/** Cases that belong on the operations board. Enquiries that are not confirmed yet only show when asked for. Non-dispatch enquiries (demonstrations, institutional, stars) are routed to their own pipelines. */
+export const isOpsCase = (a: Arrangement) =>
+  !isNonDispatchService(a.serviceType) &&
+  (a.status === 'Confirmed' || a.status === 'In Execution' || a.status === 'Completed');
 
 export function columnOf(a: Arrangement, task?: DriverTaskView): OpsColumn {
   if (a.status === 'Completed' || task?.task.status === 'Completed') return 'done';

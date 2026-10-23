@@ -117,6 +117,18 @@ export function useDeleteArrangement() {
 /** Assigns (or unassigns) which staff member is the coordinator of record
  * for a case. Distinct from `activeOpsCaseId` in the reducer, which is only
  * "which case is the current viewer looking at" — pure client UI state. */
+/** The family chose not to give feedback. This closes the follow up but never blocks completing the service. */
+export function useSetFeedbackDeclined() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ id, declined }: { id: string; declined: boolean }) => {
+      const { error } = await supabase.from('arrangements').update({ feedback_declined: declined }).eq('id', id);
+      if (error) throw error;
+    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.arrangements }),
+  });
+}
+
 export function useAssignCoordinator() {
   const queryClient = useQueryClient();
   return useMutation({

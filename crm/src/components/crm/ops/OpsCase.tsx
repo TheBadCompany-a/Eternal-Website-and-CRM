@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Arrangement } from '../../../types';
 import { CHECKLIST_ITEMS } from '../checklist';
 import { LocationRow } from '../LocationRow';
-import { useAssignCoordinator, useToggleChecklistItem, useUpdateArrangementStatus, useUpdateRoute } from '../../../data/useArrangements';
+import { useAssignCoordinator, useSetFeedbackDeclined, useToggleChecklistItem, useUpdateArrangementStatus, useUpdateRoute } from '../../../data/useArrangements';
 import { useSendCommunication } from '../../../data/useCommunications';
 import { DRIVER_STATUS_LABEL, type DriverTaskView } from '../../../data/useDriverTasks';
 import { useAppSettings } from '../../../data/useSettings';
@@ -14,6 +14,7 @@ import {
 import type { TeamMember } from '../../../types';
 import { useToast } from '../../../toast/useToast';
 import { ResourcePicker } from './ResourcePicker';
+import { CaseFile } from './CaseFile';
 
 const EXEC_STAGES = [
   { name: 'Start Journey', desc: 'Driver leaves for the pickup point' },
@@ -38,6 +39,7 @@ export function OpsCase({ a, ctx, board, driverNames, team }: Props) {
   const toggle = useToggleChecklistItem();
   const route = useUpdateRoute();
   const coordinator = useAssignCoordinator();
+  const declineFeedback = useSetFeedbackDeclined();
   const status = useUpdateArrangementStatus();
   const log = useSendCommunication();
   const [receivedBy, setReceivedBy] = useState('');
@@ -72,7 +74,7 @@ export function OpsCase({ a, ctx, board, driverNames, team }: Props) {
     { ok: done === CHECKLIST_TOTAL, text: `Pre-service check ${done}/${CHECKLIST_TOTAL}` },
     { ok: pendingExpenses === 0, text: pendingExpenses ? `${pendingExpenses} driver expense${pendingExpenses > 1 ? 's' : ''} not approved` : 'Driver expenses approved' },
     { ok: balance === 0, text: balance ? `${rupees(balance)} still to collect` : 'Payment complete' },
-    { ok: Boolean(a.feedback), text: a.feedback ? 'Family feedback received' : 'Family feedback not received yet' },
+    { ok: Boolean(a.feedback) || a.feedbackDeclined, text: a.feedback ? 'Family feedback received' : a.feedbackDeclined ? 'Family declined feedback' : 'Family feedback not received yet' },
   ];
   const closeCase = () => {
     const missing = closing.filter((c) => !c.ok).map((c) => `• ${c.text}`);
@@ -81,6 +83,8 @@ export function OpsCase({ a, ctx, board, driverNames, team }: Props) {
   };
 
   return (
+    <>
+    <CaseFile a={a} />
     <div className="ops-grid-2">
       <div>
         <div className="crm-section-card">
@@ -142,9 +146,17 @@ export function OpsCase({ a, ctx, board, driverNames, team }: Props) {
           <div style={{ display: 'grid', gap: 6, margin: '12px 0' }}>
             {closing.map((c) => <div key={c.text} style={{ fontSize: '0.88rem', color: c.ok ? 'inherit' : '#8a1f17' }}>{c.ok ? '✅' : '⬜'} {c.text}</div>)}
           </div>
-          <button className="btn btn-primary" type="button" disabled={a.status === 'Completed' || status.isPending} onClick={closeCase}>
-            {a.status === 'Completed' ? 'Case closed' : 'Close case'}
-          </button>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <button className="btn btn-primary" type="button" disabled={a.status === 'Completed' || status.isPending} onClick={closeCase}>
+              {a.status === 'Completed' ? 'Case closed' : 'Close case'}
+            </button>
+            {!a.feedback && (
+              <button className="btn btn-secondary" type="button" disabled={declineFeedback.isPending} onClick={() => declineFeedback.mutate({ id: a.id, declined: !a.feedbackDeclined }, { onError: failed })}>
+                {a.feedbackDeclined ? 'Undo “family declined feedback”' : 'Family declined feedback'}
+              </button>
+            )}
+          </div>
+          <p className="comms-help" style={{ marginBottom: 0 }}>Feedback is a separate follow up. It never stops the service being completed.</p>
         </div>
       </div>
 
@@ -210,5 +222,6 @@ export function OpsCase({ a, ctx, board, driverNames, team }: Props) {
         </div>
       </div>
     </div>
+    </>
   );
 }

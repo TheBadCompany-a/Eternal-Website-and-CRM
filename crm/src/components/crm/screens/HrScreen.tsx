@@ -6,6 +6,7 @@ import { useArrangements } from '../../../data/useArrangements';
 import { BarList, ChartCard, StackedBars } from '../charts/Charts';
 import { useProfiles } from '../../../data/useProfiles';
 import { useToast } from '../../../toast/useToast';
+import { SalaryExplainModal, type SalaryBreakdownData } from '../modal/SalaryExplainModal';
 
 const ATTENDANCE_STATUSES: HrAttendanceStatusRow[] = ['Present', 'Half day', 'Absent', 'On leave'];
 const LEAVE_TYPES: HrLeaveTypeRow[] = ['Casual', 'Sick', 'Earned', 'Unpaid', 'Other'];
@@ -33,6 +34,8 @@ export function HrScreen() {
   const selfService = profile?.app_role === 'driver' || profile?.app_role === 'backend_executive';
   const [tab, setTab] = useState<'overview' | 'leaves' | 'salary' | 'performance'>(selfService ? 'leaves' : 'overview');
   const [payMonth, setPayMonth] = useState(() => todayIso().slice(0, 7));
+  const [explainTarget, setExplainTarget] = useState<SalaryBreakdownData | null>(null);
+  const [customAdjustments, setCustomAdjustments] = useState<Record<string, number>>({});
 
   const canManage = profile?.app_role === 'hr' || profile?.app_role === 'admin';
   const today = todayIso();
@@ -234,13 +237,24 @@ export function HrScreen() {
               {team.filter((member) => canManage || member.id === user?.id).map((member) => {
                 const row = todayByPerson.get(member.id);
                 const rate = monthRate.get(member.id);
+                const inDate = row?.check_in ? new Date(row.check_in) : null;
+                const outDate = row?.check_out ? new Date(row.check_out) : null;
+                const isLate = inDate ? inDate.getHours() > 9 || (inDate.getHours() === 9 && inDate.getMinutes() > 30) : false;
+                const isEarly = outDate ? outDate.getHours() < 18 : false;
+
                 return (
                   <tr key={member.id}>
                     <td><strong>{member.name}</strong></td>
                     <td>{member.role}</td>
                     <td>{row?.status ?? '—'}</td>
-                    <td>{formatTime(row?.check_in ?? null)}</td>
-                    <td>{formatTime(row?.check_out ?? null)}</td>
+                    <td>
+                      {formatTime(row?.check_in ?? null)}
+                      {isLate && <span style={{ marginLeft: 6, fontSize: '0.72rem', color: 'var(--amber-700)', fontWeight: 600 }}>⏰ Late</span>}
+                    </td>
+                    <td>
+                      {formatTime(row?.check_out ?? null)}
+                      {isEarly && <span style={{ marginLeft: 6, fontSize: '0.72rem', color: 'var(--amber-700)', fontWeight: 600 }}>🚪 Early</span>}
+                    </td>
                     <td>{rate ? `${Math.round((rate.worked / rate.total) * 100)}% (${rate.total} ${rate.total === 1 ? 'day' : 'days'} logged)` : '—'}</td>
                     {canManage && (
                       <td>
@@ -415,33 +429,142 @@ export function HrScreen() {
         )}
         <div className="crm-table-wrapper">
           <table className="crm-table">
-            <thead><tr><th>Name</th><th>Job title</th><th>Monthly salary</th><th>Status</th><th>Paid on</th>{canManage && <th>Action</th>}</tr></thead>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Job title</th>
+                <th>Base salary</th>
+                <th>Attendance & Leaves</th>
+                <th>Calculated Net Pay</th>
+                <th>Status</th>
+                <th>Paid on</th>
+                <th>Explain / Action</th>
+              </tr>
+            </thead>
             <tbody>
               {people.map((member) => {
                 const base = salaryOf(member.id)?.monthly_salary ?? 0;
                 const pay = paymentOf(member.id);
                 const paid = pay?.status === 'Paid';
+
+                const [pYear, pMonth] = payMonth.split('-').map(Number);
+                const totalDaysInMonth = new Date(pYear, pMonth, 0).getDate();
+                const personAttendance = (attendance.data ?? []).filter(
+                  (a) => a.profile_id === member.id && a.work_date.startsWith(payMonth),
+                );
+                const presentDays = personAttendance.filter((a) => a.status === 'Present').length;
+                const halfDays = personAttendance.filter((a) => a.status === 'Half day').length;
+                const absentDays = personAttendance.filter((a) => a.status === 'Absent').length;
+                const lateArrivals = personAttendance.filter(
+                  (a) =>
+                    a.check_in &&
+                    (new Date(a.check_in).getHours() > 9 ||
+                      (new Date(a.check_in).getHours() === 9 && new Date(a.check_in).getMinutes() > 30)),
+                ).length;
+                const earlyDepartures = personAttendance.filter(
+                  (a) => a.check_out && new Date(a.check_out).getHours() < 18,
+                ).length;
+                const approvedPaidLeaveDays = leaveRows
+                  .filter(
+                    (l) =>
+                      l.profile_id === member.id &&
+                      l.status === 'Approved' &&
+                      l.leave_type !== 'Unpaid' &&
+                      (l.start_date.startsWith(payMonth) || l.end_date.startsWith(payMonth)),
+                  )
+                  .reduce((sum, l) => sum + daysBetween(l.start_date, l.end_date), 0);
+                const unpaidLeaveDays = leaveRows
+                  .filter(
+                    (l) =>
+                      l.profile_id === member.id &&
+                      l.status === 'Approved' &&
+                      l.leave_type === 'Unpaid' &&
+                      (l.start_date.startsWith(payMonth) || l.end_date.startsWith(payMonth)),
+                  )
+                  .reduce((sum, l) => sum + daysBetween(l.start_date, l.end_date), 0);
+
+                const totalUnpaidUnits = unpaidLeaveDays + absentDays + halfDays * 0.5;
+                const dailyRate = totalDaysInMonth > 0 ? base / totalDaysInMonth : 0;
+                const adj = customAdjustments[member.id] || 0;
+                const calculatedPayable = Math.max(0, Math.round(base - totalUnpaidUnits * dailyRate + adj));
+
+                const openExplain = () => {
+                  setExplainTarget({
+                    name: member.name,
+                    role: member.role,
+                    month: payMonth,
+                    baseSalary: base,
+                    totalDays: totalDaysInMonth,
+                    presentDays,
+                    halfDays,
+                    paidLeaveDays: approvedPaidLeaveDays,
+                    unpaidDays: unpaidLeaveDays + absentDays,
+                    lateArrivals,
+                    earlyDepartures,
+                    adjustments: adj,
+                    onSaveAdjustments: (val) =>
+                      setCustomAdjustments((prev) => ({ ...prev, [member.id]: val })),
+                  });
+                };
+
                 return (
                   <tr key={member.id}>
                     <td><strong>{member.name}</strong></td>
                     <td>{member.role}</td>
                     <td>
                       {canManage ? (
-                        <input key={`${member.id}-${base}`} className="form-input" type="number" min={0} style={{ width: 120, padding: '4px 8px' }} defaultValue={base} aria-label={`Monthly salary for ${member.name}`} onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()} onBlur={(e) => saveNumber(member.id, 'monthlySalary', e.target.value, base)} />
-                      ) : inr(base)}
+                        <input
+                          key={`${member.id}-${base}`}
+                          className="form-input"
+                          type="number"
+                          min={0}
+                          style={{ width: 110, padding: '4px 8px' }}
+                          defaultValue={base}
+                          aria-label={`Monthly salary for ${member.name}`}
+                          onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()}
+                          onBlur={(e) => saveNumber(member.id, 'monthlySalary', e.target.value, base)}
+                        />
+                      ) : (
+                        inr(base)
+                      )}
+                    </td>
+                    <td>
+                      <div style={{ fontSize: '0.82rem' }}>
+                        <span>{presentDays} present</span>
+                        {approvedPaidLeaveDays > 0 && <span style={{ color: 'var(--moss-700)' }}> · {approvedPaidLeaveDays} paid leave</span>}
+                        {totalUnpaidUnits > 0 && <span style={{ color: 'var(--crimson-700)', fontWeight: 600 }}> · {totalUnpaidUnits} unpaid day(s)</span>}
+                      </div>
+                    </td>
+                    <td>
+                      <strong style={{ color: 'var(--moss-800)' }}>{inr(calculatedPayable)}</strong>
+                      {totalUnpaidUnits > 0 && (
+                        <div style={{ fontSize: '0.72rem', color: 'var(--crimson-600)' }}>
+                          (−{inr(totalUnpaidUnits * dailyRate)} unpaid)
+                        </div>
+                      )}
                     </td>
                     <td>
                       <span className={`status-badge ${paid ? 'status-confirmed' : 'status-inquiry'}`}>{paid ? 'Paid' : 'Pending'}</span>
                       {paid && pay && <div style={{ fontSize: '0.75rem', color: 'var(--ink-muted)' }}>{inr(pay.amount)}</div>}
                     </td>
                     <td>{pay?.paid_on ? formatDate(pay.paid_on) : '—'}</td>
-                    {canManage && (
-                      <td>
-                        <button className={`btn btn-sm ${paid ? 'btn-secondary' : 'btn-primary'}`} type="button" disabled={setPaid.isPending} onClick={() => togglePaid(member.id, !paid)}>
-                          {paid ? 'Undo' : 'Mark paid'}
+                    <td>
+                      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                        <button type="button" className="btn btn-sm btn-secondary" onClick={openExplain} title="Explain calculation breakdown">
+                          🔍 Explain
                         </button>
-                      </td>
-                    )}
+                        {canManage && (
+                          <button
+                            className={`btn btn-sm ${paid ? 'btn-secondary' : 'btn-primary'}`}
+                            type="button"
+                            disabled={setPaid.isPending}
+                            onClick={() => togglePaid(member.id, !paid)}
+                          >
+                            {paid ? 'Undo' : 'Mark paid'}
+                          </button>
+                        )}
+                      </div>
+                    </td>
                   </tr>
                 );
               })}
@@ -449,6 +572,8 @@ export function HrScreen() {
           </table>
         </div>
       </section>
+
+      {explainTarget && <SalaryExplainModal data={explainTarget} onClose={() => setExplainTarget(null)} />}
         </>
       )}
 

@@ -3,7 +3,7 @@ import type { Arrangement, Quotation } from '../types';
 import type { QuotationItem } from '../data/useQuotations';
 import { DEFAULT_SETTINGS, type AllSettings } from './settings';
 
-const LINES: { key: keyof Omit<Quotation, 'total' | 'status'>; label: string }[] = [
+const LINES: { key: keyof Omit<Quotation, 'total' | 'status' | 'subtotal' | 'discount'>; label: string }[] = [
   { key: 'vehicle', label: 'Hearse / Vehicle' },
   { key: 'distance', label: 'Distance & Toll Charges' },
   { key: 'staff', label: 'Attendants & Staff' },
@@ -41,7 +41,7 @@ export function quotationMessage(a: Arrangement, services: QuotationItem[] = [],
     name: a.contactName || a.family,
     ref: a.id,
     service: a.serviceType,
-    items: tax > 0 ? `${lines}\n• Tax (${tax}%): ₹${inr(total - a.quotation.total)}` : lines,
+    items: [lines, a.quotation.discount > 0 && `• Discount: -₹${inr(a.quotation.discount)}`, tax > 0 && `• Tax (${tax}%): ₹${inr(total - a.quotation.total)}`].filter(Boolean).join('\n'),
     total: `₹${inr(total)}`,
     phone: settings.business.phone || PHONE,
     amount: `₹${inr(total)}`,
@@ -156,6 +156,17 @@ export async function downloadQuotationPdf(a: Arrangement, services: QuotationIt
   y += 6;
   const taxPercent = settings.quotation.tax_percent;
   const taxAmount = Math.round((a.quotation.total * taxPercent) / 100);
+  if (a.quotation.discount > 0) {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(30);
+    doc.text('Subtotal', M + 8, y);
+    doc.text(inr(a.quotation.subtotal), W - M - 8, y, { align: 'right' });
+    y += 20;
+    doc.text('Discount', M + 8, y);
+    doc.text(`- ${inr(a.quotation.discount)}`, W - M - 8, y, { align: 'right' });
+    y += 22;
+  }
   if (taxPercent > 0) {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);

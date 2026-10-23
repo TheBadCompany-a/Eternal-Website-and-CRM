@@ -194,7 +194,7 @@ export function ConfiguratorScreen() {
                     <button className={active ? 'selected' : ''} onClick={() => void toggle(service.key)} disabled={converted} aria-pressed={active} type="button" key={service.key}>
                       <span className="svc-check" aria-hidden>{active ? '✓' : ''}</span>
                       <strong>{service.name}</strong>
-                      <b>{rupees(service.price)}</b>
+                      <b>{service.price > 0 ? rupees(service.price) : 'Custom price'}</b>
                     </button>
                   );
                 })}

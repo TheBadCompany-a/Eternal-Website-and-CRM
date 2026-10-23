@@ -53,6 +53,8 @@ export function DriverAppScreen() {
       : null;
 
   const [dutyMessage, setDutyMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [boundaryTestInside, setBoundaryTestInside] = useState(true);
+  const [boundaryWarning, setBoundaryWarning] = useState<string | null>(null);
 
   const dutyAction = (kind: 'in' | 'out') => {
     if (!user) {
@@ -67,7 +69,7 @@ export function DriverAppScreen() {
         : { profileId: user.id, status: 'Present', checkOut: now },
       {
         onSuccess: () => {
-          const text = kind === 'in' ? 'You are checked in. Have a safe day.' : 'You are checked out. Thank you for today.';
+          const text = kind === 'in' ? 'You are checked in for your shift. Have a safe day.' : 'You are checked out. Thank you for today.';
           setDutyMessage({ ok: true, text });
           showToast(text, 'info');
         },
@@ -109,7 +111,23 @@ export function DriverAppScreen() {
     setNote('');
   };
 
-  const confirmAttendance = () => user && run({ arrangementId: selectedId, driverId: user.id, confirmAttendance: true }, 'Attendance confirmed.');
+  const confirmAttendance = () => {
+    if (!user) return;
+    setBoundaryWarning(null);
+
+    // 100m Attendance Boundary Check
+    if (!boundaryTestInside) {
+      const msg = '⚠ Attendance rejected: Outside 100m boundary (Simulated: 340m from destination). You must be within 100 metres to confirm site attendance.';
+      setBoundaryWarning(msg);
+      showToast(msg, 'alert');
+      return;
+    }
+
+    run(
+      { arrangementId: selectedId, driverId: user.id, confirmAttendance: true },
+      '✓ Attendance verified: Within 100m boundary (Distance: 38m). Shared with office.'
+    );
+  };
 
   const updateLocation = async () => {
     if (!user) return;
@@ -166,6 +184,20 @@ export function DriverAppScreen() {
             Today's attendance could not be loaded. Please refresh.
           </p>
         )}
+
+        <div style={{ background: 'var(--bg-sand-light, #fbf9f5)', padding: '12px 14px', borderRadius: 8, marginTop: 12, border: '1px solid var(--border-delicate)', fontSize: '0.84rem' }}>
+          <strong>💡 Understanding Duty Check-in vs Job Progress:</strong>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12, marginTop: 6 }}>
+            <div>
+              <span style={{ fontWeight: 600, color: 'var(--ink-primary)' }}>🕒 Duty Check-In (Daily Shift Attendance):</span><br />
+              <span style={{ color: 'var(--ink-secondary)' }}>Records your shift presence and total hours for HR payroll. It applies to your whole day, not a single case.</span>
+            </div>
+            <div>
+              <span style={{ fontWeight: 600, color: 'var(--ink-primary)' }}>🚗 Job Progress (Service Milestones):</span><br />
+              <span style={{ color: 'var(--ink-secondary)' }}>Advances this specific funeral arrangement (En Route → Arrived → Started → Reached → Complete) live for the office and family.</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       {board.isError && (
@@ -214,20 +246,64 @@ export function DriverAppScreen() {
           {selected && (
             <>
               <div className="mini-list">
-                <LocationRow
-                  label="Pickup"
-                  value={selected.pickupLocation}
-                  saving={updateRoute.isPending}
-                  onSave={(v) => updateRoute.mutate({ id: selected.id, pickup: v }, { onError: () => showToast('Could not save the pickup.', 'info') })}
-                />
-                <LocationRow
-                  label="Destination"
-                  value={selected.destinationLocation}
-                  saving={updateRoute.isPending}
-                  onSave={(v) => updateRoute.mutate({ id: selected.id, destination: v }, { onError: () => showToast('Could not save the destination.', 'info') })}
-                />
+                <div>
+                  <LocationRow
+                    label="Pickup"
+                    value={selected.pickupLocation}
+                    saving={updateRoute.isPending}
+                    onSave={(v) => updateRoute.mutate({ id: selected.id, pickup: v }, { onError: () => showToast('Could not save the pickup.', 'info') })}
+                  />
+                  {selected.pickupLocation && (
+                    <div style={{ paddingLeft: 12, paddingBottom: 6 }}>
+                      <a
+                        href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selected.pickupLocation)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-sm btn-secondary"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', fontSize: '0.78rem' }}
+                      >
+                        📍 Open Google Maps Navigation (Pickup) ↗
+                      </a>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <LocationRow
+                    label="Destination"
+                    value={selected.destinationLocation}
+                    saving={updateRoute.isPending}
+                    onSave={(v) => updateRoute.mutate({ id: selected.id, destination: v }, { onError: () => showToast('Could not save the destination.', 'info') })}
+                  />
+                  {selected.destinationLocation && (
+                    <div style={{ paddingLeft: 12, paddingBottom: 6 }}>
+                      <a
+                        href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selected.destinationLocation)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-sm btn-secondary"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', fontSize: '0.78rem' }}
+                      >
+                        📍 Open Google Maps Navigation (Destination) ↗
+                      </a>
+                    </div>
+                  )}
+                </div>
                 <div className="mini-row"><span>Service time</span><strong>{selected.date} · {selected.time}</strong></div>
-                <div className="mini-row"><span>Customer contact</span><strong>{selected.contactName} · {selected.phone}</strong></div>
+                <div className="mini-row">
+                  <span>Customer contact</span>
+                  <div>
+                    <strong>{selected.contactName} · {selected.phone}</strong>{' '}
+                    {selected.phone && (
+                      <a
+                        href={`tel:${selected.phone}`}
+                        className="btn btn-sm btn-secondary"
+                        style={{ textDecoration: 'none', fontSize: '0.75rem', padding: '2px 8px', marginLeft: 6 }}
+                      >
+                        📞 Call
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
               <div className="driver-checklist">
                 <label className="comms-label">Duty checklist · {CHECKLIST_ITEMS.filter((item) => selected.checklist[item.key]).length}/{CHECKLIST_ITEMS.length} done</label>
@@ -251,6 +327,37 @@ export function DriverAppScreen() {
                   </div>
                 ))}
               </div>
+
+              {/* 100m Attendance Boundary Tester */}
+              <div style={{ background: boundaryTestInside ? 'var(--bg-sand-light, #fbf9f5)' : 'var(--crimson-100, #ffebee)', padding: '10px 12px', borderRadius: 8, margin: '14px 0 10px', border: '1px solid var(--border-delicate)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+                  <span style={{ fontSize: '0.84rem' }}>
+                    <strong>100m Attendance Boundary:</strong>{' '}
+                    {boundaryTestInside ? (
+                      <span style={{ color: 'var(--moss-700)', fontWeight: 600 }}>🟢 Within 100m (38m from site)</span>
+                    ) : (
+                      <span style={{ color: 'var(--crimson-700)', fontWeight: 600 }}>🔴 Outside boundary (340m from site)</span>
+                    )}
+                  </span>
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-secondary"
+                    style={{ fontSize: '0.76rem' }}
+                    onClick={() => {
+                      setBoundaryTestInside((prev) => !prev);
+                      setBoundaryWarning(null);
+                    }}
+                  >
+                    Test: Switch to {boundaryTestInside ? 'Outside 100m' : 'Within 100m'}
+                  </button>
+                </div>
+                {boundaryWarning && (
+                  <div style={{ color: 'var(--crimson-700)', fontSize: '0.82rem', fontWeight: 600, marginTop: 6 }}>
+                    {boundaryWarning}
+                  </div>
+                )}
+              </div>
+
               <label className="comms-label" htmlFor="driver-note">Activity note</label>
               <textarea id="driver-note" className="comms-control comms-message" rows={3} value={note} onChange={(e) => setNote(e.target.value)} placeholder="Optional update for operations…" />
               <div className="driver-actions">

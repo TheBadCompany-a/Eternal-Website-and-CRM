@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { Modal } from '../../../modal/Modal';
 import { useAppState } from '../../../state/useAppState';
 import { useArrangements, useRecordPayment } from '../../../data/useArrangements';
@@ -10,6 +10,7 @@ import { downloadReceiptPdf } from '../../../lib/receiptPdf';
 import { whatsappLink } from '../../../lib/whatsapp';
 import { useToast } from '../../../toast/useToast';
 import type { Arrangement } from '../../../types';
+import { GatewayTestModal } from '../modal/GatewayTestModal';
 
 type Kind = 'all' | 'star' | 'package' | 'service' | 'diya';
 type StatusKey = 'all' | 'unpaid' | 'part' | 'paid';
@@ -46,7 +47,7 @@ const BADGE: Record<RowStatus, { label: string; cls: string }> = {
 };
 
 export function PaymentsScreen() {
-  const { searchFilter } = useAppState();
+  const { searchFilter, activeOpsCaseId } = useAppState();
   const { showToast } = useToast();
   const { settings } = useAppSettings();
   const arrangements = useArrangements();
@@ -59,11 +60,19 @@ export function PaymentsScreen() {
 
   const [kind, setKind] = useState<Kind>('all');
   const [statusFilter, setStatusFilter] = useState<StatusKey>('all');
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string | null>(activeOpsCaseId);
   const [payFor, setPayFor] = useState<string | null>(null);
   const [amount, setAmount] = useState('');
   const [method, setMethod] = useState('UPI');
   const [note, setNote] = useState('');
+  const [showGatewayTest, setShowGatewayTest] = useState(false);
+
+  useEffect(() => {
+    if (activeOpsCaseId) {
+      setOpenId(activeOpsCaseId);
+      setKind('all');
+    }
+  }, [activeOpsCaseId]);
 
   const all = useMemo(() => (arrangements.data ?? []).map(toRow), [arrangements.data]);
   const byKind = useMemo(() => all.filter((r) => kind === 'all' || categoryOf(r.a) === kind), [all, kind]);
@@ -235,12 +244,22 @@ export function PaymentsScreen() {
             <h3>Payments</h3>
             <p className="comms-help" style={{ margin: 0 }}>Biggest balance first. Use the search box at the top to find a customer or reference.</p>
           </div>
-          <div className="lead-filter-tabs" role="tablist" aria-label="Payment status">
-            {(Object.keys(STATUS_LABELS) as StatusKey[]).map((k) => (
-              <button key={k} type="button" className={statusFilter === k ? 'active' : ''} onClick={() => setStatusFilter(k)}>
-                {STATUS_LABELS[k]} ({counts(k)})
-              </button>
-            ))}
+          <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className="btn btn-sm btn-secondary"
+              onClick={() => setShowGatewayTest(true)}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
+            >
+              ⚡ Test Gateway & Duplicate Reconciliation
+            </button>
+            <div className="lead-filter-tabs" role="tablist" aria-label="Payment status">
+              {(Object.keys(STATUS_LABELS) as StatusKey[]).map((k) => (
+                <button key={k} type="button" className={statusFilter === k ? 'active' : ''} onClick={() => setStatusFilter(k)}>
+                  {STATUS_LABELS[k]} ({counts(k)})
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -374,6 +393,11 @@ export function PaymentsScreen() {
           </form>
         )}
       </Modal>
+      <GatewayTestModal
+        isOpen={showGatewayTest}
+        cases={arrangements.data ?? []}
+        onClose={() => setShowGatewayTest(false)}
+      />
     </div>
   );
 }

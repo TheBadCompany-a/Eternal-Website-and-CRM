@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppState } from '../../../state/useAppState';
 import { useOps } from '../../../data/useOps';
 import { OpsBoard } from '../ops/OpsBoard';
@@ -12,7 +12,9 @@ export function OperationsScreen() {
   const state = useAppState();
   const dispatch = useAppDispatch();
   const { ctx, board, driverNames, profiles, alerts, loading, error } = useOps();
-  const [tab, setTab] = useState<Tab>('board');
+  // An Open button elsewhere asks for one case: start on it, then forget the request.
+  const [tab, setTab] = useState<Tab>(state.opsOpenRequest ? 'case' : 'board');
+  useEffect(() => { dispatch({ type: 'CLEAR_OPS_OPEN' }); }, [dispatch]);
 
   const list = ctx.cases;
   const selected = list.find((a) => a.id === state.activeOpsCaseId) ?? list[0];

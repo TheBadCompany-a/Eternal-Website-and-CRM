@@ -1,6 +1,7 @@
 import { useMemo, useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '../../../modal/Modal';
+import { CaseFile } from '../ops/CaseFile';
 import { useArrangements } from '../../../data/useArrangements';
 import { useCreateStarBooking, useStarBookings, useUpdateStarBooking, type NewStarInput, type StarBooking, type StarStatus } from '../../../data/useStars';
 import { useAppDispatch, useAppState } from '../../../state/useAppState';
@@ -82,6 +83,7 @@ function NewStarModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 export function StarsScreen() {
   const [view, setView] = useState<StarView>('all');
   const [creating, setCreating] = useState(false);
+  const [openedStar, setOpenedStar] = useState<StarBooking | null>(null);
   const stars = useStarBookings();
   const arrangements = useArrangements();
   const update = useUpdateStarBooking();
@@ -112,7 +114,7 @@ export function StarsScreen() {
 
   const openCase = (s: StarBooking, path: string) => {
     if (!s.arrangementId) return;
-    dispatch({ type: 'SET_ACTIVE_OPS_CASE', caseId: s.arrangementId });
+    dispatch(path === '/crm/operations' ? { type: 'OPEN_OPS_CASE', caseId: s.arrangementId } : { type: 'SET_ACTIVE_OPS_CASE', caseId: s.arrangementId });
     navigate(path);
   };
 
@@ -213,7 +215,7 @@ export function StarsScreen() {
                       <td>{fmt(s.createdAt)}</td>
                       <td>
                         <button className="btn btn-sm btn-secondary" type="button" disabled={!s.arrangementId} onClick={() => openCase(s, '/crm/payments')}>Payments</button>
-                        <button className="btn btn-sm btn-secondary" type="button" disabled={!s.arrangementId} onClick={() => openCase(s, '/crm/operations')}>Open</button>
+                        <button className="btn btn-sm btn-secondary" type="button" onClick={() => setOpenedStar(s)}>Open</button>
                       </td>
                     </tr>
                   );
@@ -223,6 +225,40 @@ export function StarsScreen() {
           </div>
         )}
       </section>
+
+      <Modal
+        wide
+        isOpen={openedStar !== null}
+        onClose={() => setOpenedStar(null)}
+        headerContent={<h3>Memorial Star Details · {openedStar?.name}</h3>}
+        footer={
+          <button type="button" className="btn btn-secondary" onClick={() => setOpenedStar(null)}>
+            Close
+          </button>
+        }
+      >
+        {openedStar && (
+          openedStar.arrangementId && leadById.get(openedStar.arrangementId) ? (
+            <CaseFile a={leadById.get(openedStar.arrangementId)!} />
+          ) : (
+            <div style={{ maxWidth: 600 }}>
+              <div className="leads-kpis" style={{ marginBottom: 16 }}>
+                <div><strong>{openedStar.name}</strong><span>Loved One</span></div>
+                <div><strong>{openedStar.relationship || 'Memorial'}</strong><span>Relationship</span></div>
+                <div><span className={`status-badge ${paidOf(openedStar) ? 'status-completed' : 'status-inquiry'}`}>{paidOf(openedStar) ? 'Paid' : 'Unpaid'}</span><span>Payment</span></div>
+                <div><strong>{openedStar.status}</strong><span>Status</span></div>
+              </div>
+              <div style={{ background: 'var(--bg-sand-light, #fbf9f5)', padding: '14px 16px', borderRadius: 8, border: '1px solid var(--border-delicate)' }}>
+                <p><strong>Requester:</strong> {openedStar.requesterName} ({openedStar.requesterPhone} · {openedStar.ownerEmail})</p>
+                <p><strong>Dates:</strong> {fmt(openedStar.birthDate)} – {fmt(openedStar.deathDate)}</p>
+                {openedStar.about && <p><strong>About / Tribute:</strong><br /><em>{openedStar.about}</em></p>}
+                {openedStar.notes && <p><strong>Notes:</strong> {openedStar.notes}</p>}
+                <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--ink-muted)' }}>Created: {fmt(openedStar.createdAt)} · Ref: {openedStar.arrangementId || openedStar.id}</p>
+              </div>
+            </div>
+          )
+        )}
+      </Modal>
     </div>
   );
 }

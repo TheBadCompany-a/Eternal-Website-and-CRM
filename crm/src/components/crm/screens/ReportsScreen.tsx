@@ -3,6 +3,7 @@ import { ReportsExtras } from './ReportsExtras';
 import { useArrangements } from '../../../data/useArrangements';
 import { useCallbacks } from '../../../data/useCallbacks';
 import { categoryOf, quotedFor } from '../../../lib/paymentCategory';
+import { isNonDispatchService } from '../../../lib/opsLogic';
 import { BarList, CHART, ChartCard, StackedBars, TrendChart, type TrendPoint } from '../charts/Charts';
 import type { Arrangement } from '../../../types';
 
@@ -100,7 +101,8 @@ export function ReportsScreen() {
     return { rows: all.filter((r) => t(r) >= start), previous: all.filter((r) => t(r) >= prevStart && t(r) < start) };
   }, [all, days]);
 
-  const confirmedCount = (list: Arrangement[]) => list.filter((r) => ['Confirmed', 'In Execution', 'Completed'].includes(r.status)).length;
+  const confirmedCount = (list: Arrangement[]) =>
+    list.filter((r) => ['Confirmed', 'In Execution', 'Completed'].includes(r.status) && !isNonDispatchService(r.serviceType)).length;
   const collected = (list: Arrangement[]) => list.reduce((s, r) => s + r.paidAmount, 0);
   const outstanding = (list: Arrangement[]) => list.reduce((s, r) => s + Math.max(0, quotedFor(r) - r.paidAmount), 0);
   const conversion = rows.length ? Math.round((confirmedCount(rows) / rows.length) * 100) : 0;
@@ -127,8 +129,8 @@ export function ReportsScreen() {
   });
 
   const escalations = [
-    ...rows.filter((r) => r.priority === 'Urgent' && r.status !== 'Completed').map((r) => ({ ref: r.id, reason: 'Urgent lead requires attention', owner: r.coordinator })),
-    ...(callbacks.data ?? []).filter((c) => c.waitingMins > 30).map((c) => ({ ref: c.id, reason: `Callback waiting ${c.waitingMins} minutes`, owner: c.family })),
+    ...rows.filter((r) => r.priority === 'Urgent' && r.status !== 'Completed').map((r) => ({ ref: r.id, reason: 'Urgent lead requires attention', executive: r.executive || r.coordinator })),
+    ...(callbacks.data ?? []).filter((c) => c.waitingMins > 30).map((c) => ({ ref: c.id, reason: `Callback waiting ${c.waitingMins} minutes`, executive: c.family })),
   ];
 
   const periodName = RANGES.find((r) => r.key === range)!.label.toLowerCase();
@@ -208,7 +210,7 @@ export function ReportsScreen() {
             escalations.map((item, index) => (
               <div key={`${item.ref}-${index}`}>
                 <span>!</span>
-                <div><strong>{item.ref}</strong><p>{item.reason}</p><small>Owner: {item.owner}</small></div>
+                <div><strong>{item.ref}</strong><p>{item.reason}</p><small>Executive: {item.executive}</small></div>
               </div>
             ))
           ) : (

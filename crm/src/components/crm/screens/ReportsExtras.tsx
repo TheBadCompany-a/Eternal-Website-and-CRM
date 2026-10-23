@@ -1,10 +1,11 @@
 import { useAuth } from '../../../auth/useAuth';
 import type { Arrangement } from '../../../types';
+import { quotedFor } from '../../../lib/paymentCategory';
+import { amountDue, isBooked } from '../../../lib/caseStatus';
 import { todayIso, useAttendance, useLeaveRequests } from '../../../data/useHr';
 import { useProfiles } from '../../../data/useProfiles';
 
 const rupees = (value: number) => `₹${value.toLocaleString('en-IN')}`;
-const SETTLED = ['Payment Received', 'Receipt Generated'];
 
 /** Accounts, HR and service-performance cards for the management dashboard. */
 export function ReportsExtras({ rows }: { rows: Arrangement[] }) {
@@ -14,9 +15,12 @@ export function ReportsExtras({ rows }: { rows: Arrangement[] }) {
   const leave = useLeaveRequests();
   const profiles = useProfiles();
 
-  const quoted = rows.reduce((sum, item) => sum + (item.quotation?.total || 0), 0);
-  const collected = rows.reduce((sum, item) => sum + item.paidAmount, 0);
-  const awaitingPayment = rows.filter((item) => item.status !== 'New Inquiry' && !SETTLED.includes(item.paymentStatus)).length;
+  // Money is counted for services the family has accepted (and anything already paid), not for enquiries still being talked through.
+  const services = rows.filter((item) => isBooked(item) || item.paidAmount > 0);
+  const booked = rows.filter(isBooked);
+  const quoted = services.reduce((sum, item) => sum + quotedFor(item), 0);
+  const collected = services.reduce((sum, item) => sum + item.paidAmount, 0);
+  const awaitingPayment = services.filter((item) => amountDue(item) > 0).length;
   const collectionRate = quoted ? Math.round((collected / quoted) * 100) : 0;
 
   const completed = rows.filter((item) => item.status === 'Completed');
@@ -24,7 +28,7 @@ export function ReportsExtras({ rows }: { rows: Arrangement[] }) {
   const avgRating = rated.length ? (rated.reduce((sum, item) => sum + (item.feedback?.rating ?? 0), 0) / rated.length).toFixed(1) : '—';
   const lowRated = rated.filter((item) => (item.feedback?.rating ?? 5) <= 3).length;
   const inField = rows.filter((item) => item.status === 'In Execution').length;
-  const completionRate = rows.length ? Math.round((completed.length / rows.length) * 100) : 0;
+  const completionRate = booked.length ? Math.round((completed.length / booked.length) * 100) : 0;
 
   const today = todayIso();
   const presentToday = (attendance.data ?? []).filter((row) => row.work_date === today && (row.status === 'Present' || row.status === 'Half day')).length;
@@ -36,7 +40,7 @@ export function ReportsExtras({ rows }: { rows: Arrangement[] }) {
       <section className="crm-section-card">
         <div className="crm-card-header"><h3>Accounts</h3></div>
         <div className="mini-list">
-          <div className="mini-row"><span>Total quoted</span><strong>{rupees(quoted)}</strong></div>
+          <div className="mini-row"><span>Total quoted (booked services)</span><strong>{rupees(quoted)}</strong></div>
           <div className="mini-row"><span>Collected</span><strong>{rupees(collected)}</strong></div>
           <div className="mini-row"><span>Outstanding</span><strong>{rupees(Math.max(0, quoted - collected))}</strong></div>
           <div className="mini-row"><span>Collection rate</span><strong>{collectionRate}%</strong></div>

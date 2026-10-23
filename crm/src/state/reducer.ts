@@ -9,6 +9,8 @@ import type { AppState, CrmSidebarItem } from '../types';
 export type Action =
   | { type: 'SET_CRM_SIDEBAR_ITEM'; item: CrmSidebarItem }
   | { type: 'SET_ACTIVE_OPS_CASE'; caseId: string }
+  | { type: 'OPEN_OPS_CASE'; caseId: string }
+  | { type: 'CLEAR_OPS_OPEN' }
   | { type: 'SET_SEARCH_FILTER'; term: string };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -18,6 +20,12 @@ export function appReducer(state: AppState, action: Action): AppState {
 
     case 'SET_ACTIVE_OPS_CASE':
       return { ...state, activeOpsCaseId: action.caseId };
+
+    case 'OPEN_OPS_CASE':
+      return { ...state, activeOpsCaseId: action.caseId, opsOpenRequest: true };
+
+    case 'CLEAR_OPS_OPEN':
+      return state.opsOpenRequest ? { ...state, opsOpenRequest: false } : state;
 
     case 'SET_SEARCH_FILTER':
       return { ...state, searchFilter: action.term };

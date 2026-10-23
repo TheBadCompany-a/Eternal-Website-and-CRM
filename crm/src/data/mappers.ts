@@ -12,11 +12,12 @@ import type {
 
 export interface ArrangementJoinRow extends ArrangementRow {
   coordinator: { full_name: string } | null;
+  executive?: { full_name: string } | null;
   quotations: QuotationRow | null;
   feedback: FeedbackRow | null;
 }
 
-const DEFAULT_QUOTATION: Omit<Arrangement['quotation'], 'total' | 'status'> = {
+const DEFAULT_QUOTATION: Omit<Arrangement['quotation'], 'total' | 'status' | 'subtotal' | 'discount'> = {
   vehicle: 0,
   distance: 0,
   staff: 0,
@@ -107,15 +108,21 @@ export function toArrangement(row: ArrangementJoinRow): Arrangement {
           rituals: Number(q.rituals),
           waitingCharges: Number(q.waiting_charges),
           other: Number(q.other),
+          subtotal: Number(q.subtotal ?? q.total),
+          discount: Number(q.discount ?? 0),
           total: Number(q.total),
           status: q.status,
         }
-      : { ...DEFAULT_QUOTATION, total: 0, status: 'Draft' },
+      : { ...DEFAULT_QUOTATION, subtotal: 0, discount: 0, total: 0, status: 'Draft' },
     paidAmount: Number(row.paid_amount),
     paymentMethod: row.payment_method ?? 'Pending',
     paymentStatus: row.payment_status,
     status: row.status,
     coordinator: row.coordinator?.full_name || 'Unassigned',
+    executive: row.executive?.full_name || row.coordinator?.full_name || 'Unassigned',
+    executiveId: (row as unknown as { executive_id?: string | null }).executive_id ?? row.coordinator_id ?? null,
+    nextAction: (row as unknown as { next_action?: string }).next_action || '',
+    escalationLevel: Number((row as unknown as { escalation_level?: number }).escalation_level || 0),
     driver: row.driver ?? 'To be assigned',
     vehicle: row.vehicle ?? 'To be assigned',
     supportStaff: row.support_staff ?? [],
@@ -128,6 +135,7 @@ export function toArrangement(row: ArrangementJoinRow): Arrangement {
     isSensitive: row.is_sensitive ?? false,
     bookingStatus: row.booking_status ?? 'Inquiry',
     nextFollowUpAt: row.next_follow_up_at ?? null,
+    feedbackDeclined: row.feedback_declined ?? false,
     checklist: toChecklist(row),
     fieldExecutionStage: row.field_execution_stage,
     customerTrackingStage: row.customer_tracking_stage,

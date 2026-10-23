@@ -1,13 +1,13 @@
 import { Modal } from '../../../modal/Modal';
 import { NewLeadModal } from '../NewLeadModal';
+import { HandoverModal } from '../modal/HandoverModal';
+import { CaseFile } from '../ops/CaseFile';
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import type { Arrangement } from '../../../types';
+import type { Arrangement, LeadSource } from '../../../types';
 import { useAuth } from '../../../auth/useAuth';
 import { useToast } from '../../../toast/useToast';
 import { useArrangements, useDeleteArrangement, useUpdateLeadAttribution } from '../../../data/useArrangements';
-import type { LeadSource } from '../../../types';
-import { useAppDispatch, useAppState } from '../../../state/useAppState';
+import { useAppState } from '../../../state/useAppState';
 
 type LeadView = 'all';
 type StageFilter = 'all' | 'new' | 'followup';
@@ -32,6 +32,28 @@ const matchesStage = (lead: Arrangement, stage: StageFilter) =>
 
 const isStarLead = (lead: Arrangement) => lead.serviceType.toLowerCase().startsWith('book a star');
 const isCustomPackage = (lead: Arrangement) => lead.serviceType.toLowerCase() === 'customised package';
+const isDemoLead = (lead: Arrangement) => {
+  const s = lead.serviceType.toLowerCase();
+  return s.includes('demonstration') || s.includes('demo');
+};
+const isInstitutionalLead = (lead: Arrangement) => {
+  const s = lead.serviceType.toLowerCase();
+  return s.includes('institutional') || s.includes('partnership') || s.includes('hospital');
+};
+
+function displayStageInfo(lead: Arrangement): { label: string; pipeline: string; cls: string } {
+  if (isDemoLead(lead)) {
+    if (lead.status === 'New Inquiry') return { label: 'Request', pipeline: 'Demo Pipeline', cls: 'status-inquiry' };
+    if (lead.status === 'Contacted' || lead.status === 'Plan Review') return { label: 'Appointment', pipeline: 'Demo Pipeline', cls: 'status-enroute' };
+    return { label: 'Commercial Follow Up', pipeline: 'Demo Pipeline', cls: 'status-confirmed' };
+  }
+  if (isInstitutionalLead(lead)) {
+    if (lead.status === 'New Inquiry') return { label: 'Discussion', pipeline: 'Institutional Pipeline', cls: 'status-inquiry' };
+    if (lead.status === 'Contacted' || lead.status === 'Plan Review' || lead.status === 'Quotation') return { label: 'Proposal', pipeline: 'Institutional Pipeline', cls: 'status-enroute' };
+    return { label: 'Agreement', pipeline: 'Institutional Pipeline', cls: 'status-confirmed' };
+  }
+  return { label: lead.status, pipeline: 'Funeral Arrangement', cls: statusClass(lead.status) };
+}
 
 function statusClass(status: Arrangement['status']) {
   if (status === 'New Inquiry') return 'status-inquiry';
@@ -47,8 +69,12 @@ export function LeadsScreen() {
   const [websiteOnly, setWebsiteOnly] = useState(false);
   const [customOnly, setCustomOnly] = useState(false);
   const [starsOnly, setStarsOnly] = useState(false);
+  const [demoOnly, setDemoOnly] = useState(false);
+  const [instOnly, setInstOnly] = useState(false);
   const [dupesOnly, setDupesOnly] = useState(false);
   const [creating, setCreating] = useState(false);
+  const [handoverLead, setHandoverLead] = useState<Arrangement | null>(null);
+  const [openedLead, setOpenedLead] = useState<Arrangement | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [source, setSource] = useState<LeadSource>('Unattributed');
   const [campaign, setCampaign] = useState('');
@@ -59,8 +85,6 @@ export function LeadsScreen() {
   const deleteArrangement = useDeleteArrangement();
   const updateAttribution = useUpdateLeadAttribution();
   const { searchFilter } = useAppState();
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const dupCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -78,12 +102,24 @@ export function LeadsScreen() {
       const searchable = [lead.id, lead.family, lead.contactName, lead.phone, lead.serviceType, lead.coordinator]
         .join(' ')
         .toLowerCase();
-      return matchesView(lead, view) && matchesStage(lead, stage) && (!websiteOnly || lead.leadSource === 'Website') && (!customOnly || isCustomPackage(lead)) && (!starsOnly || isStarLead(lead)) && (!dupesOnly || isDup(lead)) && (!query || searchable.includes(query));
+      return (
+        matchesView(lead, view) &&
+        matchesStage(lead, stage) &&
+        (!websiteOnly || lead.leadSource === 'Website') &&
+        (!customOnly || isCustomPackage(lead)) &&
+        (!starsOnly || isStarLead(lead)) &&
+        (!demoOnly || isDemoLead(lead)) &&
+        (!instOnly || isInstitutionalLead(lead)) &&
+        (!dupesOnly || isDup(lead)) &&
+        (!query || searchable.includes(query))
+      );
     });
-  }, [arrangements.data, searchFilter, view, stage, websiteOnly, customOnly, starsOnly, dupesOnly, dupCounts]);
+  }, [arrangements.data, searchFilter, view, stage, websiteOnly, customOnly, starsOnly, demoOnly, instOnly, dupesOnly, dupCounts]);
   const dupCount = arrangements.data?.filter(isDup).length ?? 0;
   const starCount = arrangements.data?.filter(isStarLead).length ?? 0;
   const customCount = arrangements.data?.filter(isCustomPackage).length ?? 0;
+  const demoCount = arrangements.data?.filter(isDemoLead).length ?? 0;
+  const instCount = arrangements.data?.filter(isInstitutionalLead).length ?? 0;
   const websiteCount = arrangements.data?.filter((lead) => lead.leadSource === 'Website').length ?? 0;
 
   const total = arrangements.data?.length ?? 0;
@@ -154,6 +190,8 @@ export function LeadsScreen() {
                   setWebsiteOnly(false);
                   setCustomOnly(false);
                   setStarsOnly(false);
+                  setDemoOnly(false);
+                  setInstOnly(false);
                   setDupesOnly(false);
                 }}
                 type="button"
@@ -186,6 +224,22 @@ export function LeadsScreen() {
               Stars ({starCount})
             </button>
             <button
+              className={demoOnly ? 'active' : ''}
+              onClick={() => { setDemoOnly((v) => !v); setInstOnly(false); }}
+              type="button"
+              aria-pressed={demoOnly}
+            >
+              Demonstrations ({demoCount})
+            </button>
+            <button
+              className={instOnly ? 'active' : ''}
+              onClick={() => { setInstOnly((v) => !v); setDemoOnly(false); }}
+              type="button"
+              aria-pressed={instOnly}
+            >
+              Institutional ({instCount})
+            </button>
+            <button
               className={dupesOnly ? 'active' : ''}
               onClick={() => setDupesOnly((v) => !v)}
               type="button"
@@ -213,7 +267,7 @@ export function LeadsScreen() {
                   <th>Source / campaign</th>
                   <th>Class / priority</th>
                   <th>Stage</th>
-                  <th>Owner</th>
+                  <th>Back end Executive</th>
                   <th>Created</th>
                   <th aria-label="Open lead" />
                 </tr>
@@ -248,18 +302,36 @@ export function LeadsScreen() {
                     </td>
                     <td><strong>{lead.leadSource}</strong><span>{lead.leadCampaign || 'Campaign not recorded'}</span></td>
                     <td><strong>{lead.customerClassification}{lead.isSensitive ? ' 🔒' : ''}</strong><span>{lead.priority}{lead.nextFollowUpAt ? ` · ${isDue(lead) ? '⏰ Follow-up due' : 'Follow-up'} ${new Date(lead.nextFollowUpAt).toLocaleString('en-IN', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}` : ''}</span></td>
-                    <td><span className={`status-badge ${statusClass(lead.status)}`}>{lead.status}</span></td>
-                    <td>{lead.coordinator}</td>
+                    <td>
+                      {(() => {
+                        const sInfo = displayStageInfo(lead);
+                        return (
+                          <>
+                            <span className={`status-badge ${sInfo.cls}`}>{sInfo.label}</span>
+                            <span style={{ fontSize: '0.72rem', color: 'var(--ink-muted)', display: 'block', marginTop: 3 }}>
+                              {sInfo.pipeline}
+                            </span>
+                          </>
+                        );
+                      })()}
+                    </td>
+                    <td>
+                      <strong>{lead.executive || lead.coordinator}</strong>
+                      {lead.nextAction && (
+                        <div style={{ fontSize: '0.74rem', color: 'var(--moss-700)', marginTop: 2 }}>
+                          👉 Next: {lead.nextAction}
+                        </div>
+                      )}
+                      <div style={{ fontSize: '0.72rem', color: 'var(--ink-muted)' }}>Coord: {lead.coordinator}</div>
+                    </td>
                     <td>{new Date(lead.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
                     <td>
+                      <button className="btn btn-sm btn-secondary" type="button" onClick={() => setHandoverLead(lead)}>Handover</button>
                       <button className="btn btn-sm btn-secondary attribution-edit" type="button" onClick={() => startAttributionEdit(lead)}>Source</button>
                       <button
                         className="btn btn-sm btn-secondary"
                         type="button"
-                        onClick={() => {
-                          dispatch({ type: 'SET_ACTIVE_OPS_CASE', caseId: lead.id });
-                          navigate('/crm/operations');
-                        }}
+                        onClick={() => setOpenedLead(lead)}
                       >
                         Open
                       </button>
@@ -330,6 +402,22 @@ export function LeadsScreen() {
           <input className="form-input" value={campaign} onChange={(e) => setCampaign(e.target.value)} placeholder="Example: Bangalore Search — October" /></div>
         <div className="form-group"><label className="form-label">External lead ID</label>
           <input className="form-input" value={externalLeadId} onChange={(e) => setExternalLeadId(e.target.value)} placeholder="Google or Meta lead ID" /></div>
+      </Modal>
+
+      {handoverLead && <HandoverModal a={handoverLead} onClose={() => setHandoverLead(null)} />}
+
+      <Modal
+        wide
+        isOpen={openedLead !== null}
+        onClose={() => setOpenedLead(null)}
+        headerContent={<h3>Case Details · {openedLead?.id}</h3>}
+        footer={
+          <button type="button" className="btn btn-secondary" onClick={() => setOpenedLead(null)}>
+            Close
+          </button>
+        }
+      >
+        {openedLead && <CaseFile a={openedLead} />}
       </Modal>
     </div>
   );

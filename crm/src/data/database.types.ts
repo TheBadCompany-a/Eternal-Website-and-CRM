@@ -82,6 +82,7 @@ export type ArrangementRow = {
   is_sensitive: boolean;
   booking_status: string;
   next_follow_up_at: string | null;
+  feedback_declined: boolean;
 };
 
 export type QuotationRow = {
@@ -94,6 +95,8 @@ export type QuotationRow = {
   rituals: number;
   waiting_charges: number;
   other: number;
+  subtotal: number;
+  discount: number;
   total: number;
   status: QuotationStatusRow;
   created_at: string;

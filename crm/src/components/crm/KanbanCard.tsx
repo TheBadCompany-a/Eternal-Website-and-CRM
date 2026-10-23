@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import type { Arrangement, ArrangementStatus } from '../../types';
+import { quotedFor } from '../../lib/paymentCategory';
 import { useAppDispatch } from '../../state/useAppState';
 import { useDeleteArrangement, useUpdateArrangementStatus } from '../../data/useArrangements';
 import { useAuth } from '../../auth/useAuth';
@@ -18,7 +19,7 @@ export function KanbanCard({ item, target }: { item: Arrangement; target: Arrang
       className="kanban-card"
       style={{ position: 'relative' }}
       onClick={() => {
-        dispatch({ type: 'SET_ACTIVE_OPS_CASE', caseId: item.id });
+        dispatch({ type: 'OPEN_OPS_CASE', caseId: item.id });
         navigate('/crm/operations');
       }}
     >
@@ -80,7 +81,7 @@ export function KanbanCard({ item, target }: { item: Arrangement; target: Arrang
           📍 {item.pickupLocation.split(',')[0]}
         </div>
         <div style={{ fontWeight: 700, color: 'var(--moss-900)', marginTop: 4 }}>
-          ₹{(item.quotation?.total || 35000).toLocaleString('en-IN')}
+          {quotedFor(item) > 0 ? `₹${quotedFor(item).toLocaleString('en-IN')}` : 'Quote pending'}
         </div>
       </div>
       <div className="kanban-card-actions">

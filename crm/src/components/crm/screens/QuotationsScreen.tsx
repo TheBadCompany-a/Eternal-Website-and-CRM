@@ -10,7 +10,7 @@ import { downloadQuotationPdf, quotationMessage } from '../../../lib/quotationSh
 import { useToast } from '../../../toast/useToast';
 import { StatusBadge } from '../StatusBadge';
 
-type LineItemKey = keyof Omit<Quotation, 'total' | 'status'>;
+type LineItemKey = keyof Omit<Quotation, 'total' | 'status' | 'subtotal'>;
 
 // Extra charges that are not services on the price list.
 const EXTRA_FIELDS: { key: LineItemKey; label: string }[] = [
@@ -56,7 +56,7 @@ export function QuotationsScreen() {
 
   useEffect(() => {
     if (targetCase) {
-      const { total: _total, status: _status, ...items } = targetCase.quotation;
+      const { total: _total, status: _status, subtotal: _subtotal, ...items } = targetCase.quotation;
       setDraft(items);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -154,7 +154,14 @@ export function QuotationsScreen() {
                                 )
                           }
                         />
-                        {svc.name}
+                        <span>
+                          {svc.name}
+                          {svc.price === 0 && (
+                            <span style={{ fontSize: '0.72rem', color: 'var(--amber-700)', marginLeft: 6, fontWeight: 600 }}>
+                              (Custom price required)
+                            </span>
+                          )}
+                        </span>
                       </label>
                       <input
                         type="number"
@@ -163,7 +170,8 @@ export function QuotationsScreen() {
                         aria-label={`${svc.name} price`}
                         disabled={!chosen}
                         key={`${svc.key}-${chosen?.unitPrice ?? svc.price}`}
-                        defaultValue={chosen?.unitPrice ?? svc.price}
+                        defaultValue={chosen?.unitPrice ?? (svc.price > 0 ? svc.price : '')}
+                        placeholder={svc.price === 0 ? 'Custom price' : undefined}
                         onBlur={(e) => {
                           const v = Number(e.target.value);
                           if (chosen && v >= 0 && v !== chosen.unitPrice) save({ unitPrice: v });
@@ -197,6 +205,22 @@ export function QuotationsScreen() {
           </div>
         </div>
 
+        <div style={{ marginBottom: 20, maxWidth: 360 }}>
+          <div className="form-group">
+            <label className="form-label" htmlFor="q-discount">Discount (₹)</label>
+            <input
+              id="q-discount"
+              type="number"
+              min={0}
+              className="form-input"
+              value={draft.discount}
+              onChange={(e) => setDraft({ ...draft, discount: Math.max(0, Number(e.target.value)) })}
+              onBlur={() => commitField('discount')}
+            />
+            <p className="comms-help" style={{ margin: '4px 0 0' }}>Taken off the total at the end. The service and package prices above stay exactly as listed.</p>
+          </div>
+        </div>
+
         <div
           style={{
             background: 'var(--bg-sand)',
@@ -212,6 +236,11 @@ export function QuotationsScreen() {
             <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: 700, color: 'var(--ink-muted)' }}>
               Total Verified Quotation
             </div>
+            {q.discount > 0 && (
+              <div style={{ fontSize: '0.85rem', color: 'var(--ink-secondary)', margin: '4px 0' }}>
+                Subtotal ₹{q.subtotal.toLocaleString('en-IN')} − Discount ₹{q.discount.toLocaleString('en-IN')}
+              </div>
+            )}
             <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 600, color: 'var(--moss-900)' }}>
               ₹{q.total.toLocaleString('en-IN')}
             </div>

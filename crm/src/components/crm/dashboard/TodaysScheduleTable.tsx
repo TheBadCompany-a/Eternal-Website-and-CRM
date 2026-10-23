@@ -2,17 +2,19 @@ import { useNavigate } from 'react-router-dom';
 import type { Arrangement } from '../../../types';
 import { useAppDispatch } from '../../../state/useAppState';
 import { StatusBadge } from '../StatusBadge';
+import { todayIso } from '../../../data/useHr';
+import { isBooked } from '../../../lib/caseStatus';
 
 export function TodaysScheduleTable({ arrangements, filter }: { arrangements: Arrangement[]; filter: string }) {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const filtered = arrangements.filter(
-    (a) =>
-      a.family.toLowerCase().includes(filter) ||
-      a.id.toLowerCase().includes(filter) ||
-      a.serviceType.toLowerCase().includes(filter),
-  );
+  const today = todayIso();
+  // Only services booked for today, in time order. Search narrows them further.
+  const filtered = arrangements
+    .filter((a) => isBooked(a) && a.date === today)
+    .filter((a) => a.family.toLowerCase().includes(filter) || a.id.toLowerCase().includes(filter) || a.serviceType.toLowerCase().includes(filter))
+    .sort((x, y) => x.time.localeCompare(y.time));
 
   return (
     <div className="crm-section-card">
@@ -32,7 +34,10 @@ export function TodaysScheduleTable({ arrangements, filter }: { arrangements: Ar
             </tr>
           </thead>
           <tbody>
-            {filtered.slice(0, 5).map((a) => (
+            {filtered.length === 0 && (
+              <tr><td colSpan={6} style={{ color: 'var(--ink-muted)' }}>Nothing is booked for today.</td></tr>
+            )}
+            {filtered.slice(0, 8).map((a) => (
               <tr key={a.id}>
                 <td>
                   <strong>{a.time}</strong>
@@ -51,7 +56,7 @@ export function TodaysScheduleTable({ arrangements, filter }: { arrangements: Ar
                   <button
                     className="btn btn-sm btn-secondary"
                     onClick={() => {
-                      dispatch({ type: 'SET_ACTIVE_OPS_CASE', caseId: a.id });
+                      dispatch({ type: 'OPEN_OPS_CASE', caseId: a.id });
                       navigate('/crm/operations');
                     }}
                   >

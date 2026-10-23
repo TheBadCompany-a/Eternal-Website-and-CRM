@@ -7,7 +7,7 @@ const loose = supabase as unknown as SupabaseClient;
 import type { Quotation } from '../types';
 import { queryKeys } from './queryKeys';
 
-type QuotationLineItemPatch = Partial<Pick<Quotation, 'vehicle' | 'distance' | 'staff' | 'additionalServices' | 'florals' | 'rituals' | 'waitingCharges' | 'other'>>;
+type QuotationLineItemPatch = Partial<Pick<Quotation, 'vehicle' | 'distance' | 'staff' | 'additionalServices' | 'florals' | 'rituals' | 'waitingCharges' | 'other' | 'discount'>>;
 
 /** total is a generated column — never sent, the server computes it. Each
  * field is spread explicitly (rather than built from a dynamic key) because
@@ -28,6 +28,7 @@ export function useUpdateQuotation() {
           ...(patch.rituals !== undefined && { rituals: patch.rituals }),
           ...(patch.waitingCharges !== undefined && { waiting_charges: patch.waitingCharges }),
           ...(patch.other !== undefined && { other: patch.other }),
+          ...(patch.discount !== undefined && { discount: Math.max(0, patch.discount) }),
         })
         .eq('arrangement_id', arrangementId);
       if (error) throw error;

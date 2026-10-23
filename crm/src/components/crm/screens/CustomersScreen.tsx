@@ -1,3 +1,4 @@
+import { quotedFor } from '../../../lib/paymentCategory';
 import { useMemo, useState } from 'react';
 import { useArrangements } from '../../../data/useArrangements';
 
@@ -16,7 +17,7 @@ export function CustomersScreen() {
         const key = item.phone.replace(/\D/g, '') || item.family.toLowerCase();
         const entry = byKey.get(key) ?? { name: item.family, contact: item.contactName, phone: item.phone, email: item.email, cases: [], value: 0, last: item.date, classification: item.customerClassification };
         entry.cases.push(item.id);
-        entry.value += item.quotation?.total || 0;
+        entry.value += quotedFor(item);
         entry.last = item.date;
         entry.classification = item.customerClassification;
         byKey.set(key, entry);

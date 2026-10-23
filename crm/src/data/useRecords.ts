@@ -5,9 +5,10 @@ import type { RecordCategoryRow, RecordRow } from './database.types';
 const BUCKET = 'records';
 const KEY = ['records'] as const;
 
-export function useRecords() {
+export function useRecords(options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: KEY,
+    enabled: options?.enabled ?? true,
     queryFn: async (): Promise<RecordRow[]> => {
       const { data, error } = await supabase.from('records').select('*').order('created_at', { ascending: false });
       if (error) throw error;

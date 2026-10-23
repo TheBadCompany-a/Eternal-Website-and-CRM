@@ -6,6 +6,7 @@ export function createInitialState(): AppState {
   return {
     activeCrmSidebarItem: 'dashboard',
     activeOpsCaseId: null,
+    opsOpenRequest: false,
     searchFilter: '',
   };
 }

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useAppSettings } from '../../../data/useSettings';
+import { useProfiles } from '../../../data/useProfiles';
+import { useToast } from '../../../toast/useToast';
 import { Field, SettingCard } from './SettingCard';
 
 const DAYS = [
@@ -9,13 +11,34 @@ const DAYS = [
 
 export function RulesTab() {
   const { settings } = useAppSettings();
+  const profiles = useProfiles();
+  const { showToast } = useToast();
   const [newHoliday, setNewHoliday] = useState('');
   const [newCity, setNewCity] = useState({ name: '', code: '' });
   const [newService, setNewService] = useState('');
+  const [testSimulating, setTestSimulating] = useState(false);
+
+  const staff = profiles.data ?? [];
+
+  const simulateUrgentEnquiry = () => {
+    setTestSimulating(true);
+    const dutyId = settings.urgent_rules.duty_profile_id;
+    const backupId = settings.urgent_rules.backup_profile_id;
+    const dutyName = staff.find((s) => s.id === dutyId)?.name || 'Duty Executive';
+    const backupName = staff.find((s) => s.id === backupId)?.name || 'Backup Coordinator';
+    const targetMins = settings.urgent_rules.respond_minutes || 15;
+
+    showToast(`🚨 Test Urgent Enquiry arrived outside office hours! Routed to ${dutyName} (${targetMins} min target).`, 'alert');
+
+    setTimeout(() => {
+      showToast(`⏱️ ${targetMins}m target elapsed without answer. Auto-escalated to backup: ${backupName}!`, 'alert');
+      setTestSimulating(false);
+    }, 3500);
+  };
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: 18 }}>
-      <SettingCard title="Lead rules" help="What happens to every new website lead." settingKey="lead_rules" value={settings.lead_rules}>
+      <SettingCard title="Lead rules (Planned & standard enquiries)" help="Default schedule for standard enquiries inside working hours." settingKey="lead_rules" value={settings.lead_rules}>
         {(d, set) => (
           <>
             <Field label="First call due within (hours)">
@@ -26,6 +49,43 @@ export function RulesTab() {
               <span><strong>Give new leads to a coordinator automatically</strong><br />
                 <span style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>The coordinator with the fewest open cases gets the lead.</span></span>
             </label>
+          </>
+        )}
+      </SettingCard>
+
+      <SettingCard title="Immediate requests (Round the clock)" help="Round-the-clock rule for urgent funeral & transportation needs. Never shifted to office hours." settingKey="urgent_rules" value={settings.urgent_rules}>
+        {(d, set) => (
+          <>
+            <label style={{ display: 'flex', gap: 10, alignItems: 'flex-start', cursor: 'pointer', marginBottom: 12 }}>
+              <input type="checkbox" checked={d.enabled} onChange={(e) => set({ enabled: e.target.checked })} style={{ marginTop: 3 }} />
+              <span><strong>Enable 24/7 round-the-clock urgent rule</strong><br />
+                <span style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>Immediate requests bypass office hours and trigger urgent response targets immediately.</span></span>
+            </label>
+            <Field label="Immediate response target (minutes)">
+              <input className="form-input" type="number" min="5" max="120" step="5" value={d.respond_minutes} onChange={(e) => set({ respond_minutes: Math.max(5, Number(e.target.value) || 15) })} />
+            </Field>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <Field label="Person on duty">
+                <select className="form-select" value={d.duty_profile_id ?? ''} onChange={(e) => set({ duty_profile_id: e.target.value || null })}>
+                  <option value="">Auto-assign (Fewest active)</option>
+                  {staff.map((p) => <option key={p.id} value={p.id}>{p.name} ({p.role})</option>)}
+                </select>
+              </Field>
+              <Field label="Backup person">
+                <select className="form-select" value={d.backup_profile_id ?? ''} onChange={(e) => set({ backup_profile_id: e.target.value || null })}>
+                  <option value="">Admin pool</option>
+                  {staff.map((p) => <option key={p.id} value={p.id}>{p.name} ({p.role})</option>)}
+                </select>
+              </Field>
+            </div>
+            <div style={{ padding: '10px 12px', background: 'var(--bg-sand)', borderRadius: 8, fontSize: '0.82rem', marginTop: 10, border: '1px solid var(--border-delicate)' }}>
+              <strong>ℹ Alert Channels:</strong> Email and WhatsApp alerts are not switched on yet. Immediate requests alert the duty person on-screen and automatically escalate if unanswered within {d.respond_minutes} minutes.
+            </div>
+            <div style={{ marginTop: 12 }}>
+              <button type="button" className="btn btn-sm btn-secondary" disabled={testSimulating} onClick={simulateUrgentEnquiry}>
+                {testSimulating ? 'Simulating escalation…' : '⚡ Test urgent enquiry escalation'}
+              </button>
+            </div>
           </>
         )}
       </SettingCard>

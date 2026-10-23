@@ -32,6 +32,12 @@ export interface LeadRules {
   first_call_hours: number;
   auto_assign: boolean;
 }
+export interface UrgentRules {
+  enabled: boolean;
+  respond_minutes: number;
+  duty_profile_id: string | null;
+  backup_profile_id: string | null;
+}
 export interface ListSettings {
   cities: { name: string; code: string }[];
   services: string[];
@@ -50,6 +56,7 @@ export interface AllSettings {
   payment: PaymentSettings;
   templates: TemplateSettings;
   lead_rules: LeadRules;
+  urgent_rules: UrgentRules;
   lists: ListSettings;
   hours: HoursSettings;
   role_access: RoleAccess;
@@ -78,6 +85,7 @@ export const DEFAULT_SETTINGS: AllSettings = {
     feedback: 'Hello {name}, we hope we were able to support your family well. Would you share a few words about your experience with us? Your reference: {ref}.',
   },
   lead_rules: { first_call_hours: 2, auto_assign: false },
+  urgent_rules: { enabled: true, respond_minutes: 15, duty_profile_id: null, backup_profile_id: null },
   lists: { cities: [], services: [] },
   hours: { start: '09:00', end: '19:00', days: [1, 2, 3, 4, 5, 6], holidays: [] },
   role_access: {},

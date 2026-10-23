@@ -18,7 +18,7 @@ export function CaseListModal({
   const dispatch = useAppDispatch();
 
   const openCase = (id: string, path: string) => {
-    dispatch({ type: 'SET_ACTIVE_OPS_CASE', caseId: id });
+    dispatch(path === '/crm/operations' ? { type: 'OPEN_OPS_CASE', caseId: id } : { type: 'SET_ACTIVE_OPS_CASE', caseId: id });
     navigate(path);
   };
 

@@ -36,6 +36,11 @@ export interface Quotation {
   rituals: number;
   waitingCharges: number;
   other: number;
+  /** Everything on the quotation at its listed price. */
+  subtotal: number;
+  /** Taken off at the end. Package and catalog prices are never changed by it. */
+  discount: number;
+  /** subtotal - discount, worked out by the database. */
   total: number;
   status: QuotationStatus;
 }
@@ -81,6 +86,10 @@ export interface Arrangement {
   paymentStatus: PaymentStatus;
   status: ArrangementStatus;
   coordinator: string;
+  executive: string;
+  executiveId: string | null;
+  nextAction: string;
+  escalationLevel: number;
   driver: string;
   vehicle: string;
   supportStaff: string[];
@@ -93,10 +102,25 @@ export interface Arrangement {
   isSensitive: boolean;
   bookingStatus: string;
   nextFollowUpAt: string | null;
+  /** The family chose not to give feedback. Does not affect completing the service. */
+  feedbackDeclined: boolean;
   checklist: ChecklistState;
   fieldExecutionStage: 1 | 2 | 3 | 4 | 5;
   customerTrackingStage: 1 | 2 | 3 | 4 | 5 | 6;
   feedback: Feedback | null;
+}
+
+export interface CaseHandover {
+  id: string;
+  arrangementId: string;
+  fromProfile: string | null;
+  fromName: string;
+  toProfile: string | null;
+  toName: string;
+  reason: string;
+  nextAction: string;
+  automatic: boolean;
+  createdAt: string;
 }
 
 export interface Callback {
@@ -176,6 +200,8 @@ export type CrmSidebarItem =
 export interface AppState {
   activeCrmSidebarItem: CrmSidebarItem;
   activeOpsCaseId: string | null;
+  /** Set by an Open button; Operations then starts on that case instead of the live board. */
+  opsOpenRequest: boolean;
   searchFilter: string;
 }
 
