@@ -10,6 +10,7 @@ import type { LeadSource } from '../../../types';
 import { useAppDispatch, useAppState } from '../../../state/useAppState';
 
 type LeadView = 'all';
+type StageFilter = 'all' | 'new' | 'followup';
 
 const LEAD_SOURCES: LeadSource[] = ['Unattributed', 'Website', 'Google Ads', 'Meta Ads', 'WhatsApp', 'Referral', 'Walk-in', 'Other'];
 
@@ -26,6 +27,9 @@ function matchesView(_lead: Arrangement, _view: LeadView) {
   return true;
 }
 
+const matchesStage = (lead: Arrangement, stage: StageFilter) =>
+  stage === 'all' || (stage === 'new' ? lead.status === 'New Inquiry' : lead.status === 'Contacted' || lead.status === 'Plan Review');
+
 const isStarLead = (lead: Arrangement) => lead.serviceType.toLowerCase().startsWith('book a star');
 const isCustomPackage = (lead: Arrangement) => lead.serviceType.toLowerCase() === 'customised package';
 
@@ -39,6 +43,7 @@ function statusClass(status: Arrangement['status']) {
 
 export function LeadsScreen() {
   const [view, setView] = useState<LeadView>('all');
+  const [stage, setStage] = useState<StageFilter>('all');
   const [websiteOnly, setWebsiteOnly] = useState(false);
   const [customOnly, setCustomOnly] = useState(false);
   const [starsOnly, setStarsOnly] = useState(false);
@@ -73,9 +78,9 @@ export function LeadsScreen() {
       const searchable = [lead.id, lead.family, lead.contactName, lead.phone, lead.serviceType, lead.coordinator]
         .join(' ')
         .toLowerCase();
-      return matchesView(lead, view) && (!websiteOnly || lead.leadSource === 'Website') && (!customOnly || isCustomPackage(lead)) && (!starsOnly || isStarLead(lead)) && (!dupesOnly || isDup(lead)) && (!query || searchable.includes(query));
+      return matchesView(lead, view) && matchesStage(lead, stage) && (!websiteOnly || lead.leadSource === 'Website') && (!customOnly || isCustomPackage(lead)) && (!starsOnly || isStarLead(lead)) && (!dupesOnly || isDup(lead)) && (!query || searchable.includes(query));
     });
-  }, [arrangements.data, searchFilter, view, websiteOnly, customOnly, starsOnly, dupesOnly, dupCounts]);
+  }, [arrangements.data, searchFilter, view, stage, websiteOnly, customOnly, starsOnly, dupesOnly, dupCounts]);
   const dupCount = arrangements.data?.filter(isDup).length ?? 0;
   const starCount = arrangements.data?.filter(isStarLead).length ?? 0;
   const customCount = arrangements.data?.filter(isCustomPackage).length ?? 0;
@@ -116,9 +121,19 @@ export function LeadsScreen() {
       <NewLeadModal isOpen={creating} onClose={() => setCreating(false)} />
 
       <div className="leads-kpis" aria-label="Lead summary">
-        <div><strong>{total}</strong><span>Total enquiries</span></div>
-        <div><strong>{newCount}</strong><span>Awaiting first contact</span></div>
-        <div><strong>{followUpCount}</strong><span>Follow-ups in progress</span></div>
+        {([['all', total, 'Total enquiries'], ['new', newCount, 'Awaiting first contact'], ['followup', followUpCount, 'Follow-ups in progress']] as const).map(([key, n, label]) => (
+          <div
+            key={key}
+            role="button"
+            tabIndex={0}
+            aria-pressed={stage === key}
+            style={{ cursor: 'pointer', outline: stage === key && key !== 'all' ? '2px solid var(--sage-600, #44543f)' : undefined }}
+            onClick={() => setStage(stage === key ? 'all' : key)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setStage(stage === key ? 'all' : key); } }}
+          >
+            <strong>{n}</strong><span>{label}</span>
+          </div>
+        ))}
         <div><strong>{leads.length}</strong><span>Visible in current view</span></div>
       </div>
 
@@ -135,6 +150,7 @@ export function LeadsScreen() {
                 key={key}
                 onClick={() => {
                   setView(key);
+                  setStage('all');
                   setWebsiteOnly(false);
                   setCustomOnly(false);
                   setStarsOnly(false);

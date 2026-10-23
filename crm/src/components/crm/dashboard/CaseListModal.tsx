@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { Modal } from '../../../modal/Modal';
 import { useAppDispatch } from '../../../state/useAppState';
 import type { Arrangement } from '../../../types';
 
 const fmtDate = (d: string) => (d ? new Date(d).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—');
 
-/** Shows the cases behind a dashboard number. Each row opens that case in Operations. */
+/** Inline list of the cases behind a dashboard number. Each row opens that case in Operations. */
 export function CaseListModal({
   title,
   items,
@@ -20,18 +19,17 @@ export function CaseListModal({
 
   const openCase = (id: string, path: string) => {
     dispatch({ type: 'SET_ACTIVE_OPS_CASE', caseId: id });
-    onClose();
     navigate(path);
   };
 
+  if (title === null) return null;
+
   return (
-    <Modal
-      wide
-      isOpen={title !== null}
-      onClose={onClose}
-      headerContent={<h3>{title} ({items.length})</h3>}
-      footer={<button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>}
-    >
+    <div className="card" style={{ gridColumn: '1 / -1', padding: 16 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+        <h3>{title} ({items.length})</h3>
+        <button type="button" className="btn btn-sm btn-secondary" onClick={onClose}>Close</button>
+      </div>
       {items.length === 0 ? (
         <p style={{ color: 'var(--ink-muted)', padding: '12px 0' }}>Nothing here right now.</p>
       ) : (
@@ -59,6 +57,6 @@ export function CaseListModal({
           </table>
         </div>
       )}
-    </Modal>
+    </div>
   );
 }

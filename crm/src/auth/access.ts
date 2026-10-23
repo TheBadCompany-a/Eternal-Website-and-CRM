@@ -4,8 +4,8 @@ import type { RoleAccess } from '../lib/settings';
 type Role = 'admin' | 'coordinator' | 'sales' | 'accounts' | 'hr' | 'operations' | 'driver' | 'backend_executive' | null | undefined;
 
 // Until an admin changes it in Settings: team members see every screen, drivers see only their own app,
-// the fleet list and their settings. Admins always see everything.
-const DRIVER_ITEMS: CrmSidebarItem[] = ['driver-app', 'vehicles', 'settings'];
+// the fleet list, HR (to request leave) and their settings. Admins always see everything.
+const DRIVER_ITEMS: CrmSidebarItem[] = ['driver-app', 'vehicles', 'hr', 'settings'];
 
 /** The screens a role may open by default. */
 export function defaultItems(role: Exclude<Role, null | undefined>, all: CrmSidebarItem[]): CrmSidebarItem[] {
@@ -17,6 +17,7 @@ export function canOpen(role: Role, item: CrmSidebarItem, saved?: RoleAccess): b
   if (item === 'settings') return true; // everyone can reach their own settings
   const custom = saved?.[role];
   if (custom) return custom.includes(item);
+  if (item === 'records') return role === 'hr'; // private files: HR and admin unless Settings says otherwise
   return role === 'driver' ? DRIVER_ITEMS.includes(item) : true;
 }
 
